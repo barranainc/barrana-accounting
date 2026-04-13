@@ -1,0 +1,163 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Privacy Policy | Barrana Accounting Services"
+  description="Privacy policy for Barrana Accounting Services. How we collect, use, and protect your personal information."
+>
+  <section class="legal-hero">
+    <div class="container">
+      <p class="overline legal-hero__overline">Legal</p>
+      <h1>Privacy policy</h1>
+      <p class="legal-hero__note">This policy was last updated on [DATE]. Review before launch and have qualified counsel review for PIPEDA compliance.</p>
+    </div>
+  </section>
+
+  <section class="section legal-body">
+    <div class="container container--narrow">
+      <div class="legal-content fade-in">
+
+        <p class="legal-intro">Barrana Accounting Services ("we," "our," or "us") is a division of Barrana.ai, operating at barranaaccounting.ai. We are committed to protecting the personal information of everyone who visits our website or becomes a client. This policy explains what information we collect, how we use it, and what choices you have.</p>
+
+        <h2>Information we collect</h2>
+        <p>We collect personal information you provide directly to us through our contact forms. This includes:</p>
+        <ul>
+          <li>Your name</li>
+          <li>Your email address</li>
+          <li>Your business name</li>
+          <li>The number of employees at your business</li>
+          <li>The accounting services you are interested in</li>
+          <li>Information about your current accounting setup</li>
+          <li>Any other information you choose to include in your message</li>
+        </ul>
+        <p>We do not collect payment information through our website. We do not use cookies for tracking or advertising purposes beyond standard website analytics.</p>
+
+        <h2>How we use your information</h2>
+        <p>We use the information you provide to:</p>
+        <ul>
+          <li>Respond to your inquiry within one business day</li>
+          <li>Determine whether our services are a good fit for your business</li>
+          <li>Provide accounting services to clients who engage us</li>
+          <li>Send you updates about our resources or services, if you have opted in</li>
+        </ul>
+        <p>We do not sell, rent, or trade your personal information to any third party for marketing purposes.</p>
+
+        <h2>Legal basis and PIPEDA compliance</h2>
+        <p>Barrana Accounting Services is a Canadian business subject to the Personal Information Protection and Electronic Documents Act (PIPEDA). We collect personal information only for purposes that a reasonable person would consider appropriate given the circumstances. We obtain consent before collecting personal information and allow individuals to withdraw consent at any time, subject to legal and contractual restrictions.</p>
+
+        <h2>How we store and protect your information</h2>
+        <p>Contact form submissions are processed through Netlify Forms and stored securely. Client accounting data is stored in accounting software platforms (QuickBooks Online or Xero) with industry-standard security controls. We take reasonable technical and organizational measures to protect personal information against unauthorized access, disclosure, alteration, or destruction.</p>
+
+        <h2>Data retention</h2>
+        <p>We retain contact form submissions for up to 24 months. Client accounting records are retained for a minimum of 7 years in accordance with CRA requirements. You may request deletion of your personal information at any time, subject to our legal obligations to retain certain records.</p>
+
+        <h2>Your rights</h2>
+        <p>You have the right to:</p>
+        <ul>
+          <li>Request access to the personal information we hold about you</li>
+          <li>Request correction of inaccurate information</li>
+          <li>Withdraw consent for marketing communications at any time</li>
+          <li>Request deletion of your personal information, subject to legal retention requirements</li>
+        </ul>
+
+        <h2>Third-party services</h2>
+        <p>Our website and services rely on the following third-party platforms, each with their own privacy practices:</p>
+        <ul>
+          <li>Netlify — website hosting and form processing</li>
+          <li>Google Fonts — font delivery</li>
+          <li>Calendly — appointment scheduling (when you use our booking feature)</li>
+          <li>QuickBooks Online or Xero — accounting software (for clients)</li>
+        </ul>
+
+        <h2>Contact for privacy inquiries</h2>
+        <p>If you have questions about this policy or wish to exercise your rights, please contact us at:</p>
+        <p>
+          {/* PLACEHOLDER — replace before launch */}
+          <strong>Barrana Accounting Services</strong><br />
+          Email: placeholder@barranaaccounting.ai<br />
+          Vaughan, Ontario, Canada
+        </p>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-hero {
+    background: var(--color-dark);
+    padding-block: var(--space-16) var(--space-20);
+  }
+
+  .legal-hero__overline {
+    color: var(--color-primary-light);
+    display: block;
+    margin-bottom: var(--space-4);
+  }
+
+  .legal-hero h1 {
+    color: #fff;
+    margin-bottom: var(--space-4);
+  }
+
+  .legal-hero__note {
+    font-size: var(--font-size-sm);
+    color: var(--color-warning);
+    background: rgba(184, 98, 26, 0.1);
+    border: 1px solid rgba(184, 98, 26, 0.3);
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-4);
+    display: inline-block;
+    max-width: 640px;
+  }
+
+  .legal-body {
+    background: var(--color-light);
+  }
+
+  .legal-content {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-10);
+  }
+
+  .legal-intro {
+    font-size: var(--font-size-lg);
+    color: var(--color-muted);
+    line-height: 1.8;
+    margin-bottom: var(--space-8);
+    padding-bottom: var(--space-8);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .legal-content h2 {
+    font-size: var(--font-size-xl);
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-4);
+    color: var(--color-dark);
+  }
+
+  .legal-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .legal-content p {
+    color: var(--color-muted);
+    line-height: 1.8;
+    margin-bottom: var(--space-4);
+  }
+
+  .legal-content ul {
+    list-style: disc;
+    padding-left: var(--space-6);
+    margin-bottom: var(--space-4);
+  }
+
+  .legal-content ul li {
+    color: var(--color-muted);
+    line-height: 1.7;
+    margin-bottom: var(--space-2);
+  }
+</style>

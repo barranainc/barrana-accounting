@@ -1,0 +1,199 @@
+---
+const serviceLinks = [
+  { label: 'Bookkeeping', href: '/services/bookkeeping/' },
+  { label: 'Tax Returns', href: '/services/tax-returns/' },
+  { label: 'Payroll', href: '/services/payroll/' },
+  { label: 'Corporate Tax', href: '/services/corporate-tax/' },
+  { label: 'HST/GST Filing', href: '/services/hst-gst-filing/' },
+  { label: 'Financial Reporting', href: '/services/financial-reporting/' },
+  { label: 'CFO Advisory', href: '/services/cfo-advisory/' },
+];
+
+const companyLinks = [
+  { label: 'How it works', href: '/how-it-works/' },
+  { label: 'About', href: '/about/' },
+  { label: 'Pricing', href: '/pricing/' },
+  { label: 'Blog', href: '/blog/' },
+];
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer__inner container">
+    <div class="footer__grid">
+      <div class="footer__col footer__col--brand">
+        <a href="/" class="footer__logo">Barrana Accounting Services</a>
+        <p class="footer__tagline">AI-powered accounting for Ontario SMBs. Faster, more accurate, lower cost.</p>
+        <p class="footer__division">
+          A division of <a href="https://barrana.ai" target="_blank" rel="noopener">Barrana.ai</a>
+        </p>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__heading">Services</h4>
+        <ul class="footer__list">
+          {serviceLinks.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__heading">Company</h4>
+        <ul class="footer__list">
+          {companyLinks.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__heading">Contact</h4>
+        <ul class="footer__list footer__list--contact">
+          <li>
+            {/* PLACEHOLDER - replace before launch */}
+            <a href="mailto:placeholder@barranaaccounting.ai">placeholder@barranaaccounting.ai</a>
+          </li>
+          <li>Vaughan, Ontario</li>
+          <li>Serving GTA &amp; Ontario SMBs</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; {currentYear} Barrana Accounting Services. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="/privacy-policy/">Privacy Policy</a>
+        <a href="/terms-of-service/">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-dark-2);
+    color: rgba(255, 255, 255, 0.7);
+    padding-block: var(--space-16) var(--space-8);
+  }
+
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: var(--space-8);
+    padding-bottom: var(--space-12);
+    border-bottom: 1px solid var(--color-dark-3);
+  }
+
+  .footer__logo {
+    display: block;
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: var(--space-3);
+  }
+
+  .footer__tagline {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    margin-bottom: var(--space-4);
+  }
+
+  .footer__division {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .footer__division a {
+    color: var(--color-primary-light);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .footer__division a:hover {
+    color: #fff;
+  }
+
+  .footer__heading {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.04em;
+    margin-bottom: var(--space-4);
+  }
+
+  .footer__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .footer__list a {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .footer__list a:hover {
+    color: #fff;
+  }
+
+  .footer__list--contact li {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .footer__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--space-6);
+    font-size: var(--font-size-sm);
+  }
+
+  .footer__bottom p {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .footer__legal {
+    display: flex;
+    gap: var(--space-6);
+  }
+
+  .footer__legal a {
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .footer__legal a:hover {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  @media (max-width: 900px) {
+    .footer__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-8) var(--space-6);
+    }
+
+    .footer__col--brand {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer__bottom {
+      flex-direction: column;
+      gap: var(--space-3);
+      text-align: center;
+    }
+  }
+</style>

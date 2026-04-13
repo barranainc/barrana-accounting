@@ -1,0 +1,471 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const tools = [
+  { name: 'QuickBooks Online', desc: 'Cloud accounting' },
+  { name: 'Xero', desc: 'Cloud accounting' },
+  { name: 'Stripe', desc: 'Payment processing' },
+  { name: 'Shopify', desc: 'Ecommerce and POS' },
+  { name: 'Square', desc: 'Payments and POS' },
+  { name: 'Dext', desc: 'Receipt and document capture' },
+  { name: 'Wagepoint', desc: 'Payroll processing' },
+  { name: 'Barrana.ai automation tools', desc: 'Workflow support' },
+];
+---
+
+<BaseLayout
+  title="How Barrana Accounting Services works | CPA-led accounting for Ontario businesses"
+  description="See how Barrana Accounting Services delivers bookkeeping, tax, payroll, and reporting through CPA oversight and a more organised workflow model."
+>
+  <!-- Hero -->
+  <section class="hiw-hero">
+    <div class="container">
+      <p class="overline hiw-hero__overline">Our process</p>
+      <h1>A clearer way to handle ongoing accounting work</h1>
+      <p class="hiw-hero__body">
+        Barrana Accounting Services combines professional accounting oversight with a more structured delivery model. We use organised workflows and technology to reduce repetitive admin, while a licensed CPA remains responsible for review and judgment.
+      </p>
+    </div>
+  </section>
+
+  <!-- Why process matters -->
+  <section class="section hiw-why">
+    <div class="container">
+      <div class="hiw-why__grid">
+        <div class="hiw-why__text fade-in">
+          <h2>Why process matters in accounting</h2>
+          <p>For many businesses, accounting friction does not come from one big problem. It comes from repeated small ones: unclear requests, scattered documents, inconsistent follow-up, delayed reporting, and recurring deadlines that always feel reactive.</p>
+          <p>Barrana Accounting Services is built to reduce that friction. We use a more organised, digital-first process so that bookkeeping, tax, payroll, reporting, and recurring filings are easier to manage and easier to stay on top of.</p>
+          <p>The goal is not to replace professional judgment. The goal is to support it with better systems.</p>
+        </div>
+
+        <div class="hiw-why__card fade-in">
+          <div class="process-card">
+            <h3 class="process-card__title">What clients typically want from the process</h3>
+            <ul class="process-card__list">
+              <li class="process-card__item">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <circle cx="8" cy="8" r="8" fill="rgba(126,15,74,0.1)"/>
+                  <path d="M4.5 8L6.5 10L11.5 5" stroke="#7E0F4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Clear next steps
+              </li>
+              <li class="process-card__item">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <circle cx="8" cy="8" r="8" fill="rgba(126,15,74,0.1)"/>
+                  <path d="M4.5 8L6.5 10L11.5 5" stroke="#7E0F4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Fewer document chases
+              </li>
+              <li class="process-card__item">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <circle cx="8" cy="8" r="8" fill="rgba(126,15,74,0.1)"/>
+                  <path d="M4.5 8L6.5 10L11.5 5" stroke="#7E0F4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                More consistent follow-up
+              </li>
+              <li class="process-card__item">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <circle cx="8" cy="8" r="8" fill="rgba(126,15,74,0.1)"/>
+                  <path d="M4.5 8L6.5 10L11.5 5" stroke="#7E0F4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Better visibility into what is due
+              </li>
+              <li class="process-card__item">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <circle cx="8" cy="8" r="8" fill="rgba(126,15,74,0.1)"/>
+                  <path d="M4.5 8L6.5 10L11.5 5" stroke="#7E0F4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Accounting support that feels organised
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4-step process -->
+  <section class="section hiw-process" style="background: var(--color-dark);">
+    <div class="container">
+      <div class="hiw-process__header fade-in">
+        <h2 style="color: #fff;">How our service works</h2>
+      </div>
+
+      <div class="hiw-steps">
+        <div class="hiw-step fade-in">
+          <div class="hiw-step__header">
+            <span class="hiw-step__number">01</span>
+            <h3 class="hiw-step__title">Review and setup</h3>
+          </div>
+          <p class="hiw-step__body">We start by understanding your current setup, accounting software, recurring obligations, and where the friction is today. If there is a better way to structure the process, we identify it early.</p>
+        </div>
+
+        <div class="hiw-step fade-in">
+          <div class="hiw-step__header">
+            <span class="hiw-step__number">02</span>
+            <h3 class="hiw-step__title">Organise the workflow</h3>
+          </div>
+          <p class="hiw-step__body">We put the right access, document flow, recurring tasks, and communication rhythm in place so the work has a clear operating structure.</p>
+        </div>
+
+        <div class="hiw-step fade-in">
+          <div class="hiw-step__header">
+            <span class="hiw-step__number">03</span>
+            <h3 class="hiw-step__title">Support the recurring work</h3>
+          </div>
+          <p class="hiw-step__body">Routine accounting tasks are handled through structured workflows, with technology assisting repetitive steps where appropriate. Exceptions and items requiring judgment go to your CPA.</p>
+        </div>
+
+        <div class="hiw-step fade-in">
+          <div class="hiw-step__header">
+            <span class="hiw-step__number">04</span>
+            <h3 class="hiw-step__title">CPA review and delivery</h3>
+          </div>
+          <p class="hiw-step__body">A licensed CPA reviews key outputs, addresses exceptions, and helps ensure reporting, filings, and recurring deliverables stay on track.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What we need from clients -->
+  <section class="section hiw-client-needs">
+    <div class="container container--narrow">
+      <div class="fade-in">
+        <h2>What we need from clients</h2>
+        <p>A smoother accounting process still depends on timely inputs from your business. In most cases, we need:</p>
+        <ul class="client-needs__list">
+          <li>Access to your accounting software or financial records</li>
+          <li>Supporting documents where required</li>
+          <li>Timely responses to exceptions or open questions</li>
+          <li>Context for unusual transactions or business changes</li>
+        </ul>
+        <p>The goal is to reduce unnecessary back-and-forth, not pretend collaboration is never required.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools -->
+  <section class="section hiw-tools">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>The tools that support the process</h2>
+        <p class="section-header__body">We work with common accounting and operations platforms. The stack should support the service, not complicate it.</p>
+      </div>
+
+      <div class="tools-grid">
+        {tools.map((tool) => (
+          <div class="tool-card fade-in">
+            <p class="tool-card__name">{tool.name}</p>
+            <p class="tool-card__desc">{tool.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What clients can expect -->
+  <section class="section hiw-outcomes" style="background: var(--color-surface);">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>What this process is designed to improve</h2>
+      </div>
+      <div class="outcomes-row">
+        <div class="outcome-block fade-in">
+          <h3 class="outcome-block__title">More consistency</h3>
+          <p class="outcome-block__body">Recurring accounting work is easier to track and manage through a structured process.</p>
+        </div>
+        <div class="outcome-block fade-in">
+          <h3 class="outcome-block__title">Less admin friction</h3>
+          <p class="outcome-block__body">Clearer workflows reduce avoidable back-and-forth between clients and the accounting team.</p>
+        </div>
+        <div class="outcome-block fade-in">
+          <h3 class="outcome-block__title">Better visibility</h3>
+          <p class="outcome-block__body">You know what is outstanding, what is due, and where things stand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    heading="Ready to see if this process fits your business?"
+    body="Book a free consultation and we will walk through what the transition looks like for your business."
+    cta1Label="Book a free consultation"
+    cta1Href="/contact/"
+    cta2Label="View our services"
+    cta2Href="/services/"
+  />
+</BaseLayout>
+
+<style>
+  .hiw-hero {
+    background: var(--color-dark);
+    background-image: radial-gradient(circle at 70% 30%, rgba(126, 15, 74, 0.12) 0%, transparent 60%);
+    padding-block: var(--space-20) var(--space-24);
+  }
+
+  .hiw-hero__overline {
+    color: var(--color-primary-light);
+    display: block;
+    margin-bottom: var(--space-4);
+  }
+
+  .hiw-hero h1 {
+    color: #fff;
+    max-width: 640px;
+    margin-bottom: var(--space-5);
+  }
+
+  .hiw-hero__body {
+    font-size: var(--font-size-lg);
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 620px;
+    line-height: 1.7;
+  }
+
+  /* Why section */
+  .hiw-why {
+    background: var(--color-light);
+  }
+
+  .hiw-why__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: start;
+  }
+
+  .hiw-why__text h2 {
+    margin-bottom: var(--space-6);
+  }
+
+  .hiw-why__text p {
+    margin-bottom: var(--space-4);
+    line-height: 1.8;
+    color: var(--color-muted);
+  }
+
+  .process-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+  }
+
+  .process-card__title {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: var(--space-5);
+  }
+
+  .process-card__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .process-card__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--font-size-sm);
+    color: var(--color-dark);
+  }
+
+  /* Process steps */
+  .hiw-process__header {
+    margin-bottom: var(--space-10);
+  }
+
+  .hiw-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-left: 2px solid rgba(160, 20, 94, 0.3);
+    padding-left: var(--space-8);
+    margin-left: var(--space-6);
+  }
+
+  .hiw-step {
+    position: relative;
+    padding-bottom: var(--space-12);
+  }
+
+  .hiw-step:last-child {
+    padding-bottom: 0;
+  }
+
+  .hiw-step::before {
+    content: '';
+    position: absolute;
+    left: calc(-1 * var(--space-8) - 5px);
+    top: 8px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-primary);
+  }
+
+  .hiw-step__header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+  }
+
+  .hiw-step__number {
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    color: var(--color-primary-light);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .hiw-step__title {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: #fff;
+    margin-top: var(--space-1);
+  }
+
+  .hiw-step__body {
+    font-size: var(--font-size-base);
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.8;
+  }
+
+  /* Client needs */
+  .hiw-client-needs {
+    background: var(--color-surface);
+  }
+
+  .hiw-client-needs h2 {
+    margin-bottom: var(--space-4);
+  }
+
+  .hiw-client-needs p {
+    font-size: var(--font-size-base);
+    color: var(--color-muted);
+    line-height: 1.8;
+    margin-bottom: var(--space-4);
+  }
+
+  .client-needs__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-bottom: var(--space-5);
+    padding-left: var(--space-5);
+  }
+
+  .client-needs__list li {
+    font-size: var(--font-size-base);
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+
+  /* Tools */
+  .hiw-tools {
+    background: var(--color-light);
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 680px;
+    margin-inline: auto;
+    margin-bottom: var(--space-12);
+  }
+
+  .section-header h2 {
+    margin-bottom: var(--space-4);
+  }
+
+  .section-header__body {
+    font-size: var(--font-size-lg);
+    color: var(--color-muted);
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
+  }
+
+  .tool-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-5) var(--space-6);
+    transition: border-color var(--transition-base);
+  }
+
+  .tool-card:hover {
+    border-color: var(--color-primary);
+  }
+
+  .tool-card__name {
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: var(--space-1);
+  }
+
+  .tool-card__desc {
+    font-size: var(--font-size-xs);
+    color: var(--color-muted);
+  }
+
+  /* Outcomes */
+  .outcomes-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+  }
+
+  .outcome-block {
+    padding: var(--space-8);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    text-align: center;
+  }
+
+  .outcome-block__title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .outcome-block__body {
+    font-size: var(--font-size-sm);
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 1024px) {
+    .tools-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hiw-why__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hiw-steps {
+      margin-left: var(--space-2);
+      padding-left: var(--space-6);
+    }
+
+    .outcomes-row {
+      grid-template-columns: 1fr;
+    }
+
+    .tools-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

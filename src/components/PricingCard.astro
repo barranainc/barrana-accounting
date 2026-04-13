@@ -1,0 +1,120 @@
+---
+export interface Props {
+  label: string;
+  price: string;
+  forWho: string;
+  includes: string[];
+  ctaLabel: string;
+  ctaHref: string;
+  featured?: boolean;
+  badge?: string;
+}
+
+const { label, price, forWho, includes, ctaLabel, ctaHref, featured = false, badge } = Astro.props;
+---
+
+<div class={`pricing-card ${featured ? 'pricing-card--featured' : ''} fade-in`}>
+  {badge && <span class="pricing-card__badge">{badge}</span>}
+  <h3 class="pricing-card__label">{label}</h3>
+  <p class="pricing-card__price">{price}</p>
+  <p class="pricing-card__for">{forWho}</p>
+  <ul class="pricing-card__list">
+    {includes.map((item) => (
+      <li class="pricing-card__item">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        {item}
+      </li>
+    ))}
+  </ul>
+  <a href={ctaHref} class={`btn ${featured ? 'btn--primary' : 'btn--secondary'}`}>
+    {ctaLabel}
+  </a>
+</div>
+
+<style>
+  .pricing-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+    transition: box-shadow var(--transition-base);
+  }
+
+  .pricing-card--featured {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+    transform: scale(1.02);
+  }
+
+  .pricing-card__badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-primary);
+    color: #fff;
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+  }
+
+  .pricing-card__label {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: var(--space-2);
+  }
+
+  .pricing-card__price {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-2);
+  }
+
+  .pricing-card__for {
+    font-size: var(--font-size-sm);
+    color: var(--color-muted);
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .pricing-card__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    flex: 1;
+    margin-bottom: var(--space-8);
+  }
+
+  .pricing-card__item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    color: var(--color-dark);
+    line-height: 1.5;
+  }
+
+  .pricing-card__item svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--color-success);
+  }
+
+  .btn {
+    text-align: center;
+    justify-content: center;
+  }
+</style>

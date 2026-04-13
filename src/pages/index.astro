@@ -1,17 +1,749 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import PricingCard from '../components/PricingCard.astro';
+import CTABanner from '../components/CTABanner.astro';
 
+const schema = {
+  "@context": "https://schema.org",
+  "@type": ["AccountingService", "LocalBusiness"],
+  "name": "Barrana Accounting Services",
+  "url": "https://barranaaccounting.ai",
+  "logo": "https://barranaaccounting.ai/favicon.svg",
+  "description": "CPA-led accounting services for Ontario businesses, including bookkeeping, tax, payroll, reporting, and advisory support, delivered through a more organised workflow model.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Vaughan",
+    "addressRegion": "ON",
+    "addressCountry": "CA"
+  },
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "Ontario"
+  },
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Barrana.ai",
+    "url": "https://barrana.ai"
+  }
+};
+
+const services = [
+  {
+    title: 'Bookkeeping',
+    description: 'Structured month-end processes, bank reconciliations, and CPA-reviewed oversight every month.',
+    href: '/services/bookkeeping/',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>`,
+  },
+  {
+    title: 'Tax returns',
+    description: 'Personal and corporate tax return preparation with cleaner year-round coordination and CPA review.',
+    href: '/services/tax-returns/',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>`,
+  },
+  {
+    title: 'Payroll',
+    description: 'Support for payroll runs, statutory deductions, CRA remittances, and year-end payroll obligations.',
+    href: '/services/payroll/',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>`,
+  },
+  {
+    title: 'Corporate tax',
+    description: 'T2 preparation and related schedules handled through a more organised year-end process.',
+    href: '/services/corporate-tax/',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+  },
+  {
+    title: 'HST/GST filing',
+    description: 'Recurring indirect tax filings managed through consistent coding, review, and timely submission.',
+    href: '/services/hst-gst-filing/',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`,
+  },
+  {
+    title: 'Financial reporting',
+    description: 'Monthly financial packages that help you understand performance, cash flow, and key changes.',
+    href: '/services/financial-reporting/',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>`,
+  },
+  {
+    title: 'CFO advisory',
+    description: 'Higher-level financial support for businesses that need planning, forecasting, and strategic guidance.',
+    href: '/services/cfo-advisory/',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+  },
+];
+
+const steps = [
+  {
+    number: '01',
+    title: 'Understand',
+    body: 'We review your current setup, your accounting needs, and where the friction is today.',
+  },
+  {
+    number: '02',
+    title: 'Set up',
+    body: 'We organise the right tools, access, workflows, and recurring processes for your file.',
+  },
+  {
+    number: '03',
+    title: 'Support',
+    body: 'Routine work is handled through structured workflows, with technology supporting the repetitive steps. Exceptions go to your CPA.',
+  },
+  {
+    number: '04',
+    title: 'Review and deliver',
+    body: 'Your CPA reviews the work, closes the books, and ensures reporting and filings go out on schedule.',
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="CPA-led accounting services for Ontario SMBs | Barrana Accounting Services"
+  description="Bookkeeping, tax, payroll, reporting, and advisory support for Ontario businesses, delivered through CPA oversight and AI-enabled workflows."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
+
+  <!-- Section 1: Hero -->
+  <section class="hero">
+    <div class="hero__inner container">
+      <div class="hero__content">
+        <p class="overline hero__overline">CPA-led accounting services — GTA &amp; Ontario</p>
+        <h1 class="hero__heading">Modern accounting support for businesses that want less friction</h1>
+        <p class="hero__body">
+          Barrana Accounting Services provides bookkeeping, tax, payroll, reporting, and advisory support for Ontario businesses through a more organised delivery model. A licensed CPA leads the work, while AI-enabled workflows help reduce repetitive admin and keep your business better informed.
+        </p>
+        <div class="hero__ctas">
+          <a href="/contact/" class="btn btn--white btn--lg">Book a free consultation</a>
+          <a href="/how-it-works/" class="btn btn--outline-hero btn--lg">See how it works</a>
+        </div>
+      </div>
+
+      <div class="hero__visual">
+        <div class="trust-card trust-card--1 fade-in">
+          <span class="trust-card__label">Licensed CPA</span>
+          <span class="trust-card__desc">Professional review and judgment where it matters</span>
+        </div>
+        <div class="trust-card trust-card--2 fade-in">
+          <span class="trust-card__label">Ontario-focused</span>
+          <span class="trust-card__desc">Built for GTA and Ontario small businesses</span>
+        </div>
+        <div class="trust-card trust-card--3 fade-in">
+          <span class="trust-card__label">Modern workflows</span>
+          <span class="trust-card__desc">Structured, digital-first delivery with AI-enabled support</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Trust bar -->
+  <section class="trust-bar">
+    <div class="trust-bar__inner container">
+      <div class="trust-bar__item">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+          <circle cx="9" cy="9" r="9" fill="#0F6E56"/>
+          <path d="M5 9L7.5 11.5L13 6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        CPA-led review
+      </div>
+      <div class="trust-bar__item">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+          <circle cx="9" cy="9" r="9" fill="#0F6E56"/>
+          <path d="M5 9L7.5 11.5L13 6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Serving GTA &amp; Ontario
+      </div>
+      <div class="trust-bar__item">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+          <circle cx="9" cy="9" r="9" fill="#0F6E56"/>
+          <path d="M5 9L7.5 11.5L13 6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Bookkeeping, tax, payroll, and reporting
+      </div>
+      <div class="trust-bar__item">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+          <circle cx="9" cy="9" r="9" fill="#0F6E56"/>
+          <path d="M5 9L7.5 11.5L13 6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        No long-term contracts
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Why businesses choose Barrana -->
+  <section class="section why-barrana">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="overline">Why Barrana</p>
+        <h2>A more organised way to handle accounting</h2>
+        <p class="section-header__body">Many businesses do not just need accounting work completed. They need a smoother way to manage recurring financial tasks, deadlines, and communication.</p>
+      </div>
+
+      <div class="grid-3 why-barrana__cards">
+        <div class="feature-card fade-in">
+          <div class="feature-card__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3>Better turnaround</h3>
+          <p>Structured workflows help reduce delays and keep recurring accounting work moving on schedule.</p>
+        </div>
+
+        <div class="feature-card fade-in">
+          <div class="feature-card__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 11l3 3L22 4"/>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
+          </div>
+          <h3>Less admin friction</h3>
+          <p>Clearer processes, better handoffs, and more consistent follow-up reduce the back-and-forth that slows business owners down.</p>
+        </div>
+
+        <div class="feature-card fade-in">
+          <div class="feature-card__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <polyline points="9 12 11 14 15 10"/>
+            </svg>
+          </div>
+          <h3>CPA oversight throughout</h3>
+          <p>Technology supports the repetitive work, while a licensed CPA reviews key outputs and applies professional judgment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Services overview -->
+  <section class="section services-overview" style="background: var(--color-surface);">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="overline">What we handle</p>
+        <h2>Accounting support built around how businesses actually operate</h2>
+        <p class="section-header__body">From monthly bookkeeping to tax, payroll, reporting, and advisory support, Barrana covers the core financial work many Ontario businesses need.</p>
+      </div>
+
+      <div class="services-grid">
+        {services.map((service) => (
+          <ServiceCard
+            title={service.title}
+            description={service.description}
+            href={service.href}
+            icon={service.icon}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: How it works (abbreviated) -->
+  <section class="section process" style="background: var(--color-dark);">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="overline" style="color: var(--color-primary-light);">Our process</p>
+        <h2 style="color: #fff;">A clearer process from setup to ongoing delivery</h2>
+      </div>
+
+      <div class="process__steps">
+        {steps.map((step, i) => (
+          <div class="process__step fade-in">
+            {i < steps.length - 1 && <div class="process__connector" aria-hidden="true" />}
+            <span class="process__number">{step.number}</span>
+            <h3 class="process__title">{step.title}</h3>
+            <p class="process__body">{step.body}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="process__cta">
+        <a href="/how-it-works/" class="btn btn--outline-hero">See the full process</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Social proof -->
+  <section class="section testimonials">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="overline">Client feedback</p>
+        <h2>What a better accounting process should feel like</h2>
+      </div>
+
+      <div class="grid-3 testimonials__grid">
+        <!-- PLACEHOLDER: Replace with real client quote before launch -->
+        <div class="testimonial-card fade-in">
+          <span class="testimonial-card__quote-mark" aria-hidden="true">&ldquo;</span>
+          <blockquote class="testimonial-card__text">The process feels more organised and we spend much less time chasing documents or waiting for updates.</blockquote>
+          <p class="testimonial-card__attribution">
+            <strong>[Client name]</strong>, [Business type], [City]
+          </p>
+        </div>
+
+        <!-- PLACEHOLDER: Replace with real client quote before launch -->
+        <div class="testimonial-card fade-in">
+          <span class="testimonial-card__quote-mark" aria-hidden="true">&ldquo;</span>
+          <blockquote class="testimonial-card__text">We have much better visibility into what is due and what has been filed. It is a more dependable experience overall.</blockquote>
+          <p class="testimonial-card__attribution">
+            <strong>[Client name]</strong>, [Business type], [City]
+          </p>
+        </div>
+
+        <!-- PLACEHOLDER: Replace with real client quote before launch -->
+        <div class="testimonial-card fade-in">
+          <span class="testimonial-card__quote-mark" aria-hidden="true">&ldquo;</span>
+          <blockquote class="testimonial-card__text">Communication is clearer and the monthly workflow feels far less reactive than what we had before.</blockquote>
+          <p class="testimonial-card__attribution">
+            <strong>[Client name]</strong>, [Business type], [City]
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Pricing teaser -->
+  <section class="section pricing-teaser" style="background: var(--color-surface);">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="overline">Pricing</p>
+        <h2>Support options for different stages of business</h2>
+        <p class="section-header__body">One flat monthly fee covers everything in your plan. No hourly billing. No surprise invoices.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- PLACEHOLDER — replace $X with real pricing before launch -->
+        <PricingCard
+          label="Essential"
+          price="Starting at $X/mo"
+          forWho="For smaller or early-stage businesses"
+          includes={[
+            'Bookkeeping',
+            'Recurring filings',
+            'Year-end support',
+          ]}
+          ctaLabel="See pricing"
+          ctaHref="/pricing/"
+        />
+        <PricingCard
+          label="Professional"
+          price="Starting at $X/mo"
+          forWho="For established SMBs with more moving parts"
+          includes={[
+            'Everything in Essential',
+            'Payroll',
+            'Monthly reporting',
+            'More frequent CPA support',
+          ]}
+          ctaLabel="See pricing"
+          ctaHref="/pricing/"
+          featured={true}
+          badge="Most popular"
+        />
+        <PricingCard
+          label="Growth"
+          price="Custom pricing"
+          forWho="For higher-complexity or multi-entity businesses"
+          includes={[
+            'Advisory support',
+            'Forecasting',
+            'Tailored workflow design',
+          ]}
+          ctaLabel="Book a call"
+          ctaHref="/contact/"
+        />
+      </div>
+
+      <p class="pricing-teaser__note">
+        Not sure which plan fits?
+        <a href="/contact/">Book a free 20-minute call.</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 8: Final CTA banner -->
+  <CTABanner
+    heading="Looking for a more organised accounting partner?"
+    body="Book a consultation to see whether Barrana Accounting Services is a good fit for your business."
+    cta1Label="Book your free consultation"
+    cta1Href="/contact/"
+    cta2Label="View all services"
+    cta2Href="/services/"
+  />
+
+</BaseLayout>
+
+<style>
+  /* ── Hero ── */
+  .hero {
+    background: var(--color-dark);
+    background-image: radial-gradient(circle at 80% 20%, rgba(126, 15, 74, 0.08) 0%, transparent 60%);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding-block: var(--space-20);
+  }
+
+  .hero__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+    align-items: center;
+  }
+
+  .hero__overline {
+    color: var(--color-primary-light);
+    margin-bottom: var(--space-4);
+  }
+
+  .hero__heading {
+    color: #fff;
+    margin-bottom: var(--space-6);
+  }
+
+  .hero__body {
+    color: rgba(255, 255, 255, 0.78);
+    font-size: var(--font-size-lg);
+    line-height: 1.7;
+    margin-bottom: var(--space-8);
+  }
+
+  .hero__ctas {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .btn--outline-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    font-family: var(--font-sans);
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    background: transparent;
+    color: #fff;
+    transition: all var(--transition-base);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .btn--outline-hero:hover {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .btn--outline-hero.btn--lg {
+    padding: 1rem 2rem;
+    font-size: var(--font-size-base);
+  }
+
+  .hero__visual {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-6);
+  }
+
+  .trust-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .trust-card--1 { transform: translateX(0); }
+  .trust-card--2 { transform: translateX(var(--space-8)); }
+  .trust-card--3 { transform: translateX(var(--space-4)); }
+
+  .trust-card__label {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .trust-card__desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-muted);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  /* ── Trust bar ── */
+  .trust-bar {
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    padding-block: var(--space-5);
+  }
+
+  .trust-bar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-10);
+    flex-wrap: wrap;
+  }
+
+  .trust-bar__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-dark);
+    white-space: nowrap;
+  }
+
+  /* ── Section header ── */
+  .section-header {
+    text-align: center;
+    max-width: 680px;
+    margin-inline: auto;
+    margin-bottom: var(--space-12);
+  }
+
+  .section-header .overline {
+    display: block;
+    margin-bottom: var(--space-3);
+  }
+
+  .section-header h2 {
+    margin-bottom: var(--space-4);
+  }
+
+  .section-header__body {
+    font-size: var(--font-size-lg);
+    color: var(--color-muted);
+  }
+
+  /* ── Why Barrana ── */
+  .why-barrana {
+    background: var(--color-light);
+  }
+
+  .feature-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .feature-card__icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(126, 15, 74, 0.1);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-4);
+    color: var(--color-primary);
+  }
+
+  .feature-card h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-3);
+  }
+
+  .feature-card p {
+    font-size: var(--font-size-sm);
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+
+  /* ── Services grid ── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+  }
+
+  /* ── Process ── */
+  .process__steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+    position: relative;
+    margin-bottom: var(--space-12);
+  }
+
+  .process__step {
+    position: relative;
+  }
+
+  .process__connector {
+    position: absolute;
+    top: 24px;
+    right: -50%;
+    width: 100%;
+    height: 1px;
+    border-top: 1px dashed rgba(160, 20, 94, 0.3);
+    z-index: 0;
+  }
+
+  .process__number {
+    display: block;
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    color: var(--color-primary-light);
+    line-height: 1;
+    margin-bottom: var(--space-4);
+    position: relative;
+    z-index: 1;
+  }
+
+  .process__title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: var(--space-3);
+  }
+
+  .process__body {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.7;
+  }
+
+  .process__cta {
+    text-align: center;
+  }
+
+  /* ── Testimonials ── */
+  .testimonials {
+    background: var(--color-light);
+  }
+
+  .testimonial-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .testimonial-card__quote-mark {
+    font-size: 64px;
+    line-height: 1;
+    color: rgba(126, 15, 74, 0.2);
+    font-family: Georgia, serif;
+    position: absolute;
+    top: var(--space-4);
+    left: var(--space-6);
+  }
+
+  .testimonial-card__text {
+    font-style: italic;
+    font-size: var(--font-size-base);
+    color: var(--color-dark);
+    line-height: 1.7;
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-6);
+    flex: 1;
+  }
+
+  .testimonial-card__attribution {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-muted);
+  }
+
+  /* ── Pricing teaser ── */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    align-items: start;
+    margin-bottom: var(--space-8);
+  }
+
+  .pricing-teaser__note {
+    text-align: center;
+    font-size: var(--font-size-sm);
+    color: var(--color-muted);
+  }
+
+  .pricing-teaser__note a {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .pricing-teaser__note a:hover {
+    text-decoration: underline;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .process__steps {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .process__connector {
+      display: none;
+    }
+
+    .pricing-grid {
+      grid-template-columns: 1fr;
+      max-width: 480px;
+      margin-inline: auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      min-height: auto;
+      padding-block: var(--space-16);
+    }
+
+    .hero__inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-10);
+    }
+
+    .hero__visual {
+      padding: 0;
+    }
+
+    .trust-card--1,
+    .trust-card--2,
+    .trust-card--3 {
+      transform: none;
+    }
+
+    .trust-bar__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      justify-items: start;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .process__steps {
+      grid-template-columns: 1fr;
+    }
+
+    .section-header h2 {
+      font-size: var(--font-size-3xl);
+    }
+  }
+</style>

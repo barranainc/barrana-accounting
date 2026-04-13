@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABanner from '../../components/CTABanner.astro';
+
+const services = [
+  { title: 'Bookkeeping', href: '/services/bookkeeping/' },
+  { title: 'Tax returns', href: '/services/tax-returns/' },
+  { title: 'Payroll', href: '/services/payroll/' },
+  { title: 'Corporate tax', href: '/services/corporate-tax/' },
+  { title: 'HST/GST filing', href: '/services/hst-gst-filing/' },
+  { title: 'Financial reporting', href: '/services/financial-reporting/' },
+  { title: 'CFO advisory', href: '/services/cfo-advisory/' },
+];
+---
+
+<BaseLayout
+  title="Accounting services in Vaughan, Ontario | Barrana Accounting Services"
+  description="Bookkeeping, tax, payroll, and reporting support for Vaughan businesses through CPA oversight and organised delivery."
+>
+  <section class="loc-hero">
+    <div class="container">
+      <p class="overline loc-hero__overline">York Region</p>
+      <h1>Accounting services for Vaughan businesses</h1>
+      <p class="loc-hero__body">Structured bookkeeping, tax, payroll, and reporting support for Vaughan businesses, delivered remotely with CPA oversight.</p>
+      <a href="/contact/" class="btn btn--white btn--lg">Book a free consultation</a>
+    </div>
+  </section>
+
+  <section class="section loc-context">
+    <div class="container">
+      <div class="loc-context__grid">
+        <div class="fade-in">
+          <h2>Accounting services for Vaughan's business community</h2>
+          <p>Vaughan has grown into one of the most active business communities in York Region, with a strong concentration of incorporated owner-managed businesses across construction, professional services, retail, food and beverage, and logistics.</p>
+          <p>Many Vaughan businesses are at a growth stage where they need more than basic bookkeeping. They have corporate filing obligations, a small team on payroll, and an owner who wants regular financial visibility without chasing their accountant for updates.</p>
+          <p>Barrana Accounting Services is based in Vaughan and serves businesses across York Region. All services are delivered remotely, which supports cleaner document flow and more consistent recurring processes.</p>
+        </div>
+        <div class="loc-info fade-in">
+          <div class="loc-info__card">
+            <h3>Remote delivery</h3>
+            <p>Barrana Accounting Services is based in Vaughan. We serve businesses in Vaughan and York Region entirely remotely.</p>
+          </div>
+          <div class="loc-services-list">
+            <h3>Services available</h3>
+            <ul>
+              {services.map((s) => (
+                <li><a href={s.href}>{s.title}</a></li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    heading="Accounting support for Vaughan businesses"
+    body="Book a consultation to discuss your accounting needs and whether Barrana Accounting Services is a good fit."
+    cta1Label="Book a free consultation"
+    cta1Href="/contact/"
+    cta2Label="View all services"
+    cta2Href="/services/"
+  />
+</BaseLayout>
+
+<style>
+  .loc-hero {
+    background: var(--color-dark);
+    background-image: radial-gradient(circle at 70% 30%, rgba(126, 15, 74, 0.12) 0%, transparent 60%);
+    padding-block: var(--space-20) var(--space-24);
+  }
+
+  .loc-hero__overline {
+    color: var(--color-primary-light);
+    display: block;
+    margin-bottom: var(--space-3);
+  }
+
+  .loc-hero h1 {
+    color: #fff;
+    max-width: 640px;
+    margin-bottom: var(--space-5);
+  }
+
+  .loc-hero__body {
+    font-size: var(--font-size-lg);
+    color: rgba(255,255,255,0.7);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: var(--space-8);
+  }
+
+  .loc-context {
+    background: var(--color-light);
+  }
+
+  .loc-context__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: start;
+  }
+
+  .loc-context__grid h2 {
+    margin-bottom: var(--space-5);
+  }
+
+  .loc-context__grid p {
+    color: var(--color-muted);
+    line-height: 1.8;
+    margin-bottom: var(--space-4);
+  }
+
+  .loc-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .loc-info__card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+  }
+
+  .loc-info__card h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-3);
+  }
+
+  .loc-info__card p {
+    font-size: var(--font-size-sm);
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+
+  .loc-services-list {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+  }
+
+  .loc-services-list h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-4);
+  }
+
+  .loc-services-list ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .loc-services-list li {
+    font-size: var(--font-size-sm);
+  }
+
+  .loc-services-list a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--transition-fast);
+  }
+
+  .loc-services-list a:hover {
+    color: var(--color-primary-dark);
+  }
+
+  @media (max-width: 768px) {
+    .loc-context__grid { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,324 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services/', hasDropdown: true },
+  { label: 'How it works', href: '/how-it-works/' },
+  { label: 'About', href: '/about/' },
+  { label: 'Pricing', href: '/pricing/' },
+  { label: 'Contact', href: '/contact/' },
+];
+
+const serviceLinks = [
+  { label: 'Bookkeeping', href: '/services/bookkeeping/' },
+  { label: 'Tax Returns', href: '/services/tax-returns/' },
+  { label: 'Payroll', href: '/services/payroll/' },
+  { label: 'Corporate Tax', href: '/services/corporate-tax/' },
+  { label: 'HST/GST Filing', href: '/services/hst-gst-filing/' },
+  { label: 'Financial Reporting', href: '/services/financial-reporting/' },
+  { label: 'CFO Advisory', href: '/services/cfo-advisory/' },
+];
+
+function isActive(href: string): boolean {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+}
+---
+
+<header class="nav" id="site-nav">
+  <div class="nav__inner container">
+    <a href="/" class="nav__logo">Barrana Accounting</a>
+
+    <nav class="nav__links" id="nav-links" aria-label="Main navigation">
+      {navLinks.map((link) => (
+        <div class={`nav__item ${link.hasDropdown ? 'nav__item--dropdown' : ''}`}>
+          <a
+            href={link.href}
+            class={`nav__link ${isActive(link.href) ? 'nav__link--active' : ''}`}
+          >
+            {link.label}
+            {link.hasDropdown && (
+              <svg class="nav__chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            )}
+          </a>
+          {link.hasDropdown && (
+            <div class="nav__dropdown">
+              {serviceLinks.map((service) => (
+                <a href={service.href} class="nav__dropdown-link">
+                  {service.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </nav>
+
+    <a href="/contact/" class="btn btn--primary nav__cta">Book a call</a>
+
+    <button class="nav__hamburger" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span class="nav__hamburger-line"></span>
+      <span class="nav__hamburger-line"></span>
+      <span class="nav__hamburger-line"></span>
+    </button>
+  </div>
+
+  <div class="nav__mobile" id="mobile-menu" aria-hidden="true">
+    {navLinks.map((link) => (
+      <>
+        <a
+          href={link.href}
+          class={`nav__mobile-link ${isActive(link.href) ? 'nav__mobile-link--active' : ''}`}
+        >
+          {link.label}
+        </a>
+        {link.hasDropdown && serviceLinks.map((service) => (
+          <a href={service.href} class="nav__mobile-sublink">
+            {service.label}
+          </a>
+        ))}
+      </>
+    ))}
+    <a href="/contact/" class="btn btn--primary nav__mobile-cta">Book a call</a>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    transition: background var(--transition-base), box-shadow var(--transition-base);
+  }
+
+  .nav--scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  .nav__logo {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .nav__links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+  }
+
+  .nav__item {
+    position: relative;
+  }
+
+  .nav__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-dark);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    transition: color var(--transition-fast), background var(--transition-fast);
+  }
+
+  .nav__link:hover {
+    color: var(--color-primary);
+    background: var(--color-surface-2);
+  }
+
+  .nav__link--active {
+    color: var(--color-primary);
+  }
+
+  .nav__chevron {
+    transition: transform var(--transition-fast);
+  }
+
+  .nav__item--dropdown:hover .nav__chevron {
+    transform: rotate(180deg);
+  }
+
+  .nav__dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    padding: var(--space-2);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(4px);
+    transition: opacity var(--transition-fast), visibility var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .nav__item--dropdown:hover .nav__dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav__dropdown-link {
+    display: block;
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--font-size-sm);
+    color: var(--color-dark);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: background var(--transition-fast), color var(--transition-fast);
+  }
+
+  .nav__dropdown-link:hover {
+    background: var(--color-surface-2);
+    color: var(--color-primary);
+  }
+
+  .nav__cta {
+    flex-shrink: 0;
+  }
+
+  .nav__hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .nav__hamburger-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--color-dark);
+    border-radius: 2px;
+    transition: transform var(--transition-base), opacity var(--transition-base);
+  }
+
+  .nav__hamburger--open .nav__hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav__hamburger--open .nav__hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+  .nav__hamburger--open .nav__hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .nav__mobile {
+    display: none;
+    flex-direction: column;
+    padding: var(--space-4) var(--container-padding) var(--space-6);
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .nav__mobile--open {
+    display: flex;
+  }
+
+  .nav__mobile-link {
+    padding: var(--space-3) 0;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-dark);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .nav__mobile-link--active {
+    color: var(--color-primary);
+  }
+
+  .nav__mobile-sublink {
+    padding: var(--space-2) 0 var(--space-2) var(--space-6);
+    font-size: var(--font-size-sm);
+    color: var(--color-muted);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .nav__mobile-sublink:hover {
+    color: var(--color-primary);
+  }
+
+  .nav__mobile-cta {
+    margin-top: var(--space-4);
+    text-align: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 900px) {
+    .nav__inner {
+      height: 64px;
+    }
+
+    .nav__links,
+    .nav__cta {
+      display: none;
+    }
+
+    .nav__hamburger {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  const nav = document.getElementById('site-nav');
+  const toggle = document.getElementById('nav-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  // Sticky scroll effect
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      nav?.classList.add('nav--scrolled');
+    } else {
+      nav?.classList.remove('nav--scrolled');
+    }
+  });
+
+  // Mobile menu toggle
+  toggle?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.toggle('nav__mobile--open');
+    toggle.classList.toggle('nav__hamburger--open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    mobileMenu?.setAttribute('aria-hidden', String(!isOpen));
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu?.classList.contains('nav__mobile--open')) {
+      mobileMenu.classList.remove('nav__mobile--open');
+      toggle?.classList.remove('nav__hamburger--open');
+      toggle?.setAttribute('aria-expanded', 'false');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+    }
+  });
+</script>

@@ -1,0 +1,191 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import CTABanner from '../../components/CTABanner.astro';
+
+const services = [
+  {
+    title: 'Bookkeeping',
+    description: 'Recurring bookkeeping support with structured month-end workflows and CPA-reviewed oversight.',
+    href: '/services/bookkeeping/',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>`,
+  },
+  {
+    title: 'Tax returns',
+    description: 'Personal and corporate tax return preparation with year-round coordination and CPA review.',
+    href: '/services/tax-returns/',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>`,
+  },
+  {
+    title: 'Payroll',
+    description: 'Recurring payroll support including deductions, CRA remittances, T4s, ROEs, and year-end obligations.',
+    href: '/services/payroll/',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>`,
+  },
+  {
+    title: 'Corporate tax',
+    description: 'T2 corporate return preparation with cleaner records and CPA review before filing.',
+    href: '/services/corporate-tax/',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+  },
+  {
+    title: 'HST/GST filing',
+    description: 'Recurring indirect tax filing support through consistent coding, review, and timely submission.',
+    href: '/services/hst-gst-filing/',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`,
+  },
+  {
+    title: 'Financial reporting',
+    description: 'Monthly financial reporting packages to help you understand performance, cash flow, and key changes.',
+    href: '/services/financial-reporting/',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>`,
+  },
+  {
+    title: 'CFO advisory',
+    description: 'Higher-level financial guidance including planning, forecasting, and strategic review with your CPA.',
+    href: '/services/cfo-advisory/',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+  },
+];
+---
+
+<BaseLayout
+  title="Accounting services for Ontario businesses | Barrana Accounting Services"
+  description="Bookkeeping, tax, payroll, corporate tax, HST/GST filing, financial reporting, and advisory support for Ontario businesses through CPA oversight and a more organised delivery model."
+>
+  <!-- Hero -->
+  <section class="services-hero">
+    <div class="container">
+      <p class="overline services-hero__overline">Services</p>
+      <h1>Accounting support for the work businesses need done every month and every year</h1>
+      <p class="services-hero__body">
+        Barrana Accounting Services supports bookkeeping, tax, payroll, reporting, and advisory needs for Ontario businesses through CPA oversight and a more organised delivery model.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services grid -->
+  <section class="section" style="background: var(--color-light);">
+    <div class="container">
+      <div class="services-index-grid">
+        {services.map((service) => (
+          <div class="service-index-card fade-in">
+            <div class="service-index-card__icon" aria-hidden="true" set:html={service.icon} />
+            <div class="service-index-card__content">
+              <h2 class="service-index-card__title">{service.title}</h2>
+              <p class="service-index-card__desc">{service.description}</p>
+              <a href={service.href} class="service-index-card__link">Learn more &rarr;</a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    heading="Not sure which services fit your business?"
+    body="Book a consultation and we will help you identify the right level of support."
+    cta1Label="Book a free consultation"
+    cta1Href="/contact/"
+  />
+</BaseLayout>
+
+<style>
+  .services-hero {
+    background: var(--color-dark);
+    background-image: radial-gradient(circle at 70% 30%, rgba(126, 15, 74, 0.12) 0%, transparent 60%);
+    padding-block: var(--space-20) var(--space-24);
+  }
+
+  .services-hero__overline {
+    color: var(--color-primary-light);
+    display: block;
+    margin-bottom: var(--space-4);
+  }
+
+  .services-hero h1 {
+    color: #fff;
+    max-width: 680px;
+    margin-bottom: var(--space-5);
+  }
+
+  .services-hero__body {
+    font-size: var(--font-size-lg);
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
+    line-height: 1.7;
+  }
+
+  .services-index-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .service-index-card {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: var(--space-6);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+    transition: border-color var(--transition-base), box-shadow var(--transition-base);
+  }
+
+  .service-index-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .service-index-card__icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(126, 15, 74, 0.1);
+    border-radius: var(--radius-md);
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+
+  .service-index-card__icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--color-primary);
+    fill: none;
+  }
+
+  .service-index-card__title {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: var(--space-3);
+  }
+
+  .service-index-card__desc {
+    font-size: var(--font-size-base);
+    color: var(--color-muted);
+    line-height: 1.7;
+    margin-bottom: var(--space-4);
+  }
+
+  .service-index-card__link {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .service-index-card__link:hover {
+    color: var(--color-primary-dark);
+  }
+
+  @media (max-width: 640px) {
+    .service-index-card {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

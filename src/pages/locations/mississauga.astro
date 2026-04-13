@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABanner from '../../components/CTABanner.astro';
+
+const services = [
+  { title: 'Bookkeeping', href: '/services/bookkeeping/' },
+  { title: 'Tax returns', href: '/services/tax-returns/' },
+  { title: 'Payroll', href: '/services/payroll/' },
+  { title: 'Corporate tax', href: '/services/corporate-tax/' },
+  { title: 'HST/GST filing', href: '/services/hst-gst-filing/' },
+  { title: 'Financial reporting', href: '/services/financial-reporting/' },
+  { title: 'CFO advisory', href: '/services/cfo-advisory/' },
+];
+---
+
+<BaseLayout
+  title="Accounting services in Mississauga | Barrana Accounting Services"
+  description="Bookkeeping, corporate tax, payroll, and reporting support for Mississauga businesses. CPA-led, remotely delivered across Peel Region."
+>
+  <section class="loc-hero">
+    <div class="container">
+      <p class="overline loc-hero__overline">Peel Region</p>
+      <h1>Accounting services for Mississauga businesses</h1>
+      <p class="loc-hero__body">CPA-led bookkeeping, tax, payroll, and reporting for Mississauga SMBs, delivered remotely across Peel Region.</p>
+      <a href="/contact/" class="btn btn--white btn--lg">Book a free consultation</a>
+    </div>
+  </section>
+
+  <section class="section loc-context">
+    <div class="container">
+      <div class="loc-context__grid">
+        <div class="fade-in">
+          <h2>Accounting services for Mississauga's business community</h2>
+          <p>Mississauga is home to a wide range of SMBs including logistics, distribution, manufacturing support, professional services, and retail. Peel Region businesses deal with the same corporate filing obligations, payroll requirements, and recurring reporting needs as any Ontario company.</p>
+          <p>What often differs in Mississauga is business complexity. Many companies have employees, warehouse or fleet operations, and multi-account financial structures that make bookkeeping and payroll support especially important to manage well.</p>
+          <p>Barrana Accounting Services works with Mississauga businesses remotely, with workflows structured around their recurring obligations and reporting needs.</p>
+        </div>
+        <div class="loc-info fade-in">
+          <div class="loc-info__card">
+            <h3>Remote delivery</h3>
+            <p>All services are delivered remotely across Peel Region and Ontario.</p>
+          </div>
+          <div class="loc-services-list">
+            <h3>Services available</h3>
+            <ul>
+              {services.map((s) => (
+                <li><a href={s.href}>{s.title}</a></li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    heading="Accounting support for Mississauga businesses"
+    body="Book a consultation to discuss your accounting needs and whether Barrana Accounting Services is a good fit."
+    cta1Label="Book a free consultation"
+    cta1Href="/contact/"
+    cta2Label="View all services"
+    cta2Href="/services/"
+  />
+</BaseLayout>
+
+<style>
+  .loc-hero {
+    background: var(--color-dark);
+    background-image: radial-gradient(circle at 70% 30%, rgba(126, 15, 74, 0.12) 0%, transparent 60%);
+    padding-block: var(--space-20) var(--space-24);
+  }
+
+  .loc-hero__overline { color: var(--color-primary-light); display: block; margin-bottom: var(--space-3); }
+  .loc-hero h1 { color: #fff; max-width: 640px; margin-bottom: var(--space-5); }
+  .loc-hero__body {
+    font-size: var(--font-size-lg);
+    color: rgba(255,255,255,0.7);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: var(--space-8);
+  }
+
+  .loc-context { background: var(--color-light); }
+  .loc-context__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: start;
+  }
+
+  .loc-context__grid h2 { margin-bottom: var(--space-5); }
+  .loc-context__grid p { color: var(--color-muted); line-height: 1.8; margin-bottom: var(--space-4); }
+
+  .loc-info { display: flex; flex-direction: column; gap: var(--space-5); }
+
+  .loc-info__card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+  }
+
+  .loc-info__card h3 { font-size: var(--font-size-lg); margin-bottom: var(--space-3); }
+  .loc-info__card p { font-size: var(--font-size-sm); color: var(--color-muted); line-height: 1.7; }
+
+  .loc-services-list {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+  }
+
+  .loc-services-list h3 { font-size: var(--font-size-lg); margin-bottom: var(--space-4); }
+  .loc-services-list ul { display: flex; flex-direction: column; gap: var(--space-2); }
+  .loc-services-list li { font-size: var(--font-size-sm); }
+
+  .loc-services-list a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--transition-fast);
+  }
+
+  .loc-services-list a:hover { color: var(--color-primary-dark); }
+
+  @media (max-width: 768px) {
+    .loc-context__grid { grid-template-columns: 1fr; }
+  }
+</style>

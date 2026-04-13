@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page Not Found | Barrana Accounting Services"
+  description="The page you are looking for does not exist."
+>
+  <section class="not-found">
+    <div class="container">
+      <p class="not-found__code" aria-hidden="true">404</p>
+      <h1>Page not found</h1>
+      <p class="not-found__body">The page you are looking for does not exist or has been moved.</p>
+      <div class="not-found__links">
+        <a href="/" class="btn btn--primary">Go to homepage</a>
+        <a href="/services/" class="btn btn--secondary">View all services</a>
+        <a href="/contact/" class="btn btn--secondary">Contact us</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found {
+    background: var(--color-dark);
+    background-image: radial-gradient(circle at 50% 40%, rgba(126, 15, 74, 0.12) 0%, transparent 60%);
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    padding-block: var(--space-20);
+  }
+
+  .not-found .container {
+    text-align: center;
+  }
+
+  .not-found__code {
+    font-size: clamp(5rem, 15vw, 10rem);
+    font-weight: 700;
+    color: rgba(126, 15, 74, 0.3);
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin-bottom: var(--space-4);
+  }
+
+  .not-found h1 {
+    color: #fff;
+    margin-bottom: var(--space-4);
+  }
+
+  .not-found__body {
+    font-size: var(--font-size-lg);
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: var(--space-10);
+  }
+
+  .not-found__links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .btn--secondary {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.8);
+    background: transparent;
+  }
+
+  .btn--secondary:hover {
+    border-color: #fff;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+  }
+</style>

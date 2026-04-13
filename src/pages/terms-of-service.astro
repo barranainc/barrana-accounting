@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Terms of Service | Barrana Accounting Services"
+  description="Terms of service for Barrana Accounting Services. Governing use of our website and professional services."
+>
+  <section class="legal-hero">
+    <div class="container">
+      <p class="overline legal-hero__overline">Legal</p>
+      <h1>Terms of service</h1>
+      <p class="legal-hero__note">PLACEHOLDER — have legal counsel review before launch.</p>
+    </div>
+  </section>
+
+  <section class="section legal-body">
+    <div class="container container--narrow">
+      <div class="legal-content fade-in">
+
+        <p class="legal-intro">These terms govern your use of the Barrana Accounting Services website (barranaaccounting.ai) and any services provided by Barrana Accounting Services, a division of Barrana.ai. By accessing this website or engaging our services, you agree to these terms.</p>
+
+        <h2>Information on this website</h2>
+        <p>The content on this website is provided for general informational purposes only. It does not constitute professional accounting, tax, or legal advice. Information about our services describes what we offer generally and does not create a professional engagement or client relationship.</p>
+        <p>A professional engagement with Barrana Accounting Services begins only when both parties have signed a written engagement letter. Until that point, no advice, analysis, or guidance we provide creates a professional obligation or liability.</p>
+
+        <h2>No warranty</h2>
+        <p>We make reasonable efforts to ensure the information on this website is accurate and current. However, we make no warranty, express or implied, as to the accuracy, completeness, or fitness for a particular purpose of any information on this site. Tax law, CRA regulations, and other requirements change frequently. We are not responsible for any decisions made based on information found on this website without first consulting with a qualified professional.</p>
+
+        <h2>Limitation of liability</h2>
+        <p>To the fullest extent permitted by applicable law, Barrana Accounting Services and Barrana.ai shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of this website or reliance on any information it contains. Our total liability to you for any claim arising in connection with this website shall not exceed the greater of CAD $100 or the amount you paid us in the three months preceding the claim.</p>
+        <p>Nothing in these terms limits liability for fraud, gross negligence, or any other liability that cannot be limited or excluded under applicable law.</p>
+
+        <h2>Professional services</h2>
+        <p>Our professional accounting and advisory services are governed by separate engagement letters and professional standards applicable to CPAs in Ontario. In the event of any conflict between these terms and a signed engagement letter, the engagement letter prevails.</p>
+
+        <h2>Intellectual property</h2>
+        <p>All content on this website, including text, graphics, and design, is owned by Barrana Accounting Services or its licensors. You may not reproduce, distribute, or use any content from this site without our prior written consent, except for personal, non-commercial reference.</p>
+
+        <h2>Links to third-party sites</h2>
+        <p>This website may contain links to third-party websites. We do not endorse or control those sites and are not responsible for their content, privacy practices, or accuracy. Use of any linked site is at your own risk.</p>
+
+        <h2>Governing law</h2>
+        <p>These terms are governed by and construed in accordance with the laws of the Province of Ontario and the federal laws of Canada applicable therein. Any disputes arising from these terms shall be resolved in the courts of Ontario.</p>
+
+        <h2>Changes to these terms</h2>
+        <p>We may update these terms from time to time. The current version will always be available at barranaaccounting.ai/terms-of-service/. Continued use of the website after changes are posted constitutes acceptance of the updated terms.</p>
+
+        <h2>Contact</h2>
+        <p>Questions about these terms can be directed to:</p>
+        <p>
+          {/* PLACEHOLDER — replace before launch */}
+          <strong>Barrana Accounting Services</strong><br />
+          Email: placeholder@barranaaccounting.ai<br />
+          Vaughan, Ontario, Canada
+        </p>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-hero {
+    background: var(--color-dark);
+    padding-block: var(--space-16) var(--space-20);
+  }
+
+  .legal-hero__overline {
+    color: var(--color-primary-light);
+    display: block;
+    margin-bottom: var(--space-4);
+  }
+
+  .legal-hero h1 {
+    color: #fff;
+    margin-bottom: var(--space-4);
+  }
+
+  .legal-hero__note {
+    font-size: var(--font-size-sm);
+    color: var(--color-warning);
+    background: rgba(184, 98, 26, 0.1);
+    border: 1px solid rgba(184, 98, 26, 0.3);
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-4);
+    display: inline-block;
+  }
+
+  .legal-body {
+    background: var(--color-light);
+  }
+
+  .legal-content {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-10);
+  }
+
+  .legal-intro {
+    font-size: var(--font-size-lg);
+    color: var(--color-muted);
+    line-height: 1.8;
+    margin-bottom: var(--space-8);
+    padding-bottom: var(--space-8);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .legal-content h2 {
+    font-size: var(--font-size-xl);
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-4);
+    color: var(--color-dark);
+  }
+
+  .legal-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .legal-content p {
+    color: var(--color-muted);
+    line-height: 1.8;
+    margin-bottom: var(--space-4);
+  }
+</style>

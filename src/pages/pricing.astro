@@ -1,0 +1,366 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PricingCard from '../components/PricingCard.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const faqs = [
+  {
+    question: 'Are there setup fees?',
+    answer: 'No. Onboarding is included in your first month. We handle software setup, review your chart of accounts, and connect your bank feeds.',
+  },
+  {
+    question: 'What if I incorporate after signing up?',
+    answer: 'We will move you to the Incorporated plan when the time comes. If you are considering incorporating and want to understand the implications, your CPA can help you think through the timing.',
+  },
+  {
+    question: 'Do you require a long-term contract?',
+    answer: 'No. Cancel with 30 days\' notice. If you cancel mid-month, the full month applies.',
+  },
+  {
+    question: 'What accounting software do you work with?',
+    answer: 'Primarily QuickBooks Online and Xero. If you are already on one, we request accountant access. If not, we help set it up as part of onboarding.',
+  },
+  {
+    question: 'Is a CPA actually involved in my file every month?',
+    answer: 'Yes. A CPA closes your books each month, reviews financial outputs, signs off on filings, and is available for questions. The workflow layer handles the repetitive work. The CPA handles the review and judgment.',
+  },
+  {
+    question: 'Do you work with businesses outside the GTA?',
+    answer: 'Our focus is GTA and Ontario. We work remotely, so location within Ontario is not a barrier.',
+  },
+  {
+    question: 'What is the difference between Incorporated and Growth?',
+    answer: 'Incorporated covers the core needs of most owner-managed incorporated businesses. Growth is for businesses that need higher transaction volumes, larger payroll, CFO-level advisory, forecasting, or multi-entity support.',
+  },
+];
+---
+
+<BaseLayout
+  title="Accounting pricing for Ontario businesses | Barrana Accounting Services"
+  description="Explore pricing options for bookkeeping, tax, payroll, reporting, and advisory support for Ontario businesses."
+>
+  <!-- Hero -->
+  <section class="pricing-hero">
+    <div class="container">
+      <p class="overline pricing-hero__overline">Pricing</p>
+      <h1>Structured support options for different business needs</h1>
+      <p class="pricing-hero__body">Barrana Accounting Services offers clear pricing paths for businesses that need ongoing accounting support, from simpler recurring needs to more complex operational and advisory requirements.</p>
+    </div>
+  </section>
+
+  <!-- Pricing cards -->
+  <section class="section pricing-cards-section">
+    <div class="container">
+      <!-- PLACEHOLDER — replace $X with real pricing before launch -->
+      <div class="pricing-page-grid">
+        <PricingCard
+          label="Self-employed"
+          price="Starting at $X/month"
+          forWho="Sole proprietors and self-employed operators"
+          includes={[
+            'Bookkeeping support',
+            'HST/GST filing where applicable',
+            'T1 personal income tax return',
+            'Year-end support',
+            'Email support',
+          ]}
+          ctaLabel="Get started"
+          ctaHref="/contact/"
+        />
+        <PricingCard
+          label="Incorporated"
+          price="Starting at $X/month"
+          forWho="Owner-managed incorporated businesses"
+          includes={[
+            'Everything in Self-employed',
+            'T2 corporate income tax return',
+            'Expanded bookkeeping',
+            'Payroll support (up to [X] employees)',
+            'Monthly financial reporting package',
+            'Semi-annual CPA review call',
+            'Priority support',
+          ]}
+          ctaLabel="Get started"
+          ctaHref="/contact/"
+          featured={true}
+          badge="Most popular"
+        />
+        <PricingCard
+          label="Growth"
+          price="Custom pricing"
+          forWho="Higher-complexity or multi-entity businesses"
+          includes={[
+            'Everything in Incorporated',
+            'CFO advisory support',
+            'Monthly strategy conversation with CPA',
+            'Cash flow forecasting',
+            'Multi-entity coordination',
+            'Custom workflow support',
+          ]}
+          ctaLabel="Book a call"
+          ctaHref="/contact/"
+        />
+      </div>
+
+      <p class="pricing-custom-note">
+        Not sure which option fits? Book a free 20-minute consultation.
+        <a href="/contact/" class="btn btn--secondary" style="margin-left: var(--space-4);">Book a call</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Billing note -->
+  <section class="pricing-billing">
+    <div class="container">
+      <div class="pricing-billing__inner fade-in">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <circle cx="10" cy="10" r="10" fill="rgba(126,15,74,0.1)"/>
+          <path d="M10 6v4M10 14h.01" stroke="#7E0F4A" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <p>All plans are billed monthly. Cancel with 30 days' notice. No setup fees. No long-term contracts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ accordion -->
+  <section class="section pricing-faq">
+    <div class="container container--narrow">
+      <div class="section-header fade-in">
+        <h2>Common questions</h2>
+      </div>
+
+      <div class="accordion" id="pricing-faq">
+        {faqs.map((faq, i) => (
+          <div class="accordion__item fade-in">
+            <button
+              class="accordion__trigger"
+              aria-expanded="false"
+              aria-controls={`faq-panel-${i}`}
+              id={`faq-btn-${i}`}
+            >
+              <span>{faq.question}</span>
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div
+              class="accordion__panel"
+              id={`faq-panel-${i}`}
+              role="region"
+              aria-labelledby={`faq-btn-${i}`}
+              hidden
+            >
+              <p class="accordion__answer">{faq.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    heading="Questions about which option fits your business?"
+    body="Book a free call and we will look at your current setup and help you identify the right level of support."
+    cta1Label="Book a call"
+    cta1Href="/contact/"
+  />
+</BaseLayout>
+
+<style>
+  .pricing-hero {
+    background: var(--color-dark);
+    background-image: radial-gradient(circle at 70% 30%, rgba(126, 15, 74, 0.12) 0%, transparent 60%);
+    padding-block: var(--space-20) var(--space-24);
+  }
+
+  .pricing-hero__overline {
+    color: var(--color-primary-light);
+    display: block;
+    margin-bottom: var(--space-4);
+  }
+
+  .pricing-hero h1 {
+    color: #fff;
+    max-width: 640px;
+    margin-bottom: var(--space-5);
+  }
+
+  .pricing-hero__body {
+    font-size: var(--font-size-lg);
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 580px;
+    line-height: 1.7;
+  }
+
+  /* Cards */
+  .pricing-cards-section {
+    background: var(--color-light);
+  }
+
+  .pricing-page-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    align-items: start;
+    margin-bottom: var(--space-10);
+  }
+
+  .pricing-custom-note {
+    text-align: center;
+    font-size: var(--font-size-base);
+    color: var(--color-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  /* Billing note */
+  .pricing-billing {
+    background: var(--color-surface);
+    padding-block: var(--space-5);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .pricing-billing__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    max-width: 600px;
+    margin-inline: auto;
+  }
+
+  .pricing-billing__inner p {
+    font-size: var(--font-size-sm);
+    color: var(--color-muted);
+    text-align: center;
+  }
+
+  /* FAQ */
+  .pricing-faq {
+    background: var(--color-surface);
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 680px;
+    margin-inline: auto;
+    margin-bottom: var(--space-10);
+  }
+
+  .section-header h2 {
+    margin-bottom: var(--space-4);
+  }
+
+  .accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .accordion__item {
+    border: 1px solid var(--color-border);
+    border-bottom: none;
+    background: var(--color-surface);
+  }
+
+  .accordion__item:first-child {
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+  }
+
+  .accordion__item:last-child {
+    border-bottom: 1px solid var(--color-border);
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+  }
+
+  .accordion__trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-5) var(--space-6);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-dark);
+    transition: background var(--transition-fast);
+  }
+
+  .accordion__trigger:hover {
+    background: var(--color-surface-2);
+  }
+
+  .accordion__trigger[aria-expanded="true"] {
+    color: var(--color-primary);
+  }
+
+  .accordion__icon {
+    font-size: var(--font-size-xl);
+    font-weight: 400;
+    color: var(--color-muted);
+    flex-shrink: 0;
+    line-height: 1;
+    transition: transform var(--transition-base);
+  }
+
+  .accordion__trigger[aria-expanded="true"] .accordion__icon {
+    transform: rotate(45deg);
+    color: var(--color-primary);
+  }
+
+  .accordion__panel {
+    padding: 0 var(--space-6) var(--space-5);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .accordion__panel[hidden] {
+    display: none;
+  }
+
+  .accordion__answer {
+    font-size: var(--font-size-base);
+    color: var(--color-muted);
+    line-height: 1.8;
+    padding-top: var(--space-4);
+  }
+
+  @media (max-width: 768px) {
+    .pricing-page-grid {
+      grid-template-columns: 1fr;
+      max-width: 480px;
+      margin-inline: auto;
+    }
+  }
+</style>
+
+<script>
+  const triggers = document.querySelectorAll<HTMLButtonElement>('.accordion__trigger');
+
+  triggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const expanded = trigger.getAttribute('aria-expanded') === 'true';
+      const panelId = trigger.getAttribute('aria-controls');
+      const panel = panelId ? document.getElementById(panelId) : null;
+
+      // Close all others
+      triggers.forEach((t) => {
+        const pid = t.getAttribute('aria-controls');
+        const p = pid ? document.getElementById(pid) : null;
+        t.setAttribute('aria-expanded', 'false');
+        if (p) p.hidden = true;
+      });
+
+      // Toggle current
+      if (!expanded) {
+        trigger.setAttribute('aria-expanded', 'true');
+        if (panel) panel.hidden = false;
+      }
+    });
+  });
+</script>

@@ -1,0 +1,35 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-dark);
+}
+
+h1 { font-size: clamp(var(--font-size-4xl), 5vw, var(--font-size-6xl)); }
+h2 { font-size: clamp(var(--font-size-3xl), 4vw, var(--font-size-5xl)); }
+h3 { font-size: clamp(var(--font-size-xl), 3vw, var(--font-size-3xl)); }
+h4 { font-size: var(--font-size-xl); }
+h5 { font-size: var(--font-size-lg); }
+h6 { font-size: var(--font-size-base); }
+
+p {
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+
+.text-large {
+  font-size: var(--font-size-lg);
+  line-height: 1.6;
+}
+
+.text-small {
+  font-size: var(--font-size-sm);
+}
+
+.text-primary { color: var(--color-primary); }
+.text-dark    { color: var(--color-dark); }
+.text-muted   { color: var(--color-muted); }
+.text-white   { color: #fff; }
+
+strong { font-weight: 700; color: var(--color-dark); }

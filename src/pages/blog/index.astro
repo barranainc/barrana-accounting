@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Accounting insights for Ontario businesses | Barrana Accounting Services"
+  description="Practical guidance on bookkeeping, tax, payroll, reporting, and accounting workflows for Ontario businesses."
+>
+  <section class="blog-hero">
+    <div class="container">
+      <p class="overline blog-hero__overline">Resources</p>
+      <h1>Accounting insights for Ontario businesses</h1>
+      <p class="blog-hero__body">We are building a library of practical resources for Ontario businesses that want clearer accounting processes, better financial visibility, and more organised recurring support.</p>
+    </div>
+  </section>
+
+  <section class="section blog-coming-soon">
+    <div class="container container--narrow">
+      <div class="coming-soon-card fade-in">
+        <div class="coming-soon-card__icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 26.5A3.5 3.5 0 0 1 7.5 23H28"/>
+            <path d="M7.5 2H28v28H7.5A3.5 3.5 0 0 1 4 26.5v-21A3.5 3.5 0 0 1 7.5 2z"/>
+          </svg>
+        </div>
+        <h2>Coming soon</h2>
+        <p>We are working on practical guidance covering bookkeeping, tax planning for Ontario businesses, payroll compliance, and how to read your financial statements. Leave your email and we will let you know when we publish.</p>
+
+        <form name="blog-notify" method="POST" data-netlify="true" class="notify-form">
+          <input type="hidden" name="form-name" value="blog-notify" />
+          <div class="notify-form__row">
+            <label for="notify-email" class="sr-only">Email address</label>
+            <input
+              type="email"
+              id="notify-email"
+              name="email"
+              required
+              placeholder="your@email.com"
+            />
+            <button type="submit" class="btn btn--primary">Get notified</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .blog-hero {
+    background: var(--color-dark);
+    background-image: radial-gradient(circle at 70% 30%, rgba(126, 15, 74, 0.12) 0%, transparent 60%);
+    padding-block: var(--space-20) var(--space-24);
+  }
+
+  .blog-hero__overline {
+    color: var(--color-primary-light);
+    display: block;
+    margin-bottom: var(--space-4);
+  }
+
+  .blog-hero h1 {
+    color: #fff;
+    max-width: 600px;
+    margin-bottom: var(--space-5);
+  }
+
+  .blog-hero__body {
+    font-size: var(--font-size-lg);
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 500px;
+    line-height: 1.7;
+  }
+
+  .blog-coming-soon {
+    background: var(--color-light);
+  }
+
+  .coming-soon-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-12);
+    text-align: center;
+  }
+
+  .coming-soon-card__icon {
+    width: 64px;
+    height: 64px;
+    background: rgba(126, 15, 74, 0.1);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline: auto;
+    margin-bottom: var(--space-6);
+    color: var(--color-primary);
+  }
+
+  .coming-soon-card h2 {
+    margin-bottom: var(--space-4);
+  }
+
+  .coming-soon-card p {
+    color: var(--color-muted);
+    line-height: 1.8;
+    max-width: 520px;
+    margin-inline: auto;
+    margin-bottom: var(--space-8);
+  }
+
+  .notify-form__row {
+    display: flex;
+    gap: var(--space-3);
+    max-width: 420px;
+    margin-inline: auto;
+  }
+
+  .notify-form__row input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-family: var(--font-sans);
+    font-size: var(--font-size-base);
+    color: var(--color-dark);
+    background: var(--color-surface);
+    transition: border-color var(--transition-fast);
+  }
+
+  .notify-form__row input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  @media (max-width: 480px) {
+    .notify-form__row {
+      flex-direction: column;
+    }
+  }
+</style>
