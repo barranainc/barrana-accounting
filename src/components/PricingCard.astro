@@ -28,8 +28,11 @@ const { label, price, forWho, includes, ctaLabel, ctaHref, featured = false, bad
       </li>
     ))}
   </ul>
-  <a href={ctaHref} class={`btn ${featured ? 'btn--primary' : 'btn--secondary'}`}>
+  <a href={ctaHref} class={`btn ${featured ? 'btn--primary' : 'btn--secondary'} pricing-card__cta`}>
     {ctaLabel}
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+      <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
   </a>
 </div>
 
@@ -38,56 +41,67 @@ const { label, price, forWho, includes, ctaLabel, ctaHref, featured = false, bad
     position: relative;
     display: flex;
     flex-direction: column;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: var(--space-8);
-    transition: box-shadow var(--transition-base);
+    background: #fff;
+    border: 1px solid var(--b-border);
+    border-radius: var(--radius-card);
+    padding: 36px 32px;
+    transition: box-shadow var(--transition-base), transform var(--transition-base);
+    box-shadow: var(--shadow-sm);
   }
 
   .pricing-card--featured {
-    border-color: var(--color-primary);
+    border-color: var(--b-navy);
     box-shadow: var(--shadow-md);
     transform: scale(1.02);
   }
 
   .pricing-card__badge {
     position: absolute;
-    top: -12px;
+    top: -13px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--color-primary);
+    background: linear-gradient(180deg, #3447A8 0%, #283891 100%);
     color: #fff;
-    font-size: var(--font-size-xs);
-    font-weight: 700;
-    letter-spacing: 0.06em;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    padding: 4px 14px;
-    border-radius: var(--radius-full);
+    padding: 4px 16px;
+    border-radius: var(--radius-pill);
     white-space: nowrap;
   }
 
   .pricing-card__label {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-xs);
+    font-family: var(--font-mono);
     font-weight: 700;
-    color: var(--color-dark);
-    margin-bottom: var(--space-2);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--b-grey);
+    margin-bottom: var(--space-3);
   }
 
   .pricing-card__price {
     font-size: var(--font-size-3xl);
-    font-weight: 700;
-    color: var(--color-primary);
-    letter-spacing: -0.02em;
+    font-weight: 800;
+    color: var(--b-navy);
+    letter-spacing: -0.03em;
+    line-height: 1;
     margin-bottom: var(--space-2);
+  }
+
+  .pricing-card--featured .pricing-card__price {
+    color: var(--b-navy);
   }
 
   .pricing-card__for {
     font-size: var(--font-size-sm);
-    color: var(--color-muted);
+    color: var(--b-grey-dark);
     margin-bottom: var(--space-6);
     padding-bottom: var(--space-6);
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--b-border);
+    line-height: 1.5;
   }
 
   .pricing-card__list {
@@ -103,7 +117,7 @@ const { label, price, forWho, includes, ctaLabel, ctaHref, featured = false, bad
     align-items: flex-start;
     gap: var(--space-2);
     font-size: var(--font-size-sm);
-    color: var(--color-dark);
+    color: var(--b-grey-dark);
     line-height: 1.5;
   }
 
@@ -113,8 +127,13 @@ const { label, price, forWho, includes, ctaLabel, ctaHref, featured = false, bad
     color: var(--color-success);
   }
 
-  .btn {
+  .pricing-card--featured .pricing-card__item svg {
+    color: var(--b-navy);
+  }
+
+  .pricing-card__cta {
     text-align: center;
     justify-content: center;
+    border-radius: var(--radius-sm);
   }
 </style>

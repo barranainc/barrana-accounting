@@ -6,7 +6,7 @@ export interface Props {
   cta1Href: string;
   cta2Label?: string;
   cta2Href?: string;
-  background?: string;
+  accentPhrase?: string;
 }
 
 const {
@@ -16,18 +16,27 @@ const {
   cta1Href,
   cta2Label,
   cta2Href,
-  background = 'var(--color-primary)',
+  accentPhrase,
 } = Astro.props;
 ---
 
-<section class="cta-banner" style={`background: ${background};`}>
+<section class="cta-banner dark-section">
   <div class="cta-banner__inner container">
-    <h2 class="cta-banner__heading">{heading}</h2>
+    <p class="overline">Let's talk</p>
+    <h2 class="cta-banner__heading">
+      {heading}
+      {accentPhrase && <span class="accent">{accentPhrase}</span>}
+    </h2>
     <p class="cta-banner__body">{body}</p>
     <div class="cta-banner__actions">
-      <a href={cta1Href} class="btn btn--white">{cta1Label}</a>
+      <a href={cta1Href} class="btn btn--white btn--lg">
+        {cta1Label}
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M8.5 4L13 8l-4.5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
       {cta2Label && cta2Href && (
-        <a href={cta2Href} class="btn btn--outline-white">{cta2Label}</a>
+        <a href={cta2Href} class="btn btn--ghost btn--lg">{cta2Label}</a>
       )}
     </div>
   </div>
@@ -35,27 +44,47 @@ const {
 
 <style>
   .cta-banner {
-    padding-block: var(--space-20);
+    background: linear-gradient(160deg, #1E2B78 0%, #14194A 60%, #0D1235 100%);
+    padding-block: var(--space-24);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle dot texture */
+  .cta-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
   }
 
   .cta-banner__inner {
     text-align: center;
     max-width: 720px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-banner__inner .overline {
+    margin-bottom: var(--space-4);
   }
 
   .cta-banner__heading {
-    font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-4xl));
-    font-weight: 700;
+    font-size: clamp(1.875rem, 4vw, 2.75rem);
+    font-weight: 800;
     color: #fff;
     margin-bottom: var(--space-4);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
   }
 
   .cta-banner__body {
     font-size: var(--font-size-lg);
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.72);
     margin-bottom: var(--space-8);
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
   .cta-banner__actions {
@@ -64,28 +93,5 @@ const {
     justify-content: center;
     gap: var(--space-4);
     flex-wrap: wrap;
-  }
-
-  .btn--outline-white {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--radius-md);
-    font-size: var(--font-size-sm);
-    font-weight: 600;
-    font-family: var(--font-sans);
-    cursor: pointer;
-    border: 2px solid rgba(255, 255, 255, 0.6);
-    background: transparent;
-    color: #fff;
-    transition: all var(--transition-base);
-    text-decoration: none;
-    white-space: nowrap;
-  }
-
-  .btn--outline-white:hover {
-    border-color: #fff;
-    background: rgba(255, 255, 255, 0.1);
   }
 </style>

@@ -1,35 +1,104 @@
+/* ── Headings ── */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-sans);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.15;
   letter-spacing: -0.02em;
-  color: var(--color-dark);
+  color: var(--b-dark);
 }
 
-h1 { font-size: clamp(var(--font-size-4xl), 5vw, var(--font-size-6xl)); }
-h2 { font-size: clamp(var(--font-size-3xl), 4vw, var(--font-size-5xl)); }
-h3 { font-size: clamp(var(--font-size-xl), 3vw, var(--font-size-3xl)); }
-h4 { font-size: var(--font-size-xl); }
-h5 { font-size: var(--font-size-lg); }
-h6 { font-size: var(--font-size-base); }
+h1 {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
 
+h2 {
+  font-size: clamp(1.875rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.125rem; }
+h6 { font-size: 1rem; }
+
+/* ── Body ── */
 p {
-  color: var(--color-muted);
+  color: var(--b-grey-dark);
   line-height: 1.7;
 }
 
-.text-large {
-  font-size: var(--font-size-lg);
-  line-height: 1.6;
+strong {
+  font-weight: 700;
+  color: var(--b-dark);
 }
 
-.text-small {
-  font-size: var(--font-size-sm);
+/* ── Instrument Serif italic accent — one per view ── */
+.accent {
+  font-family: var(--font-serif-italic);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--b-magenta);
+  letter-spacing: -0.005em;
+  display: block;
 }
 
-.text-primary { color: var(--color-primary); }
-.text-dark    { color: var(--color-dark); }
-.text-muted   { color: var(--color-muted); }
+/* On dark sections */
+.dark-section .accent {
+  color: var(--b-magenta-light);
+}
+
+/* ── Eyebrow / overline — magenta rule + mono label ── */
+.eyebrow,
+.overline {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--b-navy);
+  line-height: 1;
+}
+
+.eyebrow::before,
+.overline::before {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--b-magenta);
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+/* On dark sections */
+.dark-section .eyebrow,
+.dark-section .overline {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ── Monospace utility ── */
+.mono {
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+}
+
+/* ── Text utilities ── */
+.text-large  { font-size: 1.125rem; line-height: 1.6; }
+.text-small  { font-size: 0.875rem; }
+.text-primary { color: var(--b-magenta); }
+.text-navy    { color: var(--b-navy); }
+.text-dark    { color: var(--b-dark); }
+.text-muted   { color: var(--b-grey); }
 .text-white   { color: #fff; }
-
-strong { font-weight: 700; color: var(--color-dark); }
