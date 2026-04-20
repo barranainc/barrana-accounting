@@ -202,15 +202,152 @@ ul, ol {
   border-top-color: var(--b-border);
 }
 
+/* ── Keyframe animations ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-12px) rotate(0.5deg); }
+  66%       { transform: translateY(-6px) rotate(-0.5deg); }
+}
+
+@keyframes floatAlt {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-18px); }
+}
+
+@keyframes orb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(30px, -20px) scale(1.05); }
+  66%       { transform: translate(-20px, 15px) scale(0.97); }
+}
+
+@keyframes orbAlt {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(-40px, 30px) scale(1.08); }
+}
+
+@keyframes drawLine {
+  from { stroke-dashoffset: 600; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes pulseRing {
+  0%   { transform: scale(1);   opacity: 0.7; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -400% center; }
+  100% { background-position: 400% center; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes gradientMove {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ── Animation utilities ── */
+.anim-fade-up   { animation: fadeInUp  0.65s var(--ease-signature) both; }
+.anim-fade-left { animation: fadeInLeft  0.65s var(--ease-signature) both; }
+.anim-fade-right{ animation: fadeInRight 0.65s var(--ease-signature) both; }
+.anim-scale     { animation: scaleIn  0.5s  var(--ease-signature) both; }
+.anim-float     { animation: float  6s ease-in-out infinite; }
+.anim-float-alt { animation: floatAlt 8s ease-in-out infinite; }
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.45s; }
+.delay-5 { animation-delay: 0.6s; }
+.delay-6 { animation-delay: 0.75s; }
+
 /* ── Fade-in scroll animation ── */
 .fade-in {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity var(--transition-reveal), transform var(--transition-reveal);
+  transform: translateY(20px);
+  transition: opacity 0.65s var(--ease-signature), transform 0.65s var(--ease-signature);
 }
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Stagger children inside a .stagger-children container */
+.stagger-children > *:nth-child(1) { transition-delay: 0.05s; }
+.stagger-children > *:nth-child(2) { transition-delay: 0.15s; }
+.stagger-children > *:nth-child(3) { transition-delay: 0.25s; }
+.stagger-children > *:nth-child(4) { transition-delay: 0.35s; }
+.stagger-children > *:nth-child(5) { transition-delay: 0.45s; }
+.stagger-children > *:nth-child(6) { transition-delay: 0.55s; }
+.stagger-children > *:nth-child(7) { transition-delay: 0.65s; }
+
+/* ── Gradient orb (decorative, blurred background blob) ── */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Shimmer text ── */
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--b-magenta-light) 0%,
+    #fff 40%,
+    var(--b-magenta-light) 60%,
+    #fff 100%
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* ── Glow border card ── */
+.glow-card {
+  position: relative;
+  border-radius: var(--radius-card);
+}
+.glow-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(40,56,145,0.3), rgba(126,15,74,0.2));
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  z-index: -1;
+}
+.glow-card:hover::before {
+  opacity: 1;
 }
 
 /* ── Dot grid texture ── */
@@ -222,4 +359,14 @@ ul, ol {
 .dark-section .texture-dots {
   background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1.2px, transparent 1.2px);
   background-size: 32px 32px;
+}
+
+/* ── SVG line animation ── */
+.svg-line {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  transition: stroke-dashoffset 1.5s var(--ease-signature);
+}
+.svg-line.visible {
+  stroke-dashoffset: 0;
 }

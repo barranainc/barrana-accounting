@@ -25,71 +25,243 @@ const {
   forWho,
   pricingNote,
 } = Astro.props;
+
+const halfIncludes = Math.ceil(includes.length / 2);
+const col1 = includes.slice(0, halfIncludes);
+const col2 = includes.slice(halfIncludes);
 ---
 
 <BaseLayout title={title} description={description}>
-  <!-- Hero -->
-  <section class="service-hero">
-    <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <ol class="breadcrumb__list">
-          <li class="breadcrumb__item"><a href="/">Home</a></li>
-          <li class="breadcrumb__item"><a href="/services/">Services</a></li>
-          <li class="breadcrumb__item" aria-current="page">{serviceTitle}</li>
+  <!-- ══ HERO — dark navy with animated orbs ══ -->
+  <section class="sl-hero dark-section">
+    <div class="sl-hero__orb sl-hero__orb--1" aria-hidden="true"></div>
+    <div class="sl-hero__orb sl-hero__orb--2" aria-hidden="true"></div>
+    <div class="sl-hero__orb sl-hero__orb--3" aria-hidden="true"></div>
+
+    <div class="container sl-hero__inner">
+      <!-- Breadcrumb -->
+      <nav class="sl-breadcrumb" aria-label="Breadcrumb">
+        <ol class="sl-breadcrumb__list">
+          <li class="sl-breadcrumb__item"><a href="/">Home</a></li>
+          <li class="sl-breadcrumb__item"><a href="/services/">Services</a></li>
+          <li class="sl-breadcrumb__item" aria-current="page">{serviceTitle}</li>
         </ol>
       </nav>
-      <p class="overline service-hero__overline">Service</p>
-      <h1 class="service-hero__heading">{serviceTitle}</h1>
-      <p class="service-hero__tagline">{tagline}</p>
+
+      <div class="sl-hero__content">
+        <p class="overline sl-hero__overline anim-fade-up">Service</p>
+        <h1 class="sl-hero__heading anim-fade-up delay-1">{serviceTitle}</h1>
+        <p class="sl-hero__tagline anim-fade-up delay-2">{tagline}</p>
+        <div class="sl-hero__ctas anim-fade-up delay-3">
+          <a href="/contact/" class="btn btn--white btn--lg">
+            Book a consultation
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8.5 4L13 8l-4.5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="/services/" class="btn btn--ghost btn--lg">View all services</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- What this service is -->
-  <section class="section service-body">
-    <div class="container container--narrow">
-      <div class="service-section fade-in">
-        <h2>What this service is</h2>
-        <slot name="what-this-is" />
+  <!-- ══ WHAT THIS SERVICE IS — light ══ -->
+  <section class="section sl-what">
+    <div class="container">
+      <div class="sl-what__grid">
+        <div class="sl-what__text fade-in">
+          <p class="overline">About this service</p>
+          <h2 class="sl-what__heading">What this service is</h2>
+          <div class="sl-what__slot">
+            <slot name="what-this-is" />
+          </div>
+          <div class="sl-what__gain fade-in">
+            <p class="sl-what__gain-label">What clients typically gain</p>
+            <p class="sl-what__gain-body">{whatClientsGain}</p>
+          </div>
+        </div>
+
+        <div class="sl-what__visual fade-in" aria-hidden="true">
+          <div class="sl-accounting-visual">
+            <div class="sl-av__header">
+              <div class="sl-av__dot sl-av__dot--r"></div>
+              <div class="sl-av__dot sl-av__dot--y"></div>
+              <div class="sl-av__dot sl-av__dot--g"></div>
+              <span class="sl-av__label">Financial overview</span>
+            </div>
+            <div class="sl-av__body">
+              <!-- Chart bars -->
+              <div class="sl-av__chart">
+                <div class="sl-av__bar-wrap">
+                  <div class="sl-av__bar" style="height:60%"></div>
+                  <span class="sl-av__bar-label">Q1</span>
+                </div>
+                <div class="sl-av__bar-wrap">
+                  <div class="sl-av__bar" style="height:80%"></div>
+                  <span class="sl-av__bar-label">Q2</span>
+                </div>
+                <div class="sl-av__bar-wrap">
+                  <div class="sl-av__bar sl-av__bar--accent" style="height:55%"></div>
+                  <span class="sl-av__bar-label">Q3</span>
+                </div>
+                <div class="sl-av__bar-wrap">
+                  <div class="sl-av__bar" style="height:90%"></div>
+                  <span class="sl-av__bar-label">Q4</span>
+                </div>
+              </div>
+              <!-- Status rows -->
+              <div class="sl-av__rows">
+                <div class="sl-av__row">
+                  <span class="sl-av__row-icon sl-av__row-icon--check">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  </span>
+                  <span class="sl-av__row-text">Reconciliation complete</span>
+                </div>
+                <div class="sl-av__row">
+                  <span class="sl-av__row-icon sl-av__row-icon--check">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  </span>
+                  <span class="sl-av__row-text">CPA review applied</span>
+                </div>
+                <div class="sl-av__row">
+                  <span class="sl-av__row-icon sl-av__row-icon--cpa">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#fff" stroke-width="1.5"/><path d="M4 6l2 2 3-3" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  </span>
+                  <span class="sl-av__row-text">Filed on schedule</span>
+                </div>
+              </div>
+            </div>
+            <!-- Grid dots -->
+            <div class="sl-av__grid-dots"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ HOW WE DELIVER THIS — dark navy ══ -->
+  <section class="section sl-delivery dark-section">
+    <div class="sl-delivery__orb" aria-hidden="true"></div>
+    <div class="container sl-delivery__inner">
+      <div class="sl-delivery__header fade-in">
+        <p class="overline">Our approach</p>
+        <h2 class="sl-delivery__heading">How we deliver this</h2>
+        <p class="sl-delivery__body">{deliveryApproach}</p>
       </div>
 
-      <!-- How our process supports this service -->
-      <div class="service-section service-process fade-in">
-        <h2>How our process supports this service</h2>
-        <p class="service-process__body">{deliveryApproach}</p>
+      <div class="sl-delivery__features stagger-children">
+        <div class="sl-feature fade-in">
+          <div class="sl-feature__icon sl-feature__icon--navy">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          </div>
+          <h3 class="sl-feature__title">CPA-reviewed</h3>
+          <p class="sl-feature__body">Every output is reviewed by a licensed CPA before delivery. No exceptions.</p>
+        </div>
+
+        <div class="sl-feature fade-in">
+          <div class="sl-feature__icon sl-feature__icon--navy">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3 class="sl-feature__title">Structured workflows</h3>
+          <p class="sl-feature__body">Recurring tasks run on a predictable cadence through consistent processes and clear handoffs.</p>
+        </div>
+
+        <div class="sl-feature fade-in">
+          <div class="sl-feature__icon sl-feature__icon--magenta">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3 class="sl-feature__title">Cloud-based tools</h3>
+          <p class="sl-feature__body">We work with industry-standard cloud accounting platforms to keep your data secure and accessible.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ WHAT'S INCLUDED — light ══ -->
+  <section class="section sl-includes">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="overline">Scope of work</p>
+        <h2>What's included<br><span class="accent">in this service</span></h2>
+        <p class="section-header__body">A clear picture of everything covered under this service, so you know exactly what you're getting.</p>
       </div>
 
-      <!-- What clients typically gain -->
-      <div class="service-section fade-in">
-        <h2>What clients typically gain</h2>
-        <p>{whatClientsGain}</p>
-      </div>
-
-      <!-- What is included -->
-      <div class="service-section fade-in">
-        <h2>What is included</h2>
-        <ul class="service-includes">
-          {includes.map((item) => (
-            <li class="service-includes__item">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-                <circle cx="9" cy="9" r="9" fill="rgba(126,15,74,0.1)"/>
-                <path d="M5 9L7.5 11.5L13 6" stroke="#7E0F4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              {item}
-            </li>
+      <div class="sl-includes__grid stagger-children">
+        <div class="sl-includes__col">
+          {col1.map((item) => (
+            <div class="sl-check-item fade-in">
+              <span class="sl-check-item__icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="sl-check-item__text">{item}</span>
+            </div>
           ))}
-        </ul>
+        </div>
+        <div class="sl-includes__col">
+          {col2.map((item) => (
+            <div class="sl-check-item fade-in">
+              <span class="sl-check-item__icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="sl-check-item__text">{item}</span>
+            </div>
+          ))}
+        </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Who this is for -->
-      <div class="service-section fade-in">
-        <h2>Who this is for</h2>
-        <p>{forWho}</p>
+  <!-- ══ WHO THIS IS FOR — offwhite card, dark CTA ══ -->
+  <section class="section sl-forwho dark-section">
+    <div class="sl-forwho__orb" aria-hidden="true"></div>
+    <div class="container sl-forwho__inner">
+      <div class="sl-forwho__grid">
+        <div class="sl-forwho__text fade-in">
+          <p class="overline">Ideal fit</p>
+          <h2 class="sl-forwho__heading">Who this is for</h2>
+          <p class="sl-forwho__body">{forWho}</p>
+        </div>
+
+        <div class="sl-forwho__card fade-in">
+          <div class="sl-right-card">
+            <h3 class="sl-right-card__title">Is this right for you?</h3>
+            <div class="sl-right-card__list">
+              <div class="sl-right-item">
+                <span class="sl-right-item__icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span>You want consistent, CPA-reviewed accounting work</span>
+              </div>
+              <div class="sl-right-item">
+                <span class="sl-right-item__icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span>You prefer a structured process over reactive support</span>
+              </div>
+              <div class="sl-right-item">
+                <span class="sl-right-item__icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span>You want better visibility into your accounting without more admin</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Pricing + CTA -->
-      <div class="service-pricing fade-in">
-        <p class="service-pricing__note">{pricingNote}</p>
-        <a href="/contact/" class="btn btn--primary btn--lg">Book a free consultation</a>
+  <!-- ══ PRICING CTA BAR — light ══ -->
+  <section class="sl-cta-bar">
+    <div class="container">
+      <div class="sl-cta-bar__inner fade-in">
+        <div class="sl-cta-bar__left">
+          <p class="sl-cta-bar__note">{pricingNote}</p>
+        </div>
+        <div class="sl-cta-bar__actions">
+          <a href="/contact/" class="btn btn--primary btn--lg">
+            Book a free consultation
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8.5 4L13 8l-4.5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -105,156 +277,620 @@ const {
 </BaseLayout>
 
 <style>
-  .service-hero {
-    background: var(--color-dark);
-    background-image: radial-gradient(circle at 80% 50%, rgba(126, 15, 74, 0.1) 0%, transparent 60%);
-    padding-block: var(--space-16) var(--space-20);
+  /* ── HERO ── */
+  .sl-hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(160deg, #1E2B78 0%, var(--b-navy-ink) 50%, #0D1235 100%);
+    padding-block: var(--space-20) var(--space-24);
   }
 
-  .breadcrumb {
-    margin-bottom: var(--space-6);
+  .sl-hero__orb--1 {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    top: -200px;
+    right: -100px;
+    background: radial-gradient(circle, rgba(40,56,145,0.35) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(90px);
+    animation: orb 14s ease-in-out infinite;
   }
 
-  .breadcrumb__list {
+  .sl-hero__orb--2 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    bottom: -100px;
+    left: 10%;
+    background: radial-gradient(circle, rgba(126,15,74,0.25) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(90px);
+    animation: orbAlt 18s ease-in-out infinite;
+  }
+
+  .sl-hero__orb--3 {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: 30%;
+    left: 40%;
+    background: radial-gradient(circle, rgba(40,56,145,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: orb 20s ease-in-out infinite 4s;
+  }
+
+  .sl-hero__inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .sl-breadcrumb {
+    margin-bottom: var(--space-8);
+  }
+
+  .sl-breadcrumb__list {
     display: flex;
     align-items: center;
     gap: var(--space-2);
     flex-wrap: wrap;
   }
 
-  .breadcrumb__item {
+  .sl-breadcrumb__item {
     display: flex;
     align-items: center;
     gap: var(--space-2);
     font-size: var(--font-size-sm);
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255,255,255,0.5);
+    font-family: var(--font-mono);
+    letter-spacing: 0.04em;
   }
 
-  .breadcrumb__item a {
-    color: rgba(255, 255, 255, 0.5);
+  .sl-breadcrumb__item a {
+    color: rgba(255,255,255,0.5);
     text-decoration: none;
     transition: color var(--transition-fast);
   }
 
-  .breadcrumb__item a:hover {
-    color: rgba(255, 255, 255, 0.8);
+  .sl-breadcrumb__item a:hover {
+    color: rgba(255,255,255,0.85);
   }
 
-  .breadcrumb__item + .breadcrumb__item::before {
+  .sl-breadcrumb__item + .sl-breadcrumb__item::before {
     content: '/';
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(255,255,255,0.25);
   }
 
-  .breadcrumb__item[aria-current="page"] {
-    color: var(--color-primary-light);
+  .sl-breadcrumb__item[aria-current="page"] {
+    color: var(--b-magenta-light);
   }
 
-  .service-hero__overline {
-    color: var(--color-primary-light);
+  .sl-hero__overline {
+    margin-bottom: var(--space-4);
+  }
+
+  .sl-hero__heading {
+    color: #fff;
+    margin-bottom: var(--space-5);
+    max-width: 700px;
+  }
+
+  .sl-hero__tagline {
+    font-size: var(--font-size-xl);
+    color: rgba(255,255,255,0.72);
+    line-height: 1.6;
+    max-width: 580px;
+    margin-bottom: var(--space-8);
+  }
+
+  .sl-hero__ctas {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  /* ── WHAT THIS IS ── */
+  .sl-what {
+    background: var(--b-offwhite);
+  }
+
+  .sl-what__grid {
+    display: grid;
+    grid-template-columns: 1fr 440px;
+    gap: var(--space-16);
+    align-items: start;
+  }
+
+  .sl-what__heading {
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+
+  .sl-what__slot {
+    margin-bottom: var(--space-8);
+  }
+
+  .sl-what__slot :global(p) {
+    font-size: var(--font-size-base);
+    color: var(--b-grey-dark);
+    line-height: 1.8;
+    margin-bottom: var(--space-4);
+  }
+
+  .sl-what__gain {
+    background: #fff;
+    border: 1px solid var(--b-border);
+    border-radius: var(--radius-card);
+    padding: var(--space-6);
+    border-left: 3px solid var(--b-navy);
+  }
+
+  .sl-what__gain-label {
+    font-size: var(--font-size-xs);
+    font-family: var(--font-mono);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--b-navy);
     margin-bottom: var(--space-3);
   }
 
-  .service-hero__heading {
-    color: #fff;
-    margin-bottom: var(--space-4);
-  }
-
-  .service-hero__tagline {
-    font-size: var(--font-size-xl);
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.5;
-    max-width: 600px;
-  }
-
-  .service-body {
-    background: var(--color-light);
-  }
-
-  .service-section {
-    padding-bottom: var(--space-12);
-    margin-bottom: var(--space-12);
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .service-section:last-of-type {
-    border-bottom: none;
-  }
-
-  .service-section h2 {
-    font-size: var(--font-size-2xl);
-    margin-bottom: var(--space-5);
-  }
-
-  .service-section p {
+  .sl-what__gain-body {
     font-size: var(--font-size-base);
-    color: var(--color-muted);
-    line-height: 1.8;
-    margin-bottom: var(--space-4);
-  }
-
-  .service-section p:last-child {
+    color: var(--b-grey-dark);
+    line-height: 1.7;
     margin-bottom: 0;
   }
 
-  .service-process {
-    background: var(--color-surface);
-    border-radius: var(--radius-lg);
-    padding: var(--space-8);
-    border: 1px solid var(--color-border);
+  /* Accounting visual card */
+  .sl-accounting-visual {
+    position: sticky;
+    top: 100px;
+    background: #fff;
+    border: 1px solid var(--b-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
   }
 
-  .service-process h2 {
-    margin-bottom: var(--space-4);
+  .sl-av__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-5);
+    background: var(--b-offwhite);
+    border-bottom: 1px solid var(--b-border);
   }
 
-  .service-process__body {
-    font-size: var(--font-size-base);
-    color: var(--color-muted);
-    line-height: 1.8;
+  .sl-av__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
   }
 
-  .service-includes {
+  .sl-av__dot--r { background: #FC615D; }
+  .sl-av__dot--y { background: #FDBC40; }
+  .sl-av__dot--g { background: #34C749; }
+
+  .sl-av__label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    color: var(--b-grey-dark);
+    letter-spacing: 0.06em;
+    margin-left: var(--space-2);
+  }
+
+  .sl-av__body {
+    padding: var(--space-6);
+    position: relative;
+    z-index: 1;
+  }
+
+  .sl-av__chart {
+    display: flex;
+    align-items: flex-end;
+    gap: var(--space-4);
+    height: 120px;
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--b-border);
+  }
+
+  .sl-av__bar-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    height: 100%;
+    justify-content: flex-end;
+  }
+
+  .sl-av__bar {
+    width: 100%;
+    background: linear-gradient(180deg, #3447A8, #283891);
+    border-radius: 4px 4px 0 0;
+    transition: height 0.6s var(--ease-signature);
+  }
+
+  .sl-av__bar--accent {
+    background: linear-gradient(180deg, #9B2464, #7E0F4A);
+  }
+
+  .sl-av__bar-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--b-grey-dark);
+    letter-spacing: 0.06em;
+  }
+
+  .sl-av__rows {
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
   }
 
-  .service-includes__item {
+  .sl-av__row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .sl-av__row-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .sl-av__row-icon--check {
+    background: var(--b-navy);
+  }
+
+  .sl-av__row-icon--cpa {
+    background: var(--b-magenta);
+  }
+
+  .sl-av__row-text {
+    font-size: var(--font-size-sm);
+    color: var(--b-grey-dark);
+  }
+
+  .sl-av__grid-dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(40,56,145,0.07) 1.2px, transparent 1.2px);
+    background-size: 24px 24px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── DELIVERY ── */
+  .sl-delivery {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(160deg, #1E2B78 0%, var(--b-navy-ink) 60%, #0D1235 100%);
+  }
+
+  .sl-delivery__orb {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    top: -150px;
+    right: -50px;
+    background: radial-gradient(circle, rgba(126,15,74,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(90px);
+    animation: orbAlt 16s ease-in-out infinite;
+  }
+
+  .sl-delivery__inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .sl-delivery__header {
+    max-width: 680px;
+    margin-inline: auto;
+    text-align: center;
+    margin-bottom: var(--space-16);
+  }
+
+  .sl-delivery__heading {
+    color: #fff;
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-5);
+  }
+
+  .sl-delivery__body {
+    font-size: var(--font-size-lg);
+    color: rgba(255,255,255,0.7);
+    line-height: 1.8;
+  }
+
+  .sl-delivery__features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  .sl-feature {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-card);
+    padding: var(--space-8);
+    backdrop-filter: blur(12px);
+    transition: background var(--transition-slow), border-color var(--transition-slow);
+  }
+
+  .sl-feature:hover {
+    background: rgba(255,255,255,0.09);
+    border-color: rgba(255,255,255,0.18);
+  }
+
+  .sl-feature__icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-5);
+    color: #fff;
+  }
+
+  .sl-feature__icon--navy {
+    background: linear-gradient(135deg, #3447A8, #283891);
+    box-shadow: 0 10px 28px rgba(40,56,145,0.4);
+  }
+
+  .sl-feature__icon--magenta {
+    background: linear-gradient(135deg, #9B2464, #7E0F4A);
+    box-shadow: 0 10px 28px rgba(126,15,74,0.4);
+  }
+
+  .sl-feature__title {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: var(--space-3);
+  }
+
+  .sl-feature__body {
+    font-size: var(--font-size-sm);
+    color: rgba(255,255,255,0.68);
+    line-height: 1.7;
+  }
+
+  /* ── INCLUDES ── */
+  .sl-includes {
+    background: #fff;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 680px;
+    margin-inline: auto;
+    margin-bottom: var(--space-12);
+  }
+
+  .section-header__body {
+    font-size: var(--font-size-lg);
+    color: var(--b-grey-dark);
+    margin-top: var(--space-4);
+  }
+
+  .sl-includes__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4) var(--space-12);
+  }
+
+  .sl-includes__col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .sl-check-item {
     display: flex;
     align-items: flex-start;
-    gap: var(--space-3);
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-5);
+    background: var(--b-offwhite);
+    border: 1px solid var(--b-border);
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition-base), box-shadow var(--transition-base);
+  }
+
+  .sl-check-item:hover {
+    border-color: var(--b-navy);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .sl-check-item__icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--b-magenta);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .sl-check-item__text {
     font-size: var(--font-size-base);
-    color: var(--color-dark);
+    color: var(--b-dark);
     line-height: 1.6;
   }
 
-  .service-includes__item svg {
-    flex-shrink: 0;
-    margin-top: 2px;
+  /* ── WHO THIS IS FOR ── */
+  .sl-forwho {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(160deg, var(--b-navy-ink) 0%, #1A2050 50%, var(--b-navy-ink) 100%);
   }
 
-  .service-pricing {
-    background: var(--color-surface-2);
-    border-radius: var(--radius-lg);
+  .sl-forwho__orb {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    bottom: -100px;
+    right: 20%;
+    background: radial-gradient(circle, rgba(40,56,145,0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: orb 16s ease-in-out infinite;
+  }
+
+  .sl-forwho__inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .sl-forwho__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+    align-items: center;
+  }
+
+  .sl-forwho__heading {
+    color: #fff;
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-5);
+  }
+
+  .sl-forwho__body {
+    font-size: var(--font-size-lg);
+    color: rgba(255,255,255,0.72);
+    line-height: 1.8;
+  }
+
+  .sl-right-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius-card);
     padding: var(--space-8);
+    backdrop-filter: blur(12px);
+  }
+
+  .sl-right-card__title {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .sl-right-card__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .sl-right-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+
+  .sl-right-item__icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(245,182,216,0.15);
+    border: 1px solid rgba(245,182,216,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--b-magenta-light);
+    margin-top: 1px;
+  }
+
+  .sl-right-item span:last-child {
+    font-size: var(--font-size-base);
+    color: rgba(255,255,255,0.82);
+    line-height: 1.6;
+  }
+
+  /* ── PRICING CTA BAR ── */
+  .sl-cta-bar {
+    padding-block: var(--space-12);
+    background: var(--b-offwhite);
+    border-top: 1px solid var(--b-border);
+    border-bottom: 1px solid var(--b-border);
+  }
+
+  .sl-cta-bar__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--space-6);
+    gap: var(--space-8);
     flex-wrap: wrap;
   }
 
-  .service-pricing__note {
+  .sl-cta-bar__note {
     font-size: var(--font-size-lg);
     font-weight: 600;
-    color: var(--color-dark);
-    margin-bottom: 0;
+    color: var(--b-dark);
+    max-width: 560px;
   }
 
-  @media (max-width: 640px) {
-    .service-pricing {
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .sl-what__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .sl-accounting-visual {
+      position: static;
+      max-width: 480px;
+    }
+
+    .sl-delivery__features {
+      grid-template-columns: 1fr;
+    }
+
+    .sl-forwho__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .sl-includes__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .sl-cta-bar__inner {
       flex-direction: column;
       align-items: flex-start;
     }
   }
+
+  @media (max-width: 640px) {
+    .sl-hero__ctas {
+      flex-direction: column;
+    }
+  }
 </style>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>

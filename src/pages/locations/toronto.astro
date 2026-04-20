@@ -1,129 +1,597 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABanner from '../../components/CTABanner.astro';
-
-const services = [
-  { title: 'Bookkeeping', href: '/services/bookkeeping/' },
-  { title: 'Tax returns', href: '/services/tax-returns/' },
-  { title: 'Payroll', href: '/services/payroll/' },
-  { title: 'Corporate tax', href: '/services/corporate-tax/' },
-  { title: 'HST/GST filing', href: '/services/hst-gst-filing/' },
-  { title: 'Financial reporting', href: '/services/financial-reporting/' },
-  { title: 'CFO advisory', href: '/services/cfo-advisory/' },
-];
 ---
 
 <BaseLayout
-  title="Accounting services for Toronto businesses | Barrana Accounting Services"
-  description="Bookkeeping, tax, payroll, and reporting support for Toronto small businesses through CPA oversight and a more organised delivery model."
+  title="Accounting services in Toronto, Ontario | Barrana Accounting Services"
+  description="CPA-led bookkeeping, tax, payroll, and reporting for Toronto businesses — delivered remotely through structured workflows and cloud accounting tools."
 >
-  <section class="loc-hero">
-    <div class="container">
-      <p class="overline loc-hero__overline">Toronto</p>
-      <h1>Accounting services for Toronto businesses</h1>
-      <p class="loc-hero__body">Structured bookkeeping, tax, payroll, and reporting for Toronto SMBs, delivered remotely through CPA oversight and organised workflows.</p>
-      <a href="/contact/" class="btn btn--white btn--lg">Book a free consultation</a>
-    </div>
-  </section>
 
-  <section class="section loc-context">
-    <div class="container">
-      <div class="loc-context__grid">
-        <div class="fade-in">
-          <h2>Accounting services for Toronto's SMB community</h2>
-          <p>Toronto's SMB landscape includes thousands of incorporated businesses across professional services, technology, healthcare, hospitality, creative agencies, and retail. For many Toronto business owners, accounting is something that runs in the background until it becomes a problem.</p>
-          <p>The challenge for growing Toronto businesses is usually not finding an accountant. It is finding one whose process is organised enough that the owner stops spending time managing the accounting relationship instead of running the business.</p>
-          <p>Barrana Accounting Services supports Toronto businesses remotely, with structured workflows designed to reduce the administrative friction that often comes with managing bookkeeping, filings, reporting, and year-end work across a busy business.</p>
-        </div>
-        <div class="loc-info fade-in">
-          <div class="loc-info__card">
-            <h3>Remote delivery</h3>
-            <p>We work with Toronto businesses entirely remotely. For most accounting workflows, remote delivery supports more consistent processes and faster turnaround.</p>
-          </div>
-          <div class="loc-services-list">
-            <h3>Services available</h3>
-            <ul>
-              {services.map((s) => (
-                <li><a href={s.href}>{s.title}</a></li>
-              ))}
-            </ul>
-          </div>
+  <!-- ═══════════════════════════════════════
+       HERO — dark navy with animated orbs
+  ═══════════════════════════════════════ -->
+  <section class="loc-hero">
+    <div class="loc-hero__orb loc-hero__orb--1" aria-hidden="true"></div>
+    <div class="loc-hero__orb loc-hero__orb--2" aria-hidden="true"></div>
+
+    <div class="container loc-hero__inner">
+      <div class="loc-hero__content">
+        <p class="overline loc-hero__overline">City of Toronto</p>
+        <h1 class="loc-hero__heading">
+          Accounting services for<br>Toronto businesses
+        </h1>
+        <p class="loc-hero__accent">Canada's largest business market, organized.</p>
+        <p class="loc-hero__body">
+          CPA-led bookkeeping, tax, payroll, and reporting for Toronto businesses — delivered remotely through structured workflows and cloud accounting tools.
+        </p>
+        <div class="loc-hero__ctas">
+          <a href="/contact/" class="btn btn--white btn--lg">
+            Book a free consultation →
+          </a>
+          <a href="/services/" class="btn btn--ghost btn--lg">View services</a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════
+       SERVICES — light offwhite
+  ═══════════════════════════════════════ -->
+  <section class="section loc-services">
+    <div class="container">
+      <div class="loc-section-header fade-in">
+        <p class="overline">What we handle</p>
+        <h2>Seven services. One CPA relationship.</h2>
+      </div>
+      <div class="services-grid stagger-children">
+
+        <div class="svc-row fade-in">
+          <div class="svc-row__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <div class="svc-row__body">
+            <strong>Bookkeeping</strong>
+            <span>Month-end processes, bank reconciliations, and CPA-reviewed oversight.</span>
+          </div>
+          <a href="/services/bookkeeping/" class="svc-row__link">Learn more →</a>
+        </div>
+
+        <div class="svc-row fade-in">
+          <div class="svc-row__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div class="svc-row__body">
+            <strong>Tax Returns</strong>
+            <span>Personal and corporate return preparation with CPA review.</span>
+          </div>
+          <a href="/services/tax-returns/" class="svc-row__link">Learn more →</a>
+        </div>
+
+        <div class="svc-row fade-in">
+          <div class="svc-row__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="svc-row__body">
+            <strong>Payroll</strong>
+            <span>Payroll runs, statutory deductions, and CRA remittances.</span>
+          </div>
+          <a href="/services/payroll/" class="svc-row__link">Learn more →</a>
+        </div>
+
+        <div class="svc-row fade-in">
+          <div class="svc-row__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="svc-row__body">
+            <strong>Corporate Tax</strong>
+            <span>T2 preparation and related schedules through an organised year-end process.</span>
+          </div>
+          <a href="/services/corporate-tax/" class="svc-row__link">Learn more →</a>
+        </div>
+
+        <div class="svc-row fade-in">
+          <div class="svc-row__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div class="svc-row__body">
+            <strong>HST/GST Filing</strong>
+            <span>Recurring indirect tax filings managed through consistent, timely submission.</span>
+          </div>
+          <a href="/services/hst-gst-filing/" class="svc-row__link">Learn more →</a>
+        </div>
+
+        <div class="svc-row fade-in">
+          <div class="svc-row__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <div class="svc-row__body">
+            <strong>Financial Reporting</strong>
+            <span>Monthly financial packages for performance, cash flow, and key changes.</span>
+          </div>
+          <a href="/services/financial-reporting/" class="svc-row__link">Learn more →</a>
+        </div>
+
+        <div class="svc-row fade-in">
+          <div class="svc-row__icon svc-row__icon--magenta" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="svc-row__body">
+            <strong>CFO Advisory</strong>
+            <span>Planning, forecasting, and strategic financial guidance for growing businesses.</span>
+          </div>
+          <a href="/services/cfo-advisory/" class="svc-row__link">Learn more →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       WHY — dark navy glass cards
+  ═══════════════════════════════════════ -->
+  <section class="section loc-why dark-section">
+    <div class="loc-why__orb loc-why__orb--1" aria-hidden="true"></div>
+    <div class="loc-why__orb loc-why__orb--2" aria-hidden="true"></div>
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="loc-section-header loc-section-header--dark fade-in">
+        <p class="overline">Why Toronto businesses choose Barrana</p>
+        <h2 style="color:#fff;">Professional accounting support<br>built for how Toronto works.</h2>
+      </div>
+      <div class="why-cards stagger-children">
+
+        <div class="glass-card fade-in">
+          <div class="glass-card__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3>Fully remote, fully structured</h3>
+          <p>No in-person requirement. Barrana delivers every service remotely through structured workflows, clear handoffs, and consistent follow-up — right across the city.</p>
+        </div>
+
+        <div class="glass-card fade-in">
+          <div class="glass-card__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          </div>
+          <h3>CPA-reviewed every month</h3>
+          <p>A licensed CPA reviews every file — not just at year-end. You get professional oversight applied to your bookkeeping, reporting, and filings on a consistent monthly schedule.</p>
+        </div>
+
+        <div class="glass-card fade-in">
+          <div class="glass-card__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <h3>Cloud bookkeeping tools</h3>
+          <p>We work with QuickBooks Online and Xero. Your books stay current, accessible, and fully integrated with the tools your Toronto business already relies on.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       BUSINESS LANDSCAPE — light
+  ═══════════════════════════════════════ -->
+  <section class="section loc-landscape">
+    <div class="container">
+      <div class="landscape-grid">
+
+        <div class="landscape-text fade-in">
+          <p class="overline">Business landscape</p>
+          <h2>Toronto's business community</h2>
+          <p>Toronto is home to the widest range of business types in Canada — from professional services and creative firms to construction, retail, hospitality, and technology startups. The accounting obligations that come with running an incorporated business in Toronto are real: HST filings, payroll remittances, T4s, T2 corporate returns, and monthly reporting all have to be managed on schedule.</p>
+          <p>Barrana Accounting Services works with Toronto businesses remotely, providing CPA-led accounting support through a more organised delivery model. Toronto businesses often find that their accounting process is reactive rather than structured. We're built to change that — with clear workflows, consistent follow-up, and a CPA who reviews every file.</p>
+        </div>
+
+        <div class="landscape-facts fade-in">
+          <div class="facts-card">
+            <h3 class="facts-card__title">Toronto at a glance</h3>
+            <ul class="facts-list">
+              <li class="facts-list__item">
+                <div class="facts-list__dot" aria-hidden="true"></div>
+                <div>
+                  <span class="facts-list__label">Municipality</span>
+                  <span class="facts-list__value">City of Toronto</span>
+                </div>
+              </li>
+              <li class="facts-list__item">
+                <div class="facts-list__dot" aria-hidden="true"></div>
+                <div>
+                  <span class="facts-list__label">Scale</span>
+                  <span class="facts-list__value">Largest city in Canada by population</span>
+                </div>
+              </li>
+              <li class="facts-list__item">
+                <div class="facts-list__dot" aria-hidden="true"></div>
+                <div>
+                  <span class="facts-list__label">Business base</span>
+                  <span class="facts-list__value">Diverse SMB landscape across all sectors</span>
+                </div>
+              </li>
+              <li class="facts-list__item">
+                <div class="facts-list__dot facts-list__dot--magenta" aria-hidden="true"></div>
+                <div>
+                  <span class="facts-list__label">Delivery</span>
+                  <span class="facts-list__value">Fully remote service delivery</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       CTA BANNER
+  ═══════════════════════════════════════ -->
   <CTABanner
     heading="Accounting support for Toronto businesses"
-    body="Book a consultation to discuss your accounting needs and whether Barrana Accounting Services is a good fit."
+    accentPhrase="Let's talk."
+    body="Book a free consultation to see whether Barrana Accounting Services is a fit for your business."
     cta1Label="Book a free consultation"
     cta1Href="/contact/"
     cta2Label="View all services"
     cta2Href="/services/"
   />
+
 </BaseLayout>
 
 <style>
-  .loc-hero {
-    background: var(--color-dark);
-    background-image: radial-gradient(circle at 70% 30%, rgba(126, 15, 74, 0.12) 0%, transparent 60%);
-    padding-block: var(--space-20) var(--space-24);
-  }
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.loc-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #1E2B78 0%, var(--b-navy-ink) 50%, #0D1235 100%);
+  min-height: 55vh;
+  padding-block: var(--space-20) var(--space-24);
+  display: flex;
+  align-items: center;
+}
 
-  .loc-hero__overline { color: var(--color-primary-light); display: block; margin-bottom: var(--space-3); }
-  .loc-hero h1 { color: #fff; max-width: 640px; margin-bottom: var(--space-5); }
-  .loc-hero__body {
-    font-size: var(--font-size-lg);
-    color: rgba(255,255,255,0.7);
-    max-width: 560px;
-    line-height: 1.7;
-    margin-bottom: var(--space-8);
-  }
+.loc-hero__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+.loc-hero__orb--1 {
+  width: 560px; height: 560px;
+  background: rgba(40, 56, 145, 0.3);
+  top: -180px; right: -80px;
+  animation: orb 13s ease-in-out infinite;
+}
+.loc-hero__orb--2 {
+  width: 380px; height: 380px;
+  background: rgba(126, 15, 74, 0.18);
+  bottom: -120px; left: 8%;
+  animation: orbAlt 16s ease-in-out infinite;
+}
 
-  .loc-context { background: var(--color-light); }
-  .loc-context__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-12);
-    align-items: start;
-  }
+.loc-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+}
 
-  .loc-context__grid h2 { margin-bottom: var(--space-5); }
-  .loc-context__grid p { color: var(--color-muted); line-height: 1.8; margin-bottom: var(--space-4); }
+.loc-hero__overline { margin-bottom: var(--space-4); }
 
-  .loc-info { display: flex; flex-direction: column; gap: var(--space-5); }
+.loc-hero__heading {
+  color: #fff;
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-4);
+}
 
-  .loc-info__card {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: var(--space-6);
-  }
+.loc-hero__accent {
+  font-family: var(--font-serif-italic);
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  color: var(--b-magenta-light);
+  font-style: italic;
+  margin-bottom: var(--space-5);
+  line-height: 1.4;
+}
 
-  .loc-info__card h3 { font-size: var(--font-size-lg); margin-bottom: var(--space-3); }
-  .loc-info__card p { font-size: var(--font-size-sm); color: var(--color-muted); line-height: 1.7; }
+.loc-hero__body {
+  font-size: var(--font-size-lg);
+  color: rgba(255, 255, 255, 0.72);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: var(--space-8);
+}
 
-  .loc-services-list {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: var(--space-6);
-  }
+.loc-hero__ctas {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
 
-  .loc-services-list h3 { font-size: var(--font-size-lg); margin-bottom: var(--space-4); }
-  .loc-services-list ul { display: flex; flex-direction: column; gap: var(--space-2); }
-  .loc-services-list li { font-size: var(--font-size-sm); }
+/* ═══════════════════════════════════════
+   SECTION HEADERS
+═══════════════════════════════════════ */
+.loc-section-header {
+  text-align: center;
+  max-width: 640px;
+  margin-inline: auto;
+  margin-bottom: var(--space-12);
+}
+.loc-section-header .overline {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-3);
+}
+.loc-section-header h2 {
+  font-size: clamp(1.625rem, 3vw, 2.25rem);
+  letter-spacing: -0.025em;
+}
 
-  .loc-services-list a {
-    color: var(--color-primary);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color var(--transition-fast);
-  }
+/* ═══════════════════════════════════════
+   SERVICES GRID
+═══════════════════════════════════════ */
+.loc-services { background: var(--b-offwhite); }
 
-  .loc-services-list a:hover { color: var(--color-primary-dark); }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
 
-  @media (max-width: 768px) {
-    .loc-context__grid { grid-template-columns: 1fr; }
-  }
+.svc-row {
+  background: #fff;
+  border: 1px solid var(--b-border);
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  box-shadow: 0 4px 16px rgba(40, 56, 145, 0.06);
+  transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+}
+.svc-row:hover {
+  box-shadow: 0 8px 24px rgba(40, 56, 145, 0.12);
+  transform: translateY(-4px);
+  border-color: rgba(40, 56, 145, 0.15);
+}
+
+.svc-row__icon {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3447A8, #283891);
+  box-shadow: 0 8px 24px rgba(40, 56, 145, 0.35);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.svc-row__icon--magenta {
+  background: linear-gradient(135deg, #9B2464, #7E0F4A);
+  box-shadow: 0 8px 24px rgba(126, 15, 74, 0.35);
+}
+
+.svc-row__body { flex: 1; min-width: 0; }
+.svc-row__body strong {
+  display: block;
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--b-dark);
+  margin-bottom: 3px;
+}
+.svc-row__body span {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: var(--b-grey-dark);
+  line-height: 1.5;
+}
+
+.svc-row__link {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--b-navy);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+.svc-row__link:hover { color: var(--b-magenta); }
+
+/* ═══════════════════════════════════════
+   WHY — dark glass cards
+═══════════════════════════════════════ */
+.loc-why {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #1E2B78 0%, var(--b-navy-ink) 60%, #0D1235 100%);
+}
+
+.loc-why__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+.loc-why__orb--1 {
+  width: 480px; height: 480px;
+  background: rgba(126, 15, 74, 0.14);
+  top: -160px; right: -60px;
+  animation: orb 14s ease-in-out infinite;
+}
+.loc-why__orb--2 {
+  width: 340px; height: 340px;
+  background: rgba(40, 56, 145, 0.22);
+  bottom: -100px; left: 5%;
+  animation: orbAlt 17s ease-in-out infinite;
+}
+
+.why-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  padding: 36px 32px;
+  transition: background 0.25s, border-color 0.25s, transform 0.25s;
+}
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-4px);
+}
+
+.glass-card__icon {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3447A8, #283891);
+  box-shadow: 0 8px 24px rgba(40, 56, 145, 0.35);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: var(--space-5);
+}
+
+.glass-card h3 {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: var(--space-3);
+  line-height: 1.25;
+}
+
+.glass-card p {
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════
+   BUSINESS LANDSCAPE
+═══════════════════════════════════════ */
+.loc-landscape { background: #fff; }
+
+.landscape-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-16);
+  align-items: start;
+}
+
+.landscape-text .overline { margin-bottom: var(--space-3); }
+
+.landscape-text h2 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  letter-spacing: -0.025em;
+  margin-bottom: var(--space-5);
+}
+
+.landscape-text p {
+  font-size: var(--font-size-base);
+  color: var(--b-grey-dark);
+  line-height: 1.8;
+  margin-bottom: var(--space-4);
+}
+.landscape-text p:last-child { margin-bottom: 0; }
+
+.facts-card {
+  background: linear-gradient(160deg, #1E2B78 0%, var(--b-navy-ink) 60%, #0D1235 100%);
+  border-radius: 16px;
+  padding: 36px 32px;
+  box-shadow: 0 16px 48px rgba(40, 56, 145, 0.22);
+  position: relative;
+  overflow: hidden;
+}
+.facts-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+
+.facts-card__title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: var(--space-6);
+  position: relative;
+  z-index: 1;
+  letter-spacing: -0.015em;
+}
+
+.facts-list {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex; flex-direction: column;
+  gap: 18px;
+  position: relative; z-index: 1;
+}
+
+.facts-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.facts-list__dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--b-navy);
+  box-shadow: 0 0 10px rgba(40, 56, 145, 0.9);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.facts-list__dot--magenta {
+  background: var(--b-magenta-light);
+  box-shadow: 0 0 10px rgba(245, 182, 216, 0.8);
+}
+
+.facts-list__label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 2px;
+}
+
+.facts-list__value {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.4;
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .why-cards { grid-template-columns: 1fr; gap: 16px; }
+  .landscape-grid { grid-template-columns: 1fr; gap: var(--space-10); }
+}
+
+@media (max-width: 768px) {
+  .loc-hero { min-height: auto; padding-block: var(--space-16); }
+  .services-grid { grid-template-columns: 1fr; }
+  .why-cards { grid-template-columns: 1fr; }
+  .landscape-grid { grid-template-columns: 1fr; }
+  .loc-hero__ctas { flex-direction: column; align-items: flex-start; }
+}
 </style>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>

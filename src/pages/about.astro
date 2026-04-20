@@ -1,27 +1,71 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABanner from '../components/CTABanner.astro';
+
+const beliefs = [
+  {
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
+    title: 'Clear communication',
+    body: 'Clients should know what is happening with their file without having to ask.',
+  },
+  {
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`,
+    title: 'Consistent process',
+    body: 'Recurring work should run on a predictable rhythm, not be driven by deadlines.',
+  },
+  {
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>`,
+    title: 'Professional review',
+    body: 'Technology can handle repetitive tasks. A CPA should handle the judgment calls.',
+  },
+  {
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>`,
+    title: 'Better visibility for the client',
+    body: 'Good accounting gives you clearer numbers, not just compliance.',
+  },
+];
 ---
 
 <BaseLayout
   title="About Barrana Accounting Services | CPA-led accounting for Ontario businesses"
   description="Learn how Barrana Accounting Services combines CPA oversight with a more organised accounting delivery model for Ontario SMBs."
 >
-  <!-- Hero -->
-  <section class="about-hero">
-    <div class="container">
-      <p class="overline about-hero__overline">Our story</p>
-      <h1>Built for businesses that want a more organised accounting experience</h1>
-      <p class="about-hero__body">Barrana Accounting Services brings together professional accounting oversight and operational workflow thinking to support Ontario businesses with bookkeeping, tax, payroll, reporting, and advisory work.</p>
+  <!-- ══════════════════════════════════════════
+       HERO — dark navy with animated orbs
+  ══════════════════════════════════════════ -->
+  <section class="about-hero dark-section">
+    <div class="about-hero__orb about-hero__orb--1" aria-hidden="true"></div>
+    <div class="about-hero__orb about-hero__orb--2" aria-hidden="true"></div>
+    <div class="about-hero__orb about-hero__orb--3" aria-hidden="true"></div>
+
+    <div class="container about-hero__inner">
+      <p class="overline about-hero__overline anim-fade-up">Our story</p>
+      <h1 class="about-hero__heading anim-fade-up delay-1">
+        Built for businesses<br>that want
+        <span class="accent">a more organised<br>accounting experience.</span>
+      </h1>
+      <p class="about-hero__body anim-fade-up delay-2">
+        Barrana Accounting Services brings together professional accounting oversight and operational workflow thinking to support Ontario businesses with bookkeeping, tax, payroll, reporting, and advisory work.
+      </p>
+      <div class="about-hero__ctas anim-fade-up delay-3">
+        <a href="/contact/" class="btn btn--white btn--lg">
+          Book a consultation
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8.5 4L13 8l-4.5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="/how-it-works/" class="btn btn--ghost btn--lg">See how it works</a>
+      </div>
     </div>
   </section>
 
-  <!-- Origin story -->
+  <!-- ══════════════════════════════════════════
+       ORIGIN STORY — light offwhite
+  ══════════════════════════════════════════ -->
   <section class="section about-origin">
     <div class="container">
       <div class="about-origin__grid">
         <div class="about-origin__text fade-in">
-          <h2>Why we built Barrana Accounting Services</h2>
+          <p class="overline">How we got here</p>
+          <h2 class="about-origin__heading">Why we built Barrana Accounting Services</h2>
           <p>Barrana.ai has worked with businesses on workflow improvement and automation across a range of operational functions. Over time, one pattern kept showing up: accounting work was often being handled through processes that felt more reactive, fragmented, and manual than they needed to be.</p>
           <p>Business owners were not only looking for bookkeeping, tax, payroll, and reporting. They were also looking for a smoother way to manage recurring tasks, requests, deadlines, and handoffs.</p>
           <p>Barrana Accounting Services was created to bring those two needs together: professional accounting support led by a licensed CPA, delivered through a more organised and modern operating model.</p>
@@ -29,67 +73,105 @@ import CTABanner from '../components/CTABanner.astro';
 
         <div class="about-origin__visual fade-in">
           <div class="org-card">
-            <div class="org-card__inner">
-              <p class="org-card__label">Workflow and automation expertise</p>
-              <p class="org-card__name">Barrana.ai</p>
-              <p class="org-card__desc">Operational workflow design and systems support</p>
-              <a href="https://barrana.ai" target="_blank" rel="noopener" class="org-card__link">barrana.ai &rarr;</a>
+            <!-- Node 1: Barrana.ai -->
+            <div class="org-card__node">
+              <div class="org-card__node-badge">
+                <span class="org-card__node-badge-label">Workflow &amp; automation expertise</span>
+              </div>
+              <div class="org-card__node-content">
+                <div class="org-card__node-icon org-card__node-icon--navy">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+                </div>
+                <div>
+                  <p class="org-card__node-name">Barrana.ai</p>
+                  <p class="org-card__node-desc">Operational workflow design and systems support</p>
+                </div>
+              </div>
+              <a href="https://barrana.ai" target="_blank" rel="noopener" class="org-card__link">
+                barrana.ai
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 7h8M7.5 4L11 7l-3.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
             </div>
+
+            <!-- Connector -->
             <div class="org-card__connector" aria-hidden="true">
-              <span class="org-card__plus">+</span>
+              <div class="org-card__connector-line"></div>
+              <div class="org-card__connector-node">
+                <span class="org-card__connector-plus">+</span>
+              </div>
+              <div class="org-card__connector-line"></div>
             </div>
-            <div class="org-card__inner org-card__inner--accent">
-              <p class="org-card__label org-card__label--light">CPA-led accounting support</p>
-              <p class="org-card__name">Barrana Accounting Services</p>
-              <p class="org-card__desc org-card__desc--light">Accounting for Ontario businesses</p>
+
+            <!-- Node 2: Barrana Accounting -->
+            <div class="org-card__node org-card__node--accent">
+              <div class="org-card__node-badge org-card__node-badge--light">
+                <span class="org-card__node-badge-label">CPA-led accounting support</span>
+              </div>
+              <div class="org-card__node-content">
+                <div class="org-card__node-icon org-card__node-icon--magenta">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                </div>
+                <div>
+                  <p class="org-card__node-name">Barrana Accounting Services</p>
+                  <p class="org-card__node-desc org-card__node-desc--light">CPA-led accounting for Ontario businesses</p>
+                </div>
+              </div>
             </div>
+
+            <!-- Background texture -->
+            <div class="org-card__dots" aria-hidden="true"></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- What we believe -->
-  <section class="section about-beliefs" style="background: var(--color-surface);">
-    <div class="container">
+  <!-- ══════════════════════════════════════════
+       WHAT WE BELIEVE — dark navy
+  ══════════════════════════════════════════ -->
+  <section class="section about-beliefs dark-section">
+    <div class="about-beliefs__orb" aria-hidden="true"></div>
+    <div class="container about-beliefs__inner">
       <div class="section-header fade-in">
-        <h2>What we believe good accounting service should feel like</h2>
+        <p class="overline">Our values</p>
+        <h2 class="about-beliefs__heading">What we believe good<br>accounting should<span class="accent">feel like</span></h2>
       </div>
 
-      <div class="beliefs-grid">
-        <div class="belief-block fade-in">
-          <h3 class="belief-block__title">Clear communication</h3>
-          <p class="belief-block__body">Clients should know what is happening with their file without having to ask.</p>
-        </div>
-        <div class="belief-block fade-in">
-          <h3 class="belief-block__title">Consistent process</h3>
-          <p class="belief-block__body">Recurring work should run on a predictable rhythm, not be driven by deadlines.</p>
-        </div>
-        <div class="belief-block fade-in">
-          <h3 class="belief-block__title">Professional review</h3>
-          <p class="belief-block__body">Technology can handle repetitive tasks. A CPA should handle the judgment calls.</p>
-        </div>
-        <div class="belief-block fade-in">
-          <h3 class="belief-block__title">Better visibility for the client</h3>
-          <p class="belief-block__body">Good accounting gives you clearer numbers, not just compliance.</p>
-        </div>
+      <div class="beliefs-grid stagger-children">
+        {beliefs.map((belief) => (
+          <div class="belief-card fade-in">
+            <div class="belief-card__icon">
+              <Fragment set:html={belief.icon} />
+            </div>
+            <h3 class="belief-card__title">{belief.title}</h3>
+            <p class="belief-card__body">{belief.body}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- Team -->
+  <!-- ══════════════════════════════════════════
+       TEAM — light offwhite
+  ══════════════════════════════════════════ -->
   <section class="section about-team">
     <div class="container">
       <div class="section-header fade-in">
-        <h2>The people behind the service</h2>
+        <p class="overline">The team</p>
+        <h2>The people behind<br><span class="accent">the service</span></h2>
       </div>
 
       <div class="team-grid">
-        <!-- PLACEHOLDER: Replace before launch -->
+        <!-- CPA Partner -->
         <div class="team-card fade-in">
-          <div class="team-card__avatar" aria-hidden="true">CPA</div>
+          <div class="team-card__avatar-wrap">
+            <div class="team-card__avatar">
+              <span>CPA</span>
+            </div>
+            <div class="team-card__avatar-ring" aria-hidden="true"></div>
+          </div>
           <div class="team-card__content">
-            <div class="team-card__name-row">
+            <div class="team-card__header">
               <h3 class="team-card__name">[CPA Partner Name]</h3>
               <span class="team-card__badge">CPA, CGA</span>
             </div>
@@ -99,32 +181,84 @@ import CTABanner from '../components/CTABanner.astro';
           </div>
         </div>
 
+        <!-- Barrana.ai -->
         <div class="team-card fade-in">
-          <div class="team-card__avatar" aria-hidden="true">B</div>
+          <div class="team-card__avatar-wrap">
+            <div class="team-card__avatar team-card__avatar--magenta">
+              <span>B</span>
+            </div>
+            <div class="team-card__avatar-ring team-card__avatar-ring--magenta" aria-hidden="true"></div>
+          </div>
           <div class="team-card__content">
-            <div class="team-card__name-row">
+            <div class="team-card__header">
               <h3 class="team-card__name">Barrana.ai</h3>
             </div>
             <p class="team-card__role">Systems and workflow support</p>
             <p class="team-card__bio">Barrana's experience in workflow design supports how the accounting service is delivered, especially where recurring tasks, handoffs, and communication structure can be made more efficient.</p>
-            <a href="https://barrana.ai" target="_blank" rel="noopener" class="team-card__link">Learn more at Barrana.ai &rarr;</a>
+            <a href="https://barrana.ai" target="_blank" rel="noopener" class="team-card__link">
+              Learn more at Barrana.ai
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 7h8M7.5 4L11 7l-3.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Barrana.ai connection -->
-  <section class="section about-connection" style="background: var(--color-dark);">
-    <div class="container container--narrow">
-      <div class="fade-in">
-        <h2 style="color: #fff; margin-bottom: var(--space-6);">How Barrana.ai supports the service</h2>
-        <p style="color: rgba(255,255,255,0.7); font-size: var(--font-size-lg); line-height: 1.8; margin-bottom: var(--space-5);">
-          Barrana Accounting Services benefits from Barrana.ai's experience in workflow design and operational systems. That support helps improve how the accounting service is delivered, especially where recurring tasks, handoffs, and communication structure can be made more efficient.
-        </p>
-        <p style="color: rgba(255,255,255,0.7); font-size: var(--font-size-lg); line-height: 1.8;">
-          That does not change the core model of the service. Accounting work still depends on professional review, context, and judgment. The technology and workflow layer exists to support that work, not replace it.
-        </p>
+  <!-- ══════════════════════════════════════════
+       BARRANA.AI CONNECTION — dark navy
+  ══════════════════════════════════════════ -->
+  <section class="section about-connection dark-section">
+    <div class="about-connection__orb" aria-hidden="true"></div>
+    <div class="container about-connection__inner">
+      <div class="about-connection__grid">
+        <div class="about-connection__text fade-in">
+          <p class="overline">Platform connection</p>
+          <h2 class="about-connection__heading">How Barrana.ai supports the service</h2>
+          <p class="about-connection__body">Barrana Accounting Services benefits from Barrana.ai's experience in workflow design and operational systems. That support helps improve how the accounting service is delivered, especially where recurring tasks, handoffs, and communication structure can be made more efficient.</p>
+          <p class="about-connection__body">That does not change the core model of the service. Accounting work still depends on professional review, context, and judgment. The technology and workflow layer exists to support that work, not replace it.</p>
+        </div>
+
+        <div class="about-connection__card fade-in">
+          <div class="connection-card">
+            <div class="connection-card__header">
+              <div class="connection-card__icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+              </div>
+              <div>
+                <p class="connection-card__title">Barrana.ai</p>
+                <p class="connection-card__subtitle">Workflow &amp; automation platform</p>
+              </div>
+            </div>
+            <div class="connection-card__divider" aria-hidden="true">
+              <div class="connection-card__divider-line"></div>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 3v14M3 10h14" stroke="rgba(245,182,216,0.5)" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <div class="connection-card__divider-line"></div>
+            </div>
+            <div class="connection-card__points">
+              <div class="connection-point">
+                <span class="connection-point__dot connection-point__dot--navy"></span>
+                <span class="connection-point__text">Workflow structure and recurring task management</span>
+              </div>
+              <div class="connection-point">
+                <span class="connection-point__dot connection-point__dot--navy"></span>
+                <span class="connection-point__text">Client communication and handoff consistency</span>
+              </div>
+              <div class="connection-point">
+                <span class="connection-point__dot connection-point__dot--magenta"></span>
+                <span class="connection-point__text">Automation for repetitive, rules-based steps</span>
+              </div>
+              <div class="connection-point">
+                <span class="connection-point__dot connection-point__dot--magenta"></span>
+                <span class="connection-point__text">Technology layer that supports CPA review — not replaces it</span>
+              </div>
+            </div>
+            <a href="https://barrana.ai" target="_blank" rel="noopener" class="connection-card__link">
+              Learn more at barrana.ai
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 7h8M7.5 4L11 7l-3.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -140,104 +274,208 @@ import CTABanner from '../components/CTABanner.astro';
 </BaseLayout>
 
 <style>
+  /* ── HERO ── */
   .about-hero {
-    background: var(--color-dark);
-    background-image: radial-gradient(circle at 70% 30%, rgba(126, 15, 74, 0.12) 0%, transparent 60%);
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(160deg, #1E2B78 0%, var(--b-navy-ink) 50%, #0D1235 100%);
     padding-block: var(--space-20) var(--space-24);
   }
 
-  .about-hero__overline {
-    color: var(--color-primary-light);
-    display: block;
-    margin-bottom: var(--space-4);
+  .about-hero__orb--1 {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    top: -200px;
+    right: -80px;
+    background: radial-gradient(circle, rgba(40,56,145,0.35) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(90px);
+    animation: orb 14s ease-in-out infinite;
   }
 
-  .about-hero h1 {
-    color: #fff;
-    max-width: 680px;
+  .about-hero__orb--2 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    bottom: -100px;
+    left: 5%;
+    background: radial-gradient(circle, rgba(126,15,74,0.25) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(90px);
+    animation: orbAlt 18s ease-in-out infinite;
+  }
+
+  .about-hero__orb--3 {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    top: 40%;
+    left: 45%;
+    background: radial-gradient(circle, rgba(40,56,145,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(70px);
+    animation: orb 22s ease-in-out infinite 6s;
+  }
+
+  .about-hero__inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .about-hero__overline {
     margin-bottom: var(--space-5);
+  }
+
+  .about-hero__heading {
+    color: #fff;
+    max-width: 720px;
+    margin-bottom: var(--space-6);
   }
 
   .about-hero__body {
     font-size: var(--font-size-lg);
-    color: rgba(255, 255, 255, 0.7);
-    max-width: 580px;
+    color: rgba(255,255,255,0.7);
+    max-width: 600px;
     line-height: 1.7;
+    margin-bottom: var(--space-8);
   }
 
-  /* Origin */
+  .about-hero__ctas {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  /* ── ORIGIN ── */
   .about-origin {
-    background: var(--color-light);
+    background: var(--b-offwhite);
   }
 
   .about-origin__grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 420px;
     gap: var(--space-16);
     align-items: start;
   }
 
-  .about-origin__text h2 {
+  .about-origin__heading {
+    margin-top: var(--space-4);
     margin-bottom: var(--space-6);
   }
 
   .about-origin__text p {
-    margin-bottom: var(--space-5);
+    font-size: var(--font-size-base);
+    color: var(--b-grey-dark);
     line-height: 1.8;
-    color: var(--color-muted);
+    margin-bottom: var(--space-5);
   }
 
+  .about-origin__text p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Org card */
   .org-card {
-    background: var(--color-dark-2);
-    border-radius: var(--radius-xl);
+    position: sticky;
+    top: 100px;
+    background: linear-gradient(160deg, #1E2B78 0%, var(--b-navy-ink) 60%, #0D1235 100%);
+    border-radius: var(--radius-card);
     overflow: hidden;
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-md);
   }
 
-  .org-card__inner {
-    padding: var(--space-8);
+  .org-card__node {
+    padding: var(--space-6) var(--space-7);
+    position: relative;
+    z-index: 1;
   }
 
-  .org-card__inner--accent {
-    background: var(--color-primary);
+  .org-card__node--accent {
+    background: rgba(126,15,74,0.12);
+    border-top: 1px solid rgba(245,182,216,0.15);
   }
 
-  .org-card__label {
-    font-size: var(--font-size-xs);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--color-muted);
-    margin-bottom: var(--space-2);
-  }
-
-  .org-card__label--light {
-    color: rgba(255, 255, 255, 0.6);
-  }
-
-  .org-card__name {
-    font-size: var(--font-size-2xl);
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: var(--space-2);
-  }
-
-  .org-card__desc {
-    font-size: var(--font-size-sm);
-    color: rgba(255, 255, 255, 0.6);
+  .org-card__node-badge {
+    display: inline-flex;
     margin-bottom: var(--space-4);
   }
 
-  .org-card__desc--light {
-    color: rgba(255, 255, 255, 0.75);
+  .org-card__node-badge-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.45);
+    background: rgba(255,255,255,0.07);
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .org-card__node-badge--light .org-card__node-badge-label {
+    color: rgba(245,182,216,0.7);
+    background: rgba(245,182,216,0.08);
+    border-color: rgba(245,182,216,0.2);
+  }
+
+  .org-card__node-content {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+  }
+
+  .org-card__node-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .org-card__node-icon--navy {
+    background: linear-gradient(135deg, #3447A8, #283891);
+    box-shadow: 0 8px 20px rgba(40,56,145,0.4);
+  }
+
+  .org-card__node-icon--magenta {
+    background: linear-gradient(135deg, #9B2464, #7E0F4A);
+    box-shadow: 0 8px 20px rgba(126,15,74,0.4);
+  }
+
+  .org-card__node-name {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: var(--space-1);
+  }
+
+  .org-card__node-desc {
+    font-size: var(--font-size-sm);
+    color: rgba(255,255,255,0.58);
+    line-height: 1.5;
+  }
+
+  .org-card__node-desc--light {
+    color: rgba(245,182,216,0.7);
   }
 
   .org-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
     font-size: var(--font-size-sm);
     font-weight: 600;
-    color: var(--color-primary-light);
+    color: rgba(255,255,255,0.6);
     text-decoration: none;
     transition: color var(--transition-fast);
+    font-family: var(--font-mono);
+    letter-spacing: 0.04em;
   }
 
   .org-card__link:hover {
@@ -247,18 +485,71 @@ import CTABanner from '../components/CTABanner.astro';
   .org-card__connector {
     display: flex;
     align-items: center;
+    padding-inline: var(--space-7);
+    gap: var(--space-3);
+    position: relative;
+    z-index: 1;
+  }
+
+  .org-card__connector-line {
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.12);
+    border-top: 1px dashed rgba(255,255,255,0.15);
+  }
+
+  .org-card__connector-node {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(245,182,216,0.12);
+    border: 1px solid rgba(245,182,216,0.3);
+    display: flex;
+    align-items: center;
     justify-content: center;
-    padding-block: var(--space-2);
-    background: rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
   }
 
-  .org-card__plus {
-    font-size: var(--font-size-2xl);
+  .org-card__connector-plus {
+    font-size: var(--font-size-xl);
     font-weight: 700;
-    color: var(--color-primary-light);
+    color: var(--b-magenta-light);
+    line-height: 1;
   }
 
-  /* Beliefs */
+  .org-card__dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1.2px, transparent 1.2px);
+    background-size: 28px 28px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── BELIEFS ── */
+  .about-beliefs {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(160deg, #1A2050 0%, var(--b-navy-ink) 50%, #0D1235 100%);
+  }
+
+  .about-beliefs__orb {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    top: -100px;
+    right: -100px;
+    background: radial-gradient(circle, rgba(126,15,74,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(90px);
+    animation: orbAlt 14s ease-in-out infinite;
+  }
+
+  .about-beliefs__inner {
+    position: relative;
+    z-index: 1;
+  }
+
   .section-header {
     text-align: center;
     max-width: 680px;
@@ -266,37 +557,61 @@ import CTABanner from '../components/CTABanner.astro';
     margin-bottom: var(--space-12);
   }
 
-  .section-header h2 {
-    margin-bottom: var(--space-4);
+  .about-beliefs__heading {
+    color: #fff;
+    margin-top: var(--space-4);
   }
 
   .beliefs-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-8);
+    gap: var(--space-6);
   }
 
-  .belief-block {
-    padding: var(--space-6);
-    border-top: 3px solid var(--color-primary);
+  .belief-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-card);
+    padding: var(--space-8);
+    backdrop-filter: blur(12px);
+    transition: background var(--transition-slow), border-color var(--transition-slow), transform var(--transition-slow);
   }
 
-  .belief-block__title {
+  .belief-card:hover {
+    background: rgba(255,255,255,0.09);
+    border-color: rgba(255,255,255,0.18);
+    transform: translateY(-2px);
+  }
+
+  .belief-card__icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(245,182,216,0.15), rgba(126,15,74,0.2));
+    border: 1px solid rgba(245,182,216,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--b-magenta-light);
+    margin-bottom: var(--space-5);
+  }
+
+  .belief-card__title {
     font-size: var(--font-size-lg);
     font-weight: 700;
-    color: var(--color-dark);
+    color: #fff;
     margin-bottom: var(--space-3);
   }
 
-  .belief-block__body {
+  .belief-card__body {
     font-size: var(--font-size-sm);
-    color: var(--color-muted);
+    color: rgba(255,255,255,0.68);
     line-height: 1.7;
   }
 
-  /* Team */
+  /* ── TEAM ── */
   .about-team {
-    background: var(--color-light);
+    background: var(--b-offwhite);
   }
 
   .team-grid {
@@ -307,29 +622,59 @@ import CTABanner from '../components/CTABanner.astro';
 
   .team-card {
     display: flex;
-    gap: var(--space-5);
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: var(--space-6);
+    gap: var(--space-6);
+    background: #fff;
+    border: 1px solid var(--b-border);
+    border-radius: var(--radius-card);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--transition-slow), border-color var(--transition-slow);
+    align-items: flex-start;
+  }
+
+  .team-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--b-navy);
+  }
+
+  .team-card__avatar-wrap {
+    position: relative;
+    flex-shrink: 0;
   }
 
   .team-card__avatar {
-    width: 64px;
-    height: 64px;
+    width: 72px;
+    height: 72px;
     border-radius: 50%;
-    background: var(--color-primary);
-    color: #fff;
+    background: linear-gradient(135deg, #3447A8, #283891);
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #fff;
     font-size: var(--font-size-sm);
-    font-weight: 700;
-    flex-shrink: 0;
+    font-weight: 800;
     letter-spacing: 0.04em;
+    position: relative;
+    z-index: 1;
   }
 
-  .team-card__name-row {
+  .team-card__avatar--magenta {
+    background: linear-gradient(135deg, #9B2464, #7E0F4A);
+  }
+
+  .team-card__avatar-ring {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(40,56,145,0.25);
+    animation: pulseRing 2.5s ease-out infinite;
+  }
+
+  .team-card__avatar-ring--magenta {
+    border-color: rgba(126,15,74,0.25);
+  }
+
+  .team-card__header {
     display: flex;
     align-items: center;
     gap: var(--space-3);
@@ -340,56 +685,258 @@ import CTABanner from '../components/CTABanner.astro';
   .team-card__name {
     font-size: var(--font-size-xl);
     font-weight: 700;
-    color: var(--color-dark);
+    color: var(--b-dark);
   }
 
   .team-card__badge {
+    font-family: var(--font-mono);
     font-size: var(--font-size-xs);
     font-weight: 700;
-    color: var(--color-primary);
-    background: rgba(126, 15, 74, 0.1);
-    padding: 2px 10px;
+    color: var(--b-navy);
+    background: rgba(40,56,145,0.08);
+    border: 1px solid rgba(40,56,145,0.2);
+    padding: 3px 10px;
     border-radius: var(--radius-full);
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
 
   .team-card__role {
     font-size: var(--font-size-sm);
     font-weight: 600;
-    color: var(--color-muted);
-    margin-bottom: var(--space-3);
+    color: var(--b-grey-dark);
+    margin-bottom: var(--space-4);
   }
 
   .team-card__bio {
     font-size: var(--font-size-sm);
-    color: var(--color-muted);
+    color: var(--b-grey-dark);
     line-height: 1.7;
     margin-bottom: var(--space-3);
   }
 
   .team-card__note {
     font-size: var(--font-size-xs);
-    color: var(--color-muted);
+    color: var(--b-grey-dark);
     font-style: italic;
+    opacity: 0.6;
   }
 
   .team-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
     font-size: var(--font-size-sm);
     font-weight: 600;
-    color: var(--color-primary);
+    color: var(--b-navy);
     text-decoration: none;
     transition: color var(--transition-fast);
   }
 
   .team-card__link:hover {
-    color: var(--color-primary-dark);
+    color: var(--b-magenta);
   }
 
-  @media (max-width: 768px) {
+  /* ── CONNECTION ── */
+  .about-connection {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(160deg, var(--b-navy-ink) 0%, #1A2050 50%, #0D1235 100%);
+  }
+
+  .about-connection__orb {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    top: -50px;
+    left: -80px;
+    background: radial-gradient(circle, rgba(40,56,145,0.25) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: orb 16s ease-in-out infinite;
+  }
+
+  .about-connection__inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .about-connection__grid {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: var(--space-16);
+    align-items: center;
+  }
+
+  .about-connection__heading {
+    color: #fff;
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+
+  .about-connection__body {
+    font-size: var(--font-size-base);
+    color: rgba(255,255,255,0.7);
+    line-height: 1.8;
+    margin-bottom: var(--space-5);
+  }
+
+  .about-connection__body:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Connection card */
+  .connection-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-card);
+    padding: var(--space-7);
+    backdrop-filter: blur(12px);
+  }
+
+  .connection-card__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-5);
+  }
+
+  .connection-card__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3447A8, #283891);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    flex-shrink: 0;
+    box-shadow: 0 8px 20px rgba(40,56,145,0.4);
+  }
+
+  .connection-card__title {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: var(--space-1);
+  }
+
+  .connection-card__subtitle {
+    font-size: var(--font-size-xs);
+    color: rgba(255,255,255,0.55);
+    font-family: var(--font-mono);
+    letter-spacing: 0.06em;
+  }
+
+  .connection-card__divider {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-5);
+  }
+
+  .connection-card__divider-line {
+    flex: 1;
+    height: 1px;
+    border-top: 1px dashed rgba(255,255,255,0.12);
+  }
+
+  .connection-card__points {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+
+  .connection-point {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .connection-point__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  .connection-point__dot--navy {
+    background: var(--b-navy);
+    box-shadow: 0 0 0 3px rgba(40,56,145,0.2);
+  }
+
+  .connection-point__dot--magenta {
+    background: var(--b-magenta-light);
+    box-shadow: 0 0 0 3px rgba(245,182,216,0.15);
+  }
+
+  .connection-point__text {
+    font-size: var(--font-size-sm);
+    color: rgba(255,255,255,0.72);
+    line-height: 1.6;
+  }
+
+  .connection-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: rgba(255,255,255,0.58);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    letter-spacing: 0.04em;
+    transition: color var(--transition-fast);
+    padding-top: var(--space-4);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    width: 100%;
+  }
+
+  .connection-card__link:hover {
+    color: #fff;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
     .about-origin__grid,
-    .team-grid,
+    .about-connection__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .org-card {
+      position: static;
+    }
+
     .beliefs-grid {
       grid-template-columns: 1fr;
     }
   }
+
+  @media (max-width: 768px) {
+    .team-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .team-card {
+      flex-direction: column;
+    }
+
+    .about-hero__ctas {
+      flex-direction: column;
+    }
+  }
 </style>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>

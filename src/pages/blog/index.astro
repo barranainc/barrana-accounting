@@ -1,135 +1,422 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const previewArticles = [
+  {
+    topic: 'Bookkeeping',
+    topicVariant: 'navy',
+    title: 'How to get your bookkeeping ready for year-end',
+    description: 'A practical walkthrough of the steps Ontario businesses should take before their fiscal year closes to make the process smoother.',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>`,
+  },
+  {
+    topic: 'Tax',
+    topicVariant: 'magenta',
+    title: 'What Ontario businesses need to know about HST/GST filing',
+    description: 'The filing periods, common errors, and the difference between quick method and regular method — explained plainly.',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`,
+  },
+  {
+    topic: 'Reporting',
+    topicVariant: 'navy',
+    title: 'How to read your monthly financial statements',
+    description: 'What the income statement, balance sheet, and cash flow statement actually tell you — and what to pay attention to each month.',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>`,
+  },
+];
+
+const upcomingTopics = [
+  'Bookkeeping',
+  'Tax',
+  'Payroll',
+  'Corporate Tax',
+  'HST/GST',
+  'Financial Reporting',
+  'CFO Advisory',
+];
 ---
 
 <BaseLayout
   title="Accounting insights for Ontario businesses | Barrana Accounting Services"
   description="Practical guidance on bookkeeping, tax, payroll, reporting, and accounting workflows for Ontario businesses."
 >
+  <!-- Hero -->
   <section class="blog-hero">
+    <div class="page-orb page-orb--1" aria-hidden="true"></div>
+    <div class="page-orb page-orb--2" aria-hidden="true"></div>
     <div class="container">
-      <p class="overline blog-hero__overline">Resources</p>
-      <h1>Accounting insights for Ontario businesses</h1>
-      <p class="blog-hero__body">We are building a library of practical resources for Ontario businesses that want clearer accounting processes, better financial visibility, and more organised recurring support.</p>
+      <div class="blog-hero__inner fade-in">
+        <p class="overline">Resources</p>
+        <h1>Accounting insights for<br>Canadian businesses.<br><span class="accent">Coming soon.</span></h1>
+        <p class="blog-hero__body">We are building a library of practical resources covering bookkeeping, tax, payroll, reporting, and how to build cleaner accounting processes — written for Ontario business owners, not accountants.</p>
+      </div>
     </div>
   </section>
 
-  <section class="section blog-coming-soon">
-    <div class="container container--narrow">
-      <div class="coming-soon-card fade-in">
-        <div class="coming-soon-card__icon" aria-hidden="true">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 26.5A3.5 3.5 0 0 1 7.5 23H28"/>
-            <path d="M7.5 2H28v28H7.5A3.5 3.5 0 0 1 4 26.5v-21A3.5 3.5 0 0 1 7.5 2z"/>
-          </svg>
-        </div>
-        <h2>Coming soon</h2>
-        <p>We are working on practical guidance covering bookkeeping, tax planning for Ontario businesses, payroll compliance, and how to read your financial statements. Leave your email and we will let you know when we publish.</p>
+  <!-- Preview cards -->
+  <section class="section preview-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="overline">What's coming</p>
+        <h2>A preview of what<br><span class="accent">we are building.</span></h2>
+        <p class="section-header__body">These are the first articles in the works. Plain language, practical guidance, Ontario-focused.</p>
+      </div>
 
-        <form name="blog-notify" method="POST" data-netlify="true" class="notify-form">
-          <input type="hidden" name="form-name" value="blog-notify" />
-          <div class="notify-form__row">
-            <label for="notify-email" class="sr-only">Email address</label>
-            <input
-              type="email"
-              id="notify-email"
-              name="email"
-              required
-              placeholder="your@email.com"
-            />
-            <button type="submit" class="btn btn--primary">Get notified</button>
+      <div class="preview-grid stagger-children">
+        {previewArticles.map((article) => (
+          <div class={`preview-card preview-card--${article.topicVariant} fade-in`}>
+            <div class="preview-card__header">
+              <div class="preview-card__icon" aria-hidden="true" set:html={article.icon} />
+              <span class="preview-card__badge">Coming soon</span>
+            </div>
+            <p class={`preview-card__topic preview-card__topic--${article.topicVariant}`}>{article.topic}</p>
+            <h3 class="preview-card__title">{article.title}</h3>
+            <p class="preview-card__desc">{article.description}</p>
           </div>
-        </form>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Email signup (dark) -->
+  <section class="section dark-section signup-section">
+    <div class="container">
+      <div class="signup-card fade-in">
+        <div class="signup-card__icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="signup-card__content">
+          <h2 class="signup-card__heading">Get notified when we publish.</h2>
+          <p class="signup-card__body">Leave your email and we will let you know when the first articles go live. No spam. Unsubscribe any time.</p>
+          <form name="blog-notify" method="POST" data-netlify="true" class="signup-form">
+            <input type="hidden" name="form-name" value="blog-notify" />
+            <div class="signup-form__row">
+              <label for="notify-email" class="sr-only">Email address</label>
+              <input
+                type="email"
+                id="notify-email"
+                name="email"
+                required
+                placeholder="your@email.com"
+                class="signup-form__input"
+              />
+              <button type="submit" class="btn btn--white btn--lg">Get notified</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Topic tags -->
+  <section class="section topics-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="overline">Topics</p>
+        <h2>What we will be<br><span class="accent">covering.</span></h2>
+        <p class="section-header__body">Articles and guides across the full range of accounting topics that matter to Ontario businesses.</p>
+      </div>
+
+      <div class="topics-grid fade-in">
+        {upcomingTopics.map((topic) => (
+          <span class="topic-pill">{topic}</span>
+        ))}
       </div>
     </div>
   </section>
 </BaseLayout>
 
 <style>
+  /* ── Hero ── */
   .blog-hero {
-    background: var(--color-dark);
-    background-image: radial-gradient(circle at 70% 30%, rgba(126, 15, 74, 0.12) 0%, transparent 60%);
+    background: linear-gradient(160deg, #1E2B78 0%, var(--b-navy-ink) 50%, #0D1235 100%);
+    min-height: 60vh;
     padding-block: var(--space-20) var(--space-24);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
   }
 
-  .blog-hero__overline {
-    color: var(--color-primary-light);
-    display: block;
-    margin-bottom: var(--space-4);
+  .page-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    pointer-events: none;
   }
 
-  .blog-hero h1 {
-    color: #fff;
-    max-width: 600px;
+  .page-orb--1 {
+    width: 500px;
+    height: 500px;
+    background: rgba(40, 56, 145, 0.3);
+    top: -150px;
+    right: -100px;
+    animation: orb 14s ease-in-out infinite;
+  }
+
+  .page-orb--2 {
+    width: 350px;
+    height: 350px;
+    background: rgba(126, 15, 74, 0.18);
+    bottom: -80px;
+    left: 5%;
+    animation: orbAlt 18s ease-in-out infinite;
+  }
+
+  .blog-hero__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+  }
+
+  .blog-hero__inner .overline {
+    display: flex;
     margin-bottom: var(--space-5);
+  }
+
+  .blog-hero__inner h1 {
+    color: #fff;
+    margin-bottom: var(--space-5);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
   }
 
   .blog-hero__body {
     font-size: var(--font-size-lg);
     color: rgba(255, 255, 255, 0.7);
-    max-width: 500px;
+    max-width: 560px;
     line-height: 1.7;
   }
 
-  .blog-coming-soon {
-    background: var(--color-light);
-  }
-
-  .coming-soon-card {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
-    padding: var(--space-12);
+  /* ── Section header ── */
+  .section-header {
     text-align: center;
-  }
-
-  .coming-soon-card__icon {
-    width: 64px;
-    height: 64px;
-    background: rgba(126, 15, 74, 0.1);
-    border-radius: var(--radius-lg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    max-width: 700px;
     margin-inline: auto;
-    margin-bottom: var(--space-6);
-    color: var(--color-primary);
+    margin-bottom: var(--space-12);
   }
 
-  .coming-soon-card h2 {
+  .section-header .overline {
+    display: flex;
+    justify-content: center;
     margin-bottom: var(--space-4);
   }
 
-  .coming-soon-card p {
-    color: var(--color-muted);
-    line-height: 1.8;
-    max-width: 520px;
-    margin-inline: auto;
-    margin-bottom: var(--space-8);
+  .section-header h2 {
+    margin-bottom: var(--space-4);
   }
 
-  .notify-form__row {
+  .section-header__body {
+    font-size: var(--font-size-lg);
+    color: var(--b-grey-dark);
+  }
+
+  /* ── Preview cards ── */
+  .preview-section {
+    background: var(--b-offwhite);
+  }
+
+  .preview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  .preview-card {
+    background: #fff;
+    border: 1px solid var(--b-border);
+    border-radius: var(--radius-card);
+    padding: 36px 32px;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow var(--transition-base), transform var(--transition-base);
+  }
+
+  .preview-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+
+  .preview-card--navy::after {
+    background: linear-gradient(90deg, var(--b-navy), var(--b-magenta));
+  }
+
+  .preview-card--magenta::after {
+    background: linear-gradient(90deg, var(--b-magenta), var(--b-navy));
+  }
+
+  .preview-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+  }
+
+  .preview-card:hover::after {
+    transform: scaleX(1);
+  }
+
+  .preview-card__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: var(--space-5);
+  }
+
+  .preview-card__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .preview-card--navy .preview-card__icon {
+    background: rgba(40, 56, 145, 0.08);
+    box-shadow: inset 0 0 0 1px rgba(40, 56, 145, 0.2);
+    color: var(--b-navy);
+  }
+
+  .preview-card--magenta .preview-card__icon {
+    background: rgba(126, 15, 74, 0.08);
+    box-shadow: inset 0 0 0 1px rgba(126, 15, 74, 0.2);
+    color: var(--b-magenta);
+  }
+
+  .preview-card__badge {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    background: rgba(126, 15, 74, 0.08);
+    color: var(--b-magenta);
+    border: 1px solid rgba(126, 15, 74, 0.2);
+    white-space: nowrap;
+    align-self: flex-start;
+  }
+
+  .preview-card__topic {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-3);
+  }
+
+  .preview-card__topic--navy {
+    color: var(--b-navy);
+  }
+
+  .preview-card__topic--magenta {
+    color: var(--b-magenta);
+  }
+
+  .preview-card__title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--b-dark);
+    margin-bottom: var(--space-3);
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+
+  .preview-card__desc {
+    font-size: var(--font-size-sm);
+    color: var(--b-grey-dark);
+    line-height: 1.7;
+  }
+
+  /* ── Signup section (dark) ── */
+  .signup-section {
+    background: linear-gradient(160deg, #1E2B78 0%, var(--b-navy-ink) 60%, #0D1235 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .signup-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-8);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-card);
+    backdrop-filter: blur(12px);
+    padding: 48px 52px;
+    max-width: 760px;
+    margin-inline: auto;
+  }
+
+  .signup-card__icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #3447A8, #283891);
+    box-shadow: 0 8px 24px rgba(40, 56, 145, 0.35);
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .signup-card__content {
+    flex: 1;
+  }
+
+  .signup-card__heading {
+    color: #fff;
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-3);
+  }
+
+  .signup-card__body {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: var(--font-size-base);
+    line-height: 1.7;
+    margin-bottom: var(--space-6);
+  }
+
+  .signup-form__row {
     display: flex;
     gap: var(--space-3);
-    max-width: 420px;
-    margin-inline: auto;
+    max-width: 480px;
   }
 
-  .notify-form__row input {
+  .signup-form__input {
     flex: 1;
-    padding: 0.75rem 1rem;
-    border: 1.5px solid var(--color-border);
+    padding: 0.75rem 1.1rem;
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
     border-radius: var(--radius-md);
     font-family: var(--font-sans);
     font-size: var(--font-size-base);
-    color: var(--color-dark);
-    background: var(--color-surface);
-    transition: border-color var(--transition-fast);
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+    transition: border-color var(--transition-fast), background var(--transition-fast);
   }
 
-  .notify-form__row input:focus {
+  .signup-form__input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .signup-form__input:focus {
     outline: none;
-    border-color: var(--color-primary);
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.12);
   }
 
   .sr-only {
@@ -144,9 +431,80 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     border-width: 0;
   }
 
-  @media (max-width: 480px) {
-    .notify-form__row {
+  /* ── Topics ── */
+  .topics-section {
+    background: #fff;
+  }
+
+  .topics-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    justify-content: center;
+    max-width: 640px;
+    margin-inline: auto;
+  }
+
+  .topic-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 22px;
+    border-radius: var(--radius-pill);
+    border: 1.5px solid var(--b-navy);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--b-navy);
+    background: transparent;
+    transition: background var(--transition-fast), color var(--transition-fast);
+    cursor: default;
+  }
+
+  .topic-pill:hover {
+    background: var(--b-navy);
+    color: #fff;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .preview-grid {
+      grid-template-columns: 1fr;
+      max-width: 480px;
+      margin-inline: auto;
+    }
+
+    .signup-card {
       flex-direction: column;
+      padding: 36px 32px;
+    }
+
+    .signup-card__icon {
+      width: 52px;
+      height: 52px;
+    }
+  }
+
+  @media (max-width: 540px) {
+    .signup-form__row {
+      flex-direction: column;
+    }
+
+    .signup-card {
+      padding: 28px 24px;
     }
   }
 </style>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>

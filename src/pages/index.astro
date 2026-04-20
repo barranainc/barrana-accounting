@@ -8,7 +8,8 @@ const schema = {
   "@type": ["AccountingService", "LocalBusiness"],
   "name": "Barrana Accounting Services",
   "url": "https://barranaaccounting.ai",
-  "logo": "https://barranaaccounting.ai/favicon.svg",
+  "logo": "https://barranaaccounting.ai/images/logo-nav.png",
+  "telephone": "+19052671246",
   "description": "CPA-led accounting services for Canadian businesses and beyond, including bookkeeping, tax, payroll, reporting, and advisory support, delivered through a more organised workflow model.",
   "address": {
     "@type": "PostalAddress",
@@ -16,10 +17,7 @@ const schema = {
     "addressRegion": "ON",
     "addressCountry": "CA"
   },
-  "areaServed": {
-    "@type": "Country",
-    "name": "Canada"
-  },
+  "areaServed": { "@type": "Country", "name": "Canada" },
   "parentOrganization": {
     "@type": "Organization",
     "name": "Barrana.ai",
@@ -28,71 +26,20 @@ const schema = {
 };
 
 const services = [
-  {
-    title: 'Bookkeeping',
-    description: 'Structured month-end processes, bank reconciliations, and CPA-reviewed oversight every month.',
-    href: '/services/bookkeeping/',
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>`,
-  },
-  {
-    title: 'Tax Returns',
-    description: 'Personal and corporate tax return preparation with cleaner year-round coordination and CPA review.',
-    href: '/services/tax-returns/',
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>`,
-  },
-  {
-    title: 'Payroll',
-    description: 'Support for payroll runs, statutory deductions, CRA remittances, and year-end payroll obligations.',
-    href: '/services/payroll/',
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>`,
-  },
-  {
-    title: 'Corporate Tax',
-    description: 'T2 preparation and related schedules handled through a more organised year-end process.',
-    href: '/services/corporate-tax/',
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
-  },
-  {
-    title: 'HST/GST Filing',
-    description: 'Recurring indirect tax filings managed through consistent coding, review, and timely submission.',
-    href: '/services/hst-gst-filing/',
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`,
-  },
-  {
-    title: 'Financial Reporting',
-    description: 'Monthly financial packages that help you understand performance, cash flow, and key changes.',
-    href: '/services/financial-reporting/',
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>`,
-  },
-  {
-    title: 'CFO Advisory',
-    description: 'Higher-level financial support for businesses that need planning, forecasting, and strategic guidance.',
-    href: '/services/cfo-advisory/',
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
-  },
+  { title: 'Bookkeeping', description: 'Structured month-end processes, bank reconciliations, and CPA-reviewed oversight every month.', href: '/services/bookkeeping/', icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>` },
+  { title: 'Tax Returns', description: 'Personal and corporate tax return preparation with cleaner year-round coordination and CPA review.', href: '/services/tax-returns/', icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>` },
+  { title: 'Payroll', description: 'Support for payroll runs, statutory deductions, CRA remittances, and year-end payroll obligations.', href: '/services/payroll/', icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>` },
+  { title: 'Corporate Tax', description: 'T2 preparation and related schedules handled through a more organised year-end process.', href: '/services/corporate-tax/', icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>` },
+  { title: 'HST/GST Filing', description: 'Recurring indirect tax filings managed through consistent coding, review, and timely submission.', href: '/services/hst-gst-filing/', icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>` },
+  { title: 'Financial Reporting', description: 'Monthly financial packages that help you understand performance, cash flow, and key changes.', href: '/services/financial-reporting/', icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>` },
+  { title: 'CFO Advisory', description: 'Higher-level financial support for businesses that need planning, forecasting, and strategic guidance.', href: '/services/cfo-advisory/', icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>` },
 ];
 
-const steps = [
-  {
-    number: '01',
-    title: 'Understand',
-    body: 'We review your current setup, your accounting needs, and where the friction is today.',
-  },
-  {
-    number: '02',
-    title: 'Set up',
-    body: 'We organise the right tools, access, workflows, and recurring processes for your file.',
-  },
-  {
-    number: '03',
-    title: 'Support',
-    body: 'Routine work is handled through structured workflows, with technology supporting the repetitive steps. Exceptions go to your CPA.',
-  },
-  {
-    number: '04',
-    title: 'Review and deliver',
-    body: 'Your CPA reviews the work, closes the books, and ensures reporting and filings go out on schedule.',
-  },
+const stats = [
+  { number: 7, suffix: '', label: 'Core services covered' },
+  { number: 5, suffix: '+', label: 'GTA cities served' },
+  { number: 100, suffix: '%', label: 'CPA reviewed every file' },
+  { number: 12, suffix: '/yr', label: 'Monthly reporting cycles' },
 ];
 ---
 
@@ -104,138 +51,181 @@ const steps = [
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </Fragment>
 
-  <!-- ── Section 1: Hero — DARK ── -->
+  <!-- ══════════════════════════════════════════
+       HERO — dark navy with animated orbs
+  ══════════════════════════════════════════ -->
   <section class="hero dark-section">
+    <!-- Animated gradient orbs -->
+    <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
+    <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
+    <div class="hero__orb hero__orb--3" aria-hidden="true"></div>
+
     <div class="hero__inner container">
       <div class="hero__content">
-        <p class="overline hero__overline">CPA-led accounting services &nbsp;·&nbsp; Canada &amp; Beyond</p>
-        <h1 class="hero__heading">
-          Modern accounting support<br>
-          for Canadian businesses.
+        <p class="overline hero__overline anim-fade-up">CPA-led accounting services &nbsp;·&nbsp; Canada &amp; Beyond</p>
+        <h1 class="hero__heading anim-fade-up delay-1">
+          Modern accounting<br>support for Canadian<br>businesses.
           <span class="accent">Less friction, more visibility.</span>
         </h1>
-        <hr class="hero__rule" aria-hidden="true" />
-        <p class="hero__body">
+        <hr class="hero__rule anim-fade-up delay-2" aria-hidden="true" />
+        <p class="hero__body anim-fade-up delay-3">
           Barrana Accounting Services provides bookkeeping, tax, payroll, reporting, and advisory support to Canadian businesses and beyond, through a more organised delivery model. A CPA leads the work, while AI-enabled workflows and Cloud Bookkeeping help reduce repetitive admin and keep your business better informed.
         </p>
-        <div class="hero__ctas">
-          <a href="/contact/" class="btn btn--white btn--lg">
+        <div class="hero__ctas anim-fade-up delay-4">
+          <a href="/contact/" class="btn btn--white btn--lg hero__btn-primary">
             Book a free consultation
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M3 8h10M8.5 4L13 8l-4.5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8.5 4L13 8l-4.5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
           <a href="/how-it-works/" class="btn btn--ghost btn--lg">See how it works</a>
         </div>
       </div>
 
       <div class="hero__visual">
-        <div class="trust-card trust-card--1 fade-in">
-          <span class="trust-card__label">Licensed CPA</span>
-          <span class="trust-card__desc">Professional review and judgment where it matters</span>
+        <div class="trust-card trust-card--1 anim-fade-right delay-2">
+          <div class="trust-card__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          </div>
+          <div>
+            <span class="trust-card__label">Licensed CPA</span>
+            <span class="trust-card__desc">Professional review and judgment where it matters</span>
+          </div>
         </div>
-        <div class="trust-card trust-card--2 fade-in">
-          <span class="trust-card__label">Canada &amp; Beyond</span>
-          <span class="trust-card__desc">Serving Canadian businesses and beyond</span>
+        <div class="trust-card trust-card--2 anim-fade-right delay-3">
+          <div class="trust-card__icon trust-card__icon--magenta">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div>
+            <span class="trust-card__label">Canada &amp; Beyond</span>
+            <span class="trust-card__desc">Serving Canadian businesses and beyond</span>
+          </div>
         </div>
-        <div class="trust-card trust-card--3 fade-in">
-          <span class="trust-card__label">Cloud Bookkeeping</span>
-          <span class="trust-card__desc">AI-enabled workflows and modern cloud tools</span>
+        <div class="trust-card trust-card--3 anim-fade-right delay-4">
+          <div class="trust-card__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div>
+            <span class="trust-card__label">Cloud Bookkeeping</span>
+            <span class="trust-card__desc">AI-enabled workflows and modern cloud tools</span>
+          </div>
+        </div>
+
+        <!-- Floating badge -->
+        <div class="hero__badge anim-float delay-5">
+          <span class="hero__badge-icon">✓</span>
+          <span>No long-term contracts</span>
         </div>
       </div>
     </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero__scroll" aria-hidden="true">
+      <div class="hero__scroll-dot"></div>
+    </div>
   </section>
 
-  <!-- ── Trust bar — LIGHT ── -->
+  <!-- ══════════════════════════════════════════
+       TRUST BAR — white strip
+  ══════════════════════════════════════════ -->
   <section class="trust-bar">
     <div class="trust-bar__inner container">
-      <div class="trust-bar__item">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-          <circle cx="9" cy="9" r="9" fill="#0F6E56"/>
-          <path d="M5 9L7.5 11.5L13 6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        CPA Professional review and judgment where it matters
-      </div>
-      <div class="trust-bar__item">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-          <circle cx="9" cy="9" r="9" fill="#0F6E56"/>
-          <path d="M5 9L7.5 11.5L13 6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        Serving Canada and Beyond
-      </div>
-      <div class="trust-bar__item">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-          <circle cx="9" cy="9" r="9" fill="#0F6E56"/>
-          <path d="M5 9L7.5 11.5L13 6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        Bookkeeping, tax, payroll, and reporting
-      </div>
-      <div class="trust-bar__item">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-          <circle cx="9" cy="9" r="9" fill="#0F6E56"/>
-          <path d="M5 9L7.5 11.5L13 6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        No long-term contracts
+      {[
+        'CPA Professional review on every file',
+        'Serving Canada and Beyond',
+        'Bookkeeping, tax, payroll &amp; reporting',
+        'No long-term contracts',
+      ].map((item) => (
+        <div class="trust-bar__item">
+          <svg class="trust-bar__check" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <circle cx="9" cy="9" r="9" fill="#0F6E56"/>
+            <path d="M5 9L7.5 11.5L13 6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span set:html={item} />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       STATS STRIP — animated counters
+  ══════════════════════════════════════════ -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid stagger-children">
+        {stats.map((stat) => (
+          <div class="stat-card fade-in">
+            <div class="stat-card__number">
+              <span class="stat-num" data-target={stat.number}>{stat.number}</span><span class="stat-suffix">{stat.suffix}</span>
+            </div>
+            <div class="stat-card__bar">
+              <div class="stat-card__bar-fill"></div>
+            </div>
+            <p class="stat-card__label">{stat.label}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- ── Section 3: Why Barrana — LIGHT ── -->
+  <!-- ══════════════════════════════════════════
+       WHY BARRANA — light offwhite
+  ══════════════════════════════════════════ -->
   <section class="section why-barrana">
     <div class="container">
       <div class="section-header fade-in">
         <p class="overline">Why Barrana</p>
         <h2>A more organised way<br>to handle accounting.</h2>
-        <p class="section-header__body">Many businesses do not just need accounting work completed. They need a smoother way to manage recurring financial tasks, deadlines, and communication.</p>
+        <p class="section-header__body">Many businesses don't just need accounting work completed — they need a smoother way to manage recurring tasks, deadlines, and communication.</p>
       </div>
 
-      <div class="grid-3 why-barrana__cards">
-        <div class="feature-card fade-in">
-          <div class="feature-card__icon feature-card__icon--navy" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-            </svg>
+      <div class="why-grid stagger-children">
+        <div class="why-card fade-in">
+          <div class="why-card__icon-wrap why-card__icon-wrap--navy">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
-          <span class="feature-card__num">01</span>
+          <span class="why-card__num">01</span>
           <h3>Better turnaround</h3>
           <p>Structured workflows help reduce delays and keep recurring accounting work moving on schedule.</p>
+          <div class="why-card__bar"><div class="why-card__bar-fill" style="width:85%"></div></div>
         </div>
 
-        <div class="feature-card fade-in">
-          <div class="feature-card__icon feature-card__icon--magenta" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-            </svg>
+        <div class="why-card fade-in">
+          <div class="why-card__icon-wrap why-card__icon-wrap--magenta">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
           </div>
-          <span class="feature-card__num">02</span>
+          <span class="why-card__num">02</span>
           <h3>Less admin friction</h3>
           <p>Clearer processes, better handoffs, and more consistent follow-up reduce the back-and-forth that slows business owners down.</p>
+          <div class="why-card__bar"><div class="why-card__bar-fill" style="width:92%"></div></div>
         </div>
 
-        <div class="feature-card fade-in">
-          <div class="feature-card__icon feature-card__icon--navy" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/>
-            </svg>
+        <div class="why-card fade-in">
+          <div class="why-card__icon-wrap why-card__icon-wrap--navy">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
           </div>
-          <span class="feature-card__num">03</span>
+          <span class="why-card__num">03</span>
           <h3>CPA oversight throughout</h3>
           <p>Technology supports the repetitive work, while a licensed CPA reviews key outputs and applies professional judgment.</p>
+          <div class="why-card__bar"><div class="why-card__bar-fill" style="width:100%"></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── Section 4: Services — DARK ── -->
+  <!-- ══════════════════════════════════════════
+       SERVICES — dark navy
+  ══════════════════════════════════════════ -->
   <section class="section services-overview dark-section">
-    <div class="container">
+    <!-- Orb decoration -->
+    <div class="services__orb services__orb--1" aria-hidden="true"></div>
+    <div class="services__orb services__orb--2" aria-hidden="true"></div>
+    <div class="container" style="position:relative; z-index:1;">
       <div class="section-header fade-in">
         <p class="overline">What we handle</p>
         <h2 style="color:#fff;">Accounting support built around<br>how businesses actually operate.</h2>
-        <p class="section-header__body" style="color:rgba(255,255,255,0.65);">From monthly bookkeeping to tax, payroll, reporting, and advisory support — Barrana covers the core financial work Canadian businesses need.</p>
+        <p class="section-header__body" style="color:rgba(255,255,255,0.6);">From monthly bookkeeping to tax, payroll, reporting, and advisory — Barrana covers the core financial work Canadian businesses need.</p>
       </div>
 
-      <div class="services-grid">
+      <div class="services-grid stagger-children">
         {services.map((service, i) => (
           <ServiceCard
             title={service.title}
@@ -247,88 +237,170 @@ const steps = [
         ))}
       </div>
 
-      <div class="services-cta">
+      <div class="services-cta fade-in">
         <a href="/services/" class="btn btn--ghost btn--lg">
           View all services
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M3 8h10M8.5 4L13 8l-4.5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8.5 4L13 8l-4.5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ── Section 5: Process — LIGHT ── -->
+  <!-- ══════════════════════════════════════════
+       PROCESS — light with SVG flow diagram
+  ══════════════════════════════════════════ -->
   <section class="section process">
     <div class="container">
       <div class="section-header fade-in">
         <p class="overline">Our process</p>
-        <h2>A clearer process from<br>setup to ongoing delivery.</h2>
+        <h2>From first call to ongoing delivery.<br><span style="color:var(--b-magenta); font-style:italic; font-family:var(--font-serif-italic); font-weight:400;">Four clear steps.</span></h2>
       </div>
 
-      <div class="process__steps">
-        {steps.map((step, i) => (
-          <div class="process__step fade-in">
-            {i < steps.length - 1 && <div class="process__connector" aria-hidden="true" />}
-            <span class="process__number">{step.number}</span>
-            <h3 class="process__title">{step.title}</h3>
-            <p class="process__body">{step.body}</p>
-          </div>
-        ))}
-      </div>
-
-      <div class="process__cta">
-        <a href="/how-it-works/" class="btn btn--primary">
-          See the full process
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M3 8h10M8.5 4L13 8l-4.5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Visual flow diagram -->
+      <div class="process-flow fade-in">
+        <!-- SVG connecting line (desktop) -->
+        <div class="process-flow__line-wrap" aria-hidden="true">
+          <svg class="process-flow__svg" viewBox="0 0 900 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path class="svg-line" d="M 80 30 C 200 30, 200 30, 300 30 C 400 30, 400 30, 500 30 C 600 30, 600 30, 700 30 C 800 30, 800 30, 820 30"
+              stroke="url(#processGrad)" stroke-width="2" stroke-linecap="round" stroke-dasharray="8 6"/>
+            <defs>
+              <linearGradient id="processGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%"   stop-color="#283891"/>
+                <stop offset="100%" stop-color="#7E0F4A"/>
+              </linearGradient>
+            </defs>
           </svg>
+        </div>
+
+        <div class="process-steps stagger-children">
+          {[
+            { num: '01', title: 'Understand', body: 'We review your current setup, accounting needs, and where the friction is today.', icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>`, color: 'navy' },
+            { num: '02', title: 'Set up', body: 'We organise the right tools, access, workflows, and recurring processes for your file.', icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>`, color: 'navy' },
+            { num: '03', title: 'Support', body: 'Routine work is handled through structured workflows. Exceptions go to your CPA.', icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>`, color: 'navy' },
+            { num: '04', title: 'Review & deliver', body: 'Your CPA reviews the work, closes the books, and ensures reporting and filings go out on schedule.', icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`, color: 'magenta' },
+          ].map((step) => (
+            <div class={`process-step process-step--${step.color} fade-in`}>
+              <div class="process-step__circle">
+                <div class="process-step__ring" aria-hidden="true"></div>
+                <div class="process-step__icon" set:html={step.icon} />
+              </div>
+              <div class="process-step__num mono">{step.num}</div>
+              <h3 class="process-step__title">{step.title}</h3>
+              <p class="process-step__body">{step.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="process-cta fade-in">
+        <a href="/how-it-works/" class="btn btn--primary btn--lg">
+          See the full process
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8.5 4L13 8l-4.5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ── Section 6: Testimonials — DARK ── -->
-  <section class="section testimonials dark-section">
+  <!-- ══════════════════════════════════════════
+       WORKFLOW DIAGRAM — dark navy
+  ══════════════════════════════════════════ -->
+  <section class="section workflow dark-section">
     <div class="container">
       <div class="section-header fade-in">
-        <p class="overline">Client feedback</p>
-        <h2 style="color:#fff;">What a better accounting<br>process should feel like.</h2>
+        <p class="overline">How it fits together</p>
+        <h2 style="color:#fff;">One organised system.<br><span class="accent">Less chasing, more clarity.</span></h2>
       </div>
 
-      <div class="grid-3 testimonials__grid">
-        <!-- PLACEHOLDER: Replace with real client quote before launch -->
-        <div class="testimonial-card fade-in">
-          <span class="testimonial-card__quote-mark" aria-hidden="true">&ldquo;</span>
-          <blockquote class="testimonial-card__text">The process feels more organised and we spend much less time chasing documents or waiting for updates.</blockquote>
-          <p class="testimonial-card__attribution">
-            <strong>[Client name]</strong>, [Business type], [City]
-          </p>
+      <div class="workflow-diagram fade-in">
+        <div class="workflow-col">
+          <div class="workflow-label workflow-label--left">Your business</div>
+          <div class="workflow-items">
+            {['Bank transactions', 'Receipts & invoices', 'Payroll inputs', 'CRA deadlines'].map((item) => (
+              <div class="workflow-input-item">
+                <span class="workflow-dot"></span>
+                {item}
+              </div>
+            ))}
+          </div>
         </div>
 
-        <!-- PLACEHOLDER: Replace with real client quote before launch -->
-        <div class="testimonial-card fade-in">
-          <span class="testimonial-card__quote-mark" aria-hidden="true">&ldquo;</span>
-          <blockquote class="testimonial-card__text">We have much better visibility into what is due and what has been filed. It is a more dependable experience overall.</blockquote>
-          <p class="testimonial-card__attribution">
-            <strong>[Client name]</strong>, [Business type], [City]
-          </p>
+        <div class="workflow-center">
+          <svg class="workflow-arrows" viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 10 30 Q 100 30 190 55"  stroke="rgba(40,56,145,0.4)" stroke-width="1.5" stroke-dasharray="6 4" fill="none"/>
+            <path d="M 10 80 Q 100 80 190 90"  stroke="rgba(40,56,145,0.5)" stroke-width="1.5" stroke-dasharray="6 4" fill="none"/>
+            <path d="M 10 130 Q 100 130 190 125" stroke="rgba(126,15,74,0.4)" stroke-width="1.5" stroke-dasharray="6 4" fill="none"/>
+            <path d="M 10 180 Q 100 180 190 160" stroke="rgba(126,15,74,0.4)" stroke-width="1.5" stroke-dasharray="6 4" fill="none"/>
+          </svg>
+
+          <div class="workflow-hub">
+            <div class="workflow-hub__inner">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>Barrana</span>
+              <small>CPA-led review</small>
+            </div>
+            <div class="workflow-hub__pulse" aria-hidden="true"></div>
+          </div>
+
+          <svg class="workflow-arrows" viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 10 55 Q 100 30 190 30"  stroke="rgba(40,56,145,0.4)" stroke-width="1.5" stroke-dasharray="6 4" fill="none"/>
+            <path d="M 10 90 Q 100 80 190 80"  stroke="rgba(40,56,145,0.5)" stroke-width="1.5" stroke-dasharray="6 4" fill="none"/>
+            <path d="M 10 125 Q 100 130 190 130" stroke="rgba(126,15,74,0.4)" stroke-width="1.5" stroke-dasharray="6 4" fill="none"/>
+            <path d="M 10 160 Q 100 180 190 180" stroke="rgba(126,15,74,0.4)" stroke-width="1.5" stroke-dasharray="6 4" fill="none"/>
+          </svg>
         </div>
 
-        <!-- PLACEHOLDER: Replace with real client quote before launch -->
-        <div class="testimonial-card fade-in">
-          <span class="testimonial-card__quote-mark" aria-hidden="true">&ldquo;</span>
-          <blockquote class="testimonial-card__text">Communication is clearer and the monthly workflow feels far less reactive than what we had before.</blockquote>
-          <p class="testimonial-card__attribution">
-            <strong>[Client name]</strong>, [Business type], [City]
-          </p>
+        <div class="workflow-col">
+          <div class="workflow-label workflow-label--right">You receive</div>
+          <div class="workflow-items">
+            {['Reconciled books', 'Filed tax returns', 'CRA remittances', 'Monthly reports'].map((item) => (
+              <div class="workflow-output-item">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7l3.5 3.5 5.5-7" stroke="#F5B6D8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                {item}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ══════════════════════════════════════════
+       TESTIMONIALS — light
+  ══════════════════════════════════════════ -->
+  <section class="section testimonials">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="overline">Client feedback</p>
+        <h2>What a better accounting<br>process should feel like.</h2>
+      </div>
 
-  <!-- ── Section 8: CTA — DARK ── -->
+      <div class="testimonials-grid stagger-children">
+        {[
+          { quote: 'The process feels more organised and we spend much less time chasing documents or waiting for updates.', name: '[Client name]', biz: '[Business type], [City]' },
+          { quote: 'We have much better visibility into what is due and what has been filed. It is a more dependable experience overall.', name: '[Client name]', biz: '[Business type], [City]' },
+          { quote: 'Communication is clearer and the monthly workflow feels far less reactive than what we had before.', name: '[Client name]', biz: '[Business type], [City]' },
+        ].map((t) => (
+          <div class="testimonial-card fade-in">
+            <div class="testimonial-card__stars" aria-label="5 stars">
+              {[1,2,3,4,5].map(() => <span aria-hidden="true">★</span>)}
+            </div>
+            <blockquote class="testimonial-card__text">&ldquo;{t.quote}&rdquo;</blockquote>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-hidden="true">{t.name[1]}</div>
+              <div>
+                <strong class="testimonial-card__name">{t.name}</strong>
+                <p class="testimonial-card__biz">{t.biz}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CTA — dark navy gradient
+  ══════════════════════════════════════════ -->
   <CTABanner
     heading="Looking for a more organised accounting partner?"
     accentPhrase="We should talk."
@@ -341,400 +413,738 @@ const steps = [
 
 </BaseLayout>
 
+<!-- ══════════════════════════════════════════
+     SCRIPTS — count-up, SVG line draw, bar anim
+══════════════════════════════════════════ -->
+<script>
+  // ── Count-up animation ──────────────────
+  function animateCount(el: HTMLElement) {
+    const target = parseInt(el.dataset.target || '0', 10);
+    const duration = 1600;
+    const start = performance.now();
+    const update = (now: number) => {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target).toString();
+      if (progress < 1) requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+  }
+
+  // ── Stat bar animation ──────────────────
+  function animateBar(card: Element) {
+    const bar = card.querySelector<HTMLElement>('.stat-card__bar-fill');
+    if (bar) {
+      bar.style.width = '0';
+      setTimeout(() => { bar.style.width = '100%'; }, 100);
+    }
+  }
+
+  // ── SVG line draw ───────────────────────
+  const svgLine = document.querySelector('.process-flow__svg .svg-line');
+
+  // ── Intersection observer ───────────────
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+
+      // Count-up
+      if (el.classList.contains('stat-card')) {
+        const num = el.querySelector<HTMLElement>('.stat-num');
+        if (num) animateCount(num);
+        animateBar(el);
+      }
+
+      // SVG line
+      if (el.classList.contains('process-flow__svg') && svgLine) {
+        svgLine.classList.add('visible');
+      }
+
+      // Fade-in
+      if (el.classList.contains('fade-in')) {
+        el.classList.add('visible');
+        io.unobserve(el);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in, .stat-card, .process-flow__svg').forEach(el => io.observe(el));
+
+  // ── Why-card progress bars on scroll ───
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const bar = entry.target.querySelector<HTMLElement>('.why-card__bar-fill');
+        if (bar) bar.classList.add('animated');
+        barObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.why-card').forEach(el => barObserver.observe(el));
+</script>
+
 <style>
-  /* ── Hero ── */
-  .hero {
-    background: linear-gradient(160deg, #1E2B78 0%, var(--b-navy-ink) 50%, #0D1235 100%);
-    background-image:
-      radial-gradient(circle, rgba(255,255,255,0.04) 1.2px, transparent 1.2px),
-      linear-gradient(160deg, #1E2B78 0%, var(--b-navy-ink) 50%, #0D1235 100%);
-    background-size: 32px 32px, 100% 100%;
-    min-height: 92vh;
-    display: flex;
-    align-items: center;
-    padding-block: var(--space-20);
-  }
+/* ══════════════════════════════════════════
+   HERO
+══════════════════════════════════════════ */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #1E2B78 0%, var(--b-navy-ink) 50%, #0D1235 100%);
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-block: var(--space-20) var(--space-16);
+}
 
-  .hero__inner {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: var(--space-16);
-    align-items: center;
-  }
+/* Animated gradient orbs */
+.hero__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+.hero__orb--1 {
+  width: 600px; height: 600px;
+  background: rgba(40, 56, 145, 0.35);
+  top: -200px; right: -100px;
+  animation: orb 12s ease-in-out infinite;
+}
+.hero__orb--2 {
+  width: 400px; height: 400px;
+  background: rgba(126, 15, 74, 0.2);
+  bottom: -100px; left: 10%;
+  animation: orbAlt 15s ease-in-out infinite;
+}
+.hero__orb--3 {
+  width: 300px; height: 300px;
+  background: rgba(52, 71, 168, 0.25);
+  top: 30%; left: 40%;
+  animation: orb 18s ease-in-out infinite reverse;
+}
 
-  .hero__overline {
-    margin-bottom: var(--space-5);
-  }
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-16);
+  align-items: center;
+  width: 100%;
+}
 
-  .hero__heading {
-    color: #fff;
-    margin-bottom: var(--space-6);
-    font-size: clamp(2.5rem, 5vw, 4rem);
-  }
+.hero__overline { margin-bottom: var(--space-5); }
 
-  .hero__rule {
-    border: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    margin-bottom: var(--space-6);
-  }
+.hero__heading {
+  color: #fff;
+  margin-bottom: var(--space-6);
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+}
 
-  .hero__body {
-    color: rgba(255, 255, 255, 0.72);
-    font-size: var(--font-size-lg);
-    line-height: 1.7;
-    margin-bottom: var(--space-8);
-    max-width: 580px;
-  }
+.hero__rule {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  margin-bottom: var(--space-6);
+}
 
-  .hero__ctas {
-    display: flex;
-    gap: var(--space-4);
-    flex-wrap: wrap;
-  }
+.hero__body {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: var(--font-size-lg);
+  line-height: 1.7;
+  margin-bottom: var(--space-8);
+  max-width: 560px;
+}
 
-  /* ── Trust cards (hero right column) ── */
-  .hero__visual {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    padding: var(--space-4);
-  }
+.hero__ctas { display: flex; gap: var(--space-4); flex-wrap: wrap; }
 
-  .trust-card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: var(--radius-card);
-    padding: 1.5rem 1.75rem;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    backdrop-filter: blur(8px);
-    transition: background var(--transition-base), border-color var(--transition-base);
-  }
+.hero__btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+.hero__btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+.hero__btn-primary:hover::after { transform: translateX(100%); }
 
-  .trust-card:hover {
-    background: rgba(255,255,255,0.09);
-    border-color: rgba(255,255,255,0.18);
-  }
+/* Trust cards */
+.hero__visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
 
-  .trust-card--1 { transform: translateX(0); }
-  .trust-card--2 { transform: translateX(var(--space-8)); }
-  .trust-card--3 { transform: translateX(var(--space-4)); }
+.trust-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-card);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  backdrop-filter: blur(12px);
+  transition: background var(--transition-base), border-color var(--transition-base), transform var(--transition-base);
+}
+.trust-card:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.2);
+  transform: translateX(4px);
+}
 
-  .trust-card__label {
-    font-size: var(--font-size-base);
-    font-weight: 700;
-    color: var(--b-magenta-light);
-    line-height: 1;
-    letter-spacing: -0.01em;
-  }
+.trust-card--1 { transform: translateX(0);             animation: float 7s ease-in-out infinite; }
+.trust-card--2 { transform: translateX(var(--space-6)); animation: float 9s ease-in-out infinite 1s; }
+.trust-card--3 { transform: translateX(var(--space-3)); animation: float 8s ease-in-out infinite 2s; }
 
-  .trust-card__desc {
-    font-size: var(--font-size-sm);
-    color: rgba(255, 255, 255, 0.65);
-    line-height: 1.4;
-  }
+.trust-card__icon {
+  width: 40px; height: 40px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-sm);
+  background: rgba(40,56,145,0.3);
+  color: rgba(255,255,255,0.85);
+}
+.trust-card__icon--magenta { background: rgba(126,15,74,0.35); }
 
-  /* ── Trust bar ── */
-  .trust-bar {
-    background: #fff;
-    border-top: 1px solid var(--b-border);
-    border-bottom: 1px solid var(--b-border);
-    padding-block: var(--space-5);
-  }
+.trust-card__label {
+  display: block;
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--b-magenta-light);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-bottom: 2px;
+}
+.trust-card__desc {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.4;
+}
 
-  .trust-bar__inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-10);
-    flex-wrap: wrap;
-  }
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: rgba(15, 110, 86, 0.2);
+  border: 1px solid rgba(15, 110, 86, 0.4);
+  border-radius: var(--radius-pill);
+  padding: 8px 16px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: #6ee7b7;
+  margin-top: var(--space-2);
+  align-self: flex-start;
+  margin-left: var(--space-3);
+}
+.hero__badge-icon { font-size: 12px; }
 
-  .trust-bar__item {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    font-size: var(--font-size-sm);
-    font-weight: 600;
-    color: var(--b-dark);
-    white-space: nowrap;
-  }
+/* Scroll indicator */
+.hero__scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex; justify-content: center;
+}
+.hero__scroll-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  animation: float 2s ease-in-out infinite;
+  box-shadow: 0 12px 0 rgba(255,255,255,0.2), 0 24px 0 rgba(255,255,255,0.1);
+}
 
-  /* ── Section header ── */
-  .section-header {
-    text-align: center;
-    max-width: 700px;
-    margin-inline: auto;
-    margin-bottom: var(--space-12);
-  }
+/* ══════════════════════════════════════════
+   TRUST BAR
+══════════════════════════════════════════ */
+.trust-bar {
+  background: #fff;
+  border-top: 1px solid var(--b-border);
+  border-bottom: 1px solid var(--b-border);
+  padding-block: var(--space-5);
+}
+.trust-bar__inner {
+  display: flex; align-items: center; justify-content: center;
+  gap: var(--space-10); flex-wrap: wrap;
+}
+.trust-bar__item {
+  display: flex; align-items: center; gap: var(--space-2);
+  font-size: var(--font-size-sm); font-weight: 600; color: var(--b-dark);
+  white-space: nowrap;
+}
+.trust-bar__check { flex-shrink: 0; }
 
-  .section-header .overline {
-    display: flex;
-    justify-content: center;
-    margin-bottom: var(--space-4);
-  }
+/* ══════════════════════════════════════════
+   STATS STRIP
+══════════════════════════════════════════ */
+.stats-section {
+  background: var(--b-navy);
+  padding-block: var(--space-16);
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.08);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+.stat-card {
+  background: rgba(255,255,255,0.04);
+  padding: 36px 28px;
+  text-align: center;
+  transition: background var(--transition-base);
+  cursor: default;
+}
+.stat-card:hover { background: rgba(255,255,255,0.08); }
+.stat-card__number {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: var(--space-3);
+  font-family: var(--font-sans);
+}
+.stat-suffix { font-size: 60%; color: var(--b-magenta-light); }
+.stat-card__bar {
+  width: 60%; margin: 0 auto var(--space-3);
+  height: 2px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.stat-card__bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--b-navy-dark), var(--b-magenta-light));
+  border-radius: 2px;
+  width: 0;
+  transition: width 1.4s var(--ease-signature);
+}
+.stat-card__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin: 0;
+}
 
-  .section-header h2 {
-    margin-bottom: var(--space-4);
-    line-height: 1.2;
-  }
+/* ══════════════════════════════════════════
+   WHY BARRANA
+══════════════════════════════════════════ */
+.why-barrana { background: var(--b-offwhite); }
 
-  .section-header__body {
-    font-size: var(--font-size-lg);
-    color: var(--b-grey-dark);
-  }
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
 
-  /* ── Why Barrana — light section ── */
-  .why-barrana {
-    background: var(--b-offwhite);
-  }
+.why-card {
+  background: #fff;
+  border-radius: var(--radius-card);
+  padding: 36px 32px;
+  border: 1px solid var(--b-border);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow var(--transition-base), transform var(--transition-base), border-color var(--transition-base);
+}
+.why-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+  border-color: transparent;
+}
+.why-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--b-navy), var(--b-magenta));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-signature);
+}
+.why-card:hover::after { transform: scaleX(1); }
 
-  .feature-card {
-    background: #fff;
-    border-radius: var(--radius-card);
-    padding: 36px 32px;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--b-border);
-    position: relative;
-    transition: box-shadow var(--transition-base), transform var(--transition-base);
-  }
+.why-card__num {
+  position: absolute; top: 24px; right: 24px;
+  font-family: var(--font-mono);
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.1em; color: var(--b-grey);
+}
 
-  .feature-card:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
-  }
+.why-card__icon-wrap {
+  width: 56px; height: 56px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-5);
+  transition: transform var(--transition-base);
+}
+.why-card:hover .why-card__icon-wrap { transform: scale(1.1) rotate(-3deg); }
 
-  .feature-card__num {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    color: var(--b-grey);
-  }
+.why-card__icon-wrap--navy {
+  background: rgba(40,56,145,0.08);
+  box-shadow: inset 0 0 0 1px rgba(40,56,145,0.2);
+  color: var(--b-navy);
+}
+.why-card__icon-wrap--magenta {
+  background: rgba(126,15,74,0.08);
+  box-shadow: inset 0 0 0 1px rgba(126,15,74,0.2);
+  color: var(--b-magenta);
+}
 
-  .feature-card__icon {
-    width: 52px;
-    height: 52px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--radius-md);
-    margin-bottom: var(--space-5);
-  }
+.why-card h3 { font-size: var(--font-size-xl); margin-bottom: var(--space-3); color: var(--b-dark); }
+.why-card p  { font-size: var(--font-size-sm); color: var(--b-grey-dark); line-height: 1.7; margin-bottom: var(--space-5); }
 
-  .feature-card__icon--navy {
-    background: rgba(40, 56, 145, 0.08);
-    box-shadow: inset 0 0 0 1px rgba(40, 56, 145, 0.2);
-    color: var(--b-navy);
-  }
+.why-card__bar {
+  height: 3px;
+  background: var(--b-border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.why-card__bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--b-navy), var(--b-magenta));
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.2s var(--ease-signature);
+}
+.why-card__bar-fill.animated { transform: scaleX(1); }
 
-  .feature-card__icon--magenta {
-    background: rgba(126, 15, 74, 0.08);
-    box-shadow: inset 0 0 0 1px rgba(126, 15, 74, 0.2);
-    color: var(--b-magenta);
-  }
+/* ══════════════════════════════════════════
+   SERVICES
+══════════════════════════════════════════ */
+.services-overview {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #1E2B78 0%, var(--b-navy-ink) 60%, #0D1235 100%);
+}
+.services__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+.services__orb--1 {
+  width: 500px; height: 500px;
+  background: rgba(126,15,74,0.12);
+  top: -200px; right: -100px;
+  animation: orb 14s ease-in-out infinite;
+}
+.services__orb--2 {
+  width: 350px; height: 350px;
+  background: rgba(40,56,145,0.2);
+  bottom: -100px; left: 5%;
+  animation: orbAlt 18s ease-in-out infinite;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: var(--space-12);
+}
+.services-cta { text-align: center; }
 
-  .feature-card h3 {
-    font-size: var(--font-size-xl);
-    margin-bottom: var(--space-3);
-    color: var(--b-dark);
-  }
+/* Section header */
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin-inline: auto;
+  margin-bottom: var(--space-12);
+}
+.section-header .overline { display: flex; justify-content: center; margin-bottom: var(--space-4); }
+.section-header h2 { margin-bottom: var(--space-4); line-height: 1.2; }
+.section-header__body { font-size: var(--font-size-lg); color: var(--b-grey-dark); }
 
-  .feature-card p {
-    font-size: var(--font-size-sm);
-    color: var(--b-grey-dark);
-    line-height: 1.7;
-  }
+/* ══════════════════════════════════════════
+   PROCESS
+══════════════════════════════════════════ */
+.process { background: var(--b-offwhite); }
 
-  /* ── Services — dark section ── */
-  .services-overview {
-    background: linear-gradient(180deg, #1E2B78 0%, var(--b-navy-ink) 100%);
-  }
+.process-flow { position: relative; margin-bottom: var(--space-12); }
 
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-    margin-bottom: var(--space-12);
-  }
+.process-flow__line-wrap {
+  position: absolute;
+  top: 30px; left: 5%; right: 5%;
+  height: 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+.process-flow__svg { width: 100%; height: 100%; }
 
-  .services-cta {
-    text-align: center;
-  }
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+  position: relative;
+  z-index: 1;
+}
 
-  /* ── Process — light section ── */
-  .process {
-    background: var(--b-offwhite);
-  }
+.process-step {
+  text-align: center;
+  padding: 28px 20px;
+  background: #fff;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--b-border);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+.process-step:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
 
-  .process__steps {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-6);
-    position: relative;
-    margin-bottom: var(--space-12);
-  }
+.process-step__circle {
+  position: relative;
+  width: 72px; height: 72px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto var(--space-4);
+}
+.process-step__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid;
+  animation: pulseRing 2.5s ease-out infinite;
+}
+.process-step--navy .process-step__circle > div:first-child {
+  background: rgba(40,56,145,0.12);
+}
+.process-step--navy .process-step__ring { border-color: rgba(40,56,145,0.3); }
+.process-step--magenta .process-step__circle > div:first-child {
+  background: rgba(126,15,74,0.1);
+}
+.process-step--magenta .process-step__ring { border-color: rgba(126,15,74,0.3); }
 
-  .process__step {
-    position: relative;
-  }
+.process-step__icon {
+  width: 72px; height: 72px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  position: relative;
+}
+.process-step--navy .process-step__icon {
+  background: linear-gradient(135deg, #3447A8, #283891);
+  box-shadow: 0 10px 28px rgba(40,56,145,0.4);
+  color: #fff;
+}
+.process-step--magenta .process-step__icon {
+  background: linear-gradient(135deg, #9B2464, #7E0F4A);
+  box-shadow: 0 10px 28px rgba(126,15,74,0.4);
+  color: #fff;
+}
 
-  .process__connector {
-    position: absolute;
-    top: 30px;
-    right: -50%;
-    width: 100%;
-    height: 1px;
-    border-top: 1px dashed rgba(40, 56, 145, 0.25);
-    z-index: 0;
-  }
+.process-step__num {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--b-grey);
+  margin-bottom: var(--space-2);
+}
+.process-step--magenta .process-step__num { color: var(--b-magenta); }
 
-  .process__number {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: linear-gradient(180deg, #3447A8 0%, #283891 55%, #1E2B78 100%);
-    box-shadow: 0 10px 24px rgba(40,56,145,0.4);
-    font-family: var(--font-mono);
-    font-size: var(--font-size-sm);
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: var(--space-4);
-    position: relative;
-    z-index: 1;
-  }
+.process-step__title {
+  font-size: var(--font-size-lg); font-weight: 700;
+  color: var(--b-dark); margin-bottom: var(--space-3);
+}
+.process-step__body {
+  font-size: var(--font-size-sm); color: var(--b-grey-dark); line-height: 1.65;
+}
+.process-cta { text-align: center; }
 
-  .process__step:last-child .process__number {
-    background: linear-gradient(180deg, #9B2464 0%, #7E0F4A 55%, #640B3B 100%);
-    box-shadow: 0 10px 24px rgba(126,15,74,0.4);
-  }
+/* ══════════════════════════════════════════
+   WORKFLOW DIAGRAM
+══════════════════════════════════════════ */
+.workflow {
+  background: linear-gradient(180deg, #1E2B78 0%, var(--b-navy-ink) 100%);
+}
 
-  .process__title {
-    font-size: var(--font-size-lg);
-    font-weight: 700;
-    color: var(--b-dark);
-    margin-bottom: var(--space-3);
-  }
+.workflow-diagram {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--space-8);
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
 
-  .process__body {
-    font-size: var(--font-size-sm);
-    color: var(--b-grey-dark);
-    line-height: 1.7;
-  }
+.workflow-label {
+  font-family: var(--font-mono);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: var(--space-4);
+  color: rgba(255,255,255,0.45);
+}
 
-  .process__cta {
-    text-align: center;
-  }
+.workflow-items { display: flex; flex-direction: column; gap: var(--space-3); }
 
-  /* ── Testimonials — dark section ── */
-  .testimonials {
-    background: var(--b-navy-ink);
-  }
+.workflow-input-item {
+  display: flex; align-items: center; gap: var(--space-3);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: var(--font-size-sm);
+  color: rgba(255,255,255,0.75);
+  transition: background var(--transition-base), border-color var(--transition-base);
+}
+.workflow-input-item:hover {
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(40,56,145,0.4);
+}
+.workflow-dot {
+  width: 8px; height: 8px; flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--b-navy);
+  box-shadow: 0 0 8px rgba(40,56,145,0.8);
+}
 
-  .testimonial-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.09);
-    border-radius: var(--radius-card);
-    padding: 36px 32px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    transition: background var(--transition-base);
-  }
+.workflow-output-item {
+  display: flex; align-items: center; gap: var(--space-3);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: var(--font-size-sm);
+  color: rgba(255,255,255,0.75);
+  transition: background var(--transition-base), border-color var(--transition-base);
+}
+.workflow-output-item:hover {
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(126,15,74,0.4);
+}
 
-  .testimonial-card:hover {
-    background: rgba(255,255,255,0.08);
-  }
+.workflow-center { display: flex; align-items: center; gap: 0; }
+.workflow-arrows { width: 100px; flex-shrink: 0; }
 
-  .testimonial-card__quote-mark {
-    font-size: 64px;
-    line-height: 1;
-    color: var(--b-magenta-light);
-    opacity: 0.3;
-    font-family: Georgia, serif;
-    position: absolute;
-    top: var(--space-4);
-    left: var(--space-6);
-  }
+.workflow-hub {
+  position: relative;
+  flex-shrink: 0;
+}
+.workflow-hub__inner {
+  width: 110px; height: 110px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  background: linear-gradient(135deg, #3447A8, #283891, #1E2B78);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.12), 0 20px 48px rgba(40,56,145,0.6);
+  color: #fff;
+  font-size: var(--font-size-sm); font-weight: 700;
+  letter-spacing: -0.01em;
+  z-index: 1;
+  position: relative;
+}
+.workflow-hub__inner small {
+  font-family: var(--font-mono); font-size: 9px;
+  color: rgba(255,255,255,0.55); letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.workflow-hub__pulse {
+  position: absolute; inset: -8px;
+  border-radius: 50%;
+  border: 1px solid rgba(40,56,145,0.4);
+  animation: pulseRing 3s ease-out infinite;
+}
 
-  .testimonial-card__text {
-    font-style: italic;
-    font-size: var(--font-size-base);
-    color: rgba(255,255,255,0.82);
-    line-height: 1.7;
-    margin-top: var(--space-8);
-    margin-bottom: var(--space-6);
-    flex: 1;
-  }
+/* ══════════════════════════════════════════
+   TESTIMONIALS
+══════════════════════════════════════════ */
+.testimonials { background: #fff; }
 
-  .testimonial-card__attribution {
-    font-size: var(--font-size-sm);
-    font-family: var(--font-mono);
-    font-weight: 500;
-    color: rgba(255,255,255,0.45);
-    letter-spacing: 0.03em;
-  }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
 
-  .testimonial-card__attribution strong {
-    color: rgba(255,255,255,0.65);
-    font-weight: 600;
-  }
+.testimonial-card {
+  background: var(--b-offwhite);
+  border: 1px solid var(--b-border);
+  border-radius: var(--radius-card);
+  padding: 36px 32px;
+  display: flex; flex-direction: column;
+  transition: box-shadow var(--transition-base), transform var(--transition-base), border-color var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+.testimonial-card::before {
+  content: "";
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--b-navy), var(--b-magenta));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s var(--ease-signature);
+}
+.testimonial-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+  border-color: transparent;
+}
+.testimonial-card:hover::before { transform: scaleX(1); }
 
+.testimonial-card__stars {
+  color: #F59E0B;
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: var(--space-4);
+}
+.testimonial-card__text {
+  font-style: italic;
+  font-family: var(--font-serif-italic);
+  font-size: var(--font-size-base);
+  color: var(--b-dark);
+  line-height: 1.7;
+  flex: 1;
+  margin-bottom: var(--space-6);
+}
+.testimonial-card__author {
+  display: flex; align-items: center; gap: var(--space-3);
+}
+.testimonial-card__avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--b-navy), var(--b-magenta));
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 700; font-size: var(--font-size-sm);
+  flex-shrink: 0;
+}
+.testimonial-card__name {
+  display: block; font-size: var(--font-size-sm);
+  font-weight: 700; color: var(--b-dark);
+}
+.testimonial-card__biz {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--b-grey); letter-spacing: 0.04em; margin: 0;
+}
 
-  /* ── Responsive ── */
-  @media (max-width: 1024px) {
-    .services-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    .process__steps {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    .process__connector {
-      display: none;
-    }
-    .pricing-grid {
-      grid-template-columns: 1fr;
-      max-width: 480px;
-      margin-inline: auto;
-    }
-  }
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .process-steps { grid-template-columns: repeat(2, 1fr); }
+  .process-flow__line-wrap { display: none; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .workflow-diagram { grid-template-columns: 1fr; gap: var(--space-6); }
+  .workflow-center { justify-content: center; }
+}
 
-  @media (max-width: 768px) {
-    .hero {
-      min-height: auto;
-      padding-block: var(--space-16);
-    }
-    .hero__inner {
-      grid-template-columns: 1fr;
-      gap: var(--space-10);
-    }
-    .hero__visual {
-      padding: 0;
-    }
-    .trust-card--1,
-    .trust-card--2,
-    .trust-card--3 {
-      transform: none;
-    }
-    .trust-bar__inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-4);
-      justify-items: start;
-    }
-    .services-grid {
-      grid-template-columns: 1fr;
-    }
-    .process__steps {
-      grid-template-columns: 1fr;
-    }
-  }
+@media (max-width: 768px) {
+  .hero { min-height: auto; padding-block: var(--space-16); }
+  .hero__inner { grid-template-columns: 1fr; gap: var(--space-10); }
+  .trust-card--1, .trust-card--2, .trust-card--3 { transform: none !important; }
+  .trust-bar__inner { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); justify-items: start; }
+  .services-grid, .process-steps { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+}
 </style>

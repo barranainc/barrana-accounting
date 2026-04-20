@@ -14,7 +14,7 @@ const faqs = [
   },
   {
     question: 'Do you require a long-term contract?',
-    answer: 'No. Cancel with 30 days\' notice. If you cancel mid-month, the full month applies.',
+    answer: "No. Cancel with 30 days' notice. If you cancel mid-month, the full month applies.",
   },
   {
     question: 'What accounting software do you work with?',
@@ -41,18 +41,62 @@ const faqs = [
 >
   <!-- Hero -->
   <section class="pricing-hero">
+    <div class="page-orb page-orb--1" aria-hidden="true"></div>
+    <div class="page-orb page-orb--2" aria-hidden="true"></div>
     <div class="container">
-      <p class="overline pricing-hero__overline">Pricing</p>
-      <h1>Structured support options for different business needs</h1>
-      <p class="pricing-hero__body">Barrana Accounting Services offers clear pricing paths for businesses that need ongoing accounting support, from simpler recurring needs to more complex operational and advisory requirements.</p>
+      <div class="pricing-hero__inner fade-in">
+        <p class="overline">Pricing</p>
+        <h1>Structured support for every stage<br>of your business.<br><span class="accent">No surprises.</span></h1>
+        <p class="pricing-hero__body">Clear pricing paths for businesses that need ongoing accounting support — from sole proprietors to growing incorporated companies.</p>
+        <div class="pricing-hero__ctas">
+          <a href="/contact/" class="btn btn--primary btn--lg">Book a free consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust strip -->
+  <section class="trust-strip">
+    <div class="container">
+      <ul class="trust-strip__list">
+        <li class="trust-strip__item">
+          <span class="trust-strip__check" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          No setup fees
+        </li>
+        <li class="trust-strip__item">
+          <span class="trust-strip__check" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          No long-term contracts
+        </li>
+        <li class="trust-strip__item">
+          <span class="trust-strip__check" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          CPA reviews every file
+        </li>
+        <li class="trust-strip__item">
+          <span class="trust-strip__check" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          Cancel with 30 days notice
+        </li>
+      </ul>
     </div>
   </section>
 
   <!-- Pricing cards -->
   <section class="section pricing-cards-section">
     <div class="container">
-      <!-- PLACEHOLDER — replace $X with real pricing before launch -->
-      <div class="pricing-page-grid">
+      <div class="section-header fade-in">
+        <p class="overline">Plans</p>
+        <h2>Choose the level of support that fits.</h2>
+        <p class="section-header__body">All plans are billed monthly and include CPA oversight on every file.</p>
+      </div>
+
+      <div class="pricing-page-grid stagger-children">
         <PricingCard
           label="Self-employed"
           price="Starting at $X/month"
@@ -102,55 +146,76 @@ const faqs = [
         />
       </div>
 
-      <p class="pricing-custom-note">
-        Not sure which option fits? Book a free 20-minute consultation.
-        <a href="/contact/" class="btn btn--secondary" style="margin-left: var(--space-4);">Book a call</a>
+      <p class="pricing-custom-note fade-in">
+        Not sure which option fits?
+        <a href="/contact/" class="btn btn--secondary">Book a free consultation</a>
       </p>
     </div>
   </section>
 
-  <!-- Billing note -->
-  <section class="pricing-billing">
+  <!-- What's included in every plan -->
+  <section class="section dark-section included-section">
     <div class="container">
-      <div class="pricing-billing__inner fade-in">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-          <circle cx="10" cy="10" r="10" fill="rgba(126,15,74,0.1)"/>
-          <path d="M10 6v4M10 14h.01" stroke="#7E0F4A" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-        <p>All plans are billed monthly. Cancel with 30 days' notice. No setup fees. No long-term contracts.</p>
+      <div class="section-header fade-in">
+        <p class="overline">Every plan</p>
+        <h2>What's included<br><span class="accent">in every plan.</span></h2>
+        <p class="section-header__body" style="color: rgba(255,255,255,0.65);">Regardless of which tier you choose, these core standards apply to every Barrana client.</p>
+      </div>
+
+      <div class="included-grid stagger-children">
+        <div class="glass-card fade-in">
+          <div class="glass-card__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="glass-card__title">CPA oversight every month</h3>
+          <p class="glass-card__body">A CPA closes your books, reviews outputs, and signs off on filings — every single month. Not just at year-end.</p>
+        </div>
+        <div class="glass-card fade-in">
+          <div class="glass-card__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3 class="glass-card__title">Structured recurring workflows</h3>
+          <p class="glass-card__body">Deadlines tracked and executed with documented recurring processes — so nothing gets missed between filing periods.</p>
+        </div>
+        <div class="glass-card fade-in">
+          <div class="glass-card__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3 class="glass-card__title">Cloud accounting support</h3>
+          <p class="glass-card__body">We work in QuickBooks Online and Xero. Onboarding, setup, and access are all handled for you at the start.</p>
+        </div>
+        <div class="glass-card fade-in">
+          <div class="glass-card__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3 class="glass-card__title">Regular communication</h3>
+          <p class="glass-card__body">Questions answered, context provided, and updates delivered — not just at tax season, but throughout the year.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ accordion -->
-  <section class="section pricing-faq">
+  <!-- FAQ -->
+  <section class="section faq-section">
     <div class="container container--narrow">
       <div class="section-header fade-in">
-        <h2>Common questions</h2>
+        <p class="overline">FAQ</p>
+        <h2>Common questions<br><span class="accent">answered.</span></h2>
       </div>
 
-      <div class="accordion" id="pricing-faq">
+      <div class="faq-list stagger-children">
         {faqs.map((faq, i) => (
-          <div class="accordion__item fade-in">
-            <button
-              class="accordion__trigger"
-              aria-expanded="false"
-              aria-controls={`faq-panel-${i}`}
-              id={`faq-btn-${i}`}
-            >
-              <span>{faq.question}</span>
-              <span class="accordion__icon" aria-hidden="true">+</span>
-            </button>
-            <div
-              class="accordion__panel"
-              id={`faq-panel-${i}`}
-              role="region"
-              aria-labelledby={`faq-btn-${i}`}
-              hidden
-            >
-              <p class="accordion__answer">{faq.answer}</p>
+          <details class="faq-item fade-in" id={`faq-${i}`}>
+            <summary class="faq-item__summary">
+              <span class="faq-item__question">{faq.question}</span>
+              <span class="faq-item__arrow" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4.5 6.75L9 11.25L13.5 6.75" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </summary>
+            <div class="faq-item__body">
+              <p>{faq.answer}</p>
             </div>
-          </div>
+          </details>
         ))}
       </div>
     </div>
@@ -165,34 +230,140 @@ const faqs = [
 </BaseLayout>
 
 <style>
+  /* ── Hero ── */
   .pricing-hero {
-    background: var(--color-dark);
-    background-image: radial-gradient(circle at 70% 30%, rgba(126, 15, 74, 0.12) 0%, transparent 60%);
+    background: linear-gradient(160deg, #1E2B78 0%, var(--b-navy-ink) 50%, #0D1235 100%);
+    min-height: 60vh;
     padding-block: var(--space-20) var(--space-24);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
   }
 
-  .pricing-hero__overline {
-    color: var(--color-primary-light);
-    display: block;
-    margin-bottom: var(--space-4);
+  .page-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    pointer-events: none;
   }
 
-  .pricing-hero h1 {
-    color: #fff;
-    max-width: 640px;
+  .page-orb--1 {
+    width: 500px;
+    height: 500px;
+    background: rgba(40, 56, 145, 0.3);
+    top: -150px;
+    right: -100px;
+    animation: orb 14s ease-in-out infinite;
+  }
+
+  .page-orb--2 {
+    width: 350px;
+    height: 350px;
+    background: rgba(126, 15, 74, 0.18);
+    bottom: -80px;
+    left: 5%;
+    animation: orbAlt 18s ease-in-out infinite;
+  }
+
+  .pricing-hero__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+  }
+
+  .pricing-hero__inner .overline {
+    display: flex;
     margin-bottom: var(--space-5);
+  }
+
+  .pricing-hero__inner h1 {
+    color: #fff;
+    margin-bottom: var(--space-5);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
   }
 
   .pricing-hero__body {
     font-size: var(--font-size-lg);
     color: rgba(255, 255, 255, 0.7);
-    max-width: 580px;
+    max-width: 540px;
     line-height: 1.7;
+    margin-bottom: var(--space-8);
   }
 
-  /* Cards */
+  .pricing-hero__ctas {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  /* ── Trust strip ── */
+  .trust-strip {
+    background: #fff;
+    border-bottom: 1px solid var(--b-border);
+    padding-block: var(--space-5);
+  }
+
+  .trust-strip__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-6) var(--space-10);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .trust-strip__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--b-grey-dark);
+    white-space: nowrap;
+  }
+
+  .trust-strip__check {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(40, 56, 145, 0.12), rgba(40, 56, 145, 0.06));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--b-navy);
+    flex-shrink: 0;
+  }
+
+  /* ── Pricing cards section ── */
   .pricing-cards-section {
-    background: var(--color-light);
+    background: var(--b-offwhite);
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 700px;
+    margin-inline: auto;
+    margin-bottom: var(--space-12);
+  }
+
+  .section-header .overline {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--space-4);
+  }
+
+  .section-header h2 {
+    margin-bottom: var(--space-4);
+  }
+
+  .section-header__body {
+    font-size: var(--font-size-lg);
+    color: var(--b-grey-dark);
   }
 
   .pricing-page-grid {
@@ -206,161 +377,207 @@ const faqs = [
   .pricing-custom-note {
     text-align: center;
     font-size: var(--font-size-base);
-    color: var(--color-muted);
+    color: var(--b-grey);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: var(--space-2);
+    gap: var(--space-3);
   }
 
-  /* Billing note */
-  .pricing-billing {
-    background: var(--color-surface);
-    padding-block: var(--space-5);
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
+  /* ── Included section (dark) ── */
+  .included-section {
+    background: linear-gradient(160deg, #1E2B78 0%, var(--b-navy-ink) 60%, #0D1235 100%);
+    position: relative;
+    overflow: hidden;
   }
 
-  .pricing-billing__inner {
+  .included-section .section-header h2 {
+    color: #fff;
+  }
+
+  .included-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-card);
+    backdrop-filter: blur(12px);
+    padding: 36px 32px;
+    transition: background var(--transition-base), border-color var(--transition-base);
+  }
+
+  .glass-card:hover {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+
+  .glass-card__icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: var(--space-3);
-    max-width: 600px;
-    margin-inline: auto;
+    background: linear-gradient(135deg, #3447A8, #283891);
+    box-shadow: 0 8px 24px rgba(40, 56, 145, 0.35);
+    color: #fff;
+    margin-bottom: var(--space-5);
   }
 
-  .pricing-billing__inner p {
-    font-size: var(--font-size-sm);
-    color: var(--color-muted);
-    text-align: center;
+  .glass-card__title {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: var(--space-3);
+    letter-spacing: -0.01em;
   }
 
-  /* FAQ */
-  .pricing-faq {
-    background: var(--color-surface);
+  .glass-card__body {
+    font-size: var(--font-size-base);
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.75;
   }
 
-  .section-header {
-    text-align: center;
-    max-width: 680px;
-    margin-inline: auto;
-    margin-bottom: var(--space-10);
+  /* ── FAQ ── */
+  .faq-section {
+    background: #fff;
   }
 
-  .section-header h2 {
-    margin-bottom: var(--space-4);
-  }
-
-  .accordion {
+  .faq-list {
     display: flex;
     flex-direction: column;
     gap: 0;
   }
 
-  .accordion__item {
-    border: 1px solid var(--color-border);
+  .faq-item {
+    border: 1px solid var(--b-border);
     border-bottom: none;
-    background: var(--color-surface);
+    background: #fff;
+    transition: background var(--transition-fast);
   }
 
-  .accordion__item:first-child {
+  .faq-item:first-of-type {
     border-radius: var(--radius-md) var(--radius-md) 0 0;
   }
 
-  .accordion__item:last-child {
-    border-bottom: 1px solid var(--color-border);
+  .faq-item:last-of-type {
+    border-bottom: 1px solid var(--b-border);
     border-radius: 0 0 var(--radius-md) var(--radius-md);
   }
 
-  .accordion__trigger {
-    width: 100%;
+  .faq-item[open] {
+    background: var(--b-offwhite);
+  }
+
+  .faq-item__summary {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--space-4);
     padding: var(--space-5) var(--space-6);
-    background: none;
-    border: none;
     cursor: pointer;
-    text-align: left;
-    font-family: var(--font-sans);
-    font-size: var(--font-size-base);
-    font-weight: 600;
-    color: var(--color-dark);
-    transition: background var(--transition-fast);
+    list-style: none;
+    user-select: none;
   }
 
-  .accordion__trigger:hover {
-    background: var(--color-surface-2);
-  }
-
-  .accordion__trigger[aria-expanded="true"] {
-    color: var(--color-primary);
-  }
-
-  .accordion__icon {
-    font-size: var(--font-size-xl);
-    font-weight: 400;
-    color: var(--color-muted);
-    flex-shrink: 0;
-    line-height: 1;
-    transition: transform var(--transition-base);
-  }
-
-  .accordion__trigger[aria-expanded="true"] .accordion__icon {
-    transform: rotate(45deg);
-    color: var(--color-primary);
-  }
-
-  .accordion__panel {
-    padding: 0 var(--space-6) var(--space-5);
-    border-top: 1px solid var(--color-border);
-  }
-
-  .accordion__panel[hidden] {
+  .faq-item__summary::-webkit-details-marker {
     display: none;
   }
 
-  .accordion__answer {
+  .faq-item__summary:hover {
+    background: var(--b-offwhite);
+  }
+
+  .faq-item__question {
+    font-family: var(--font-sans);
     font-size: var(--font-size-base);
-    color: var(--color-muted);
+    font-weight: 600;
+    color: var(--b-dark);
+    line-height: 1.5;
+  }
+
+  .faq-item[open] .faq-item__question {
+    color: var(--b-navy);
+  }
+
+  .faq-item__arrow {
+    flex-shrink: 0;
+    color: var(--b-magenta);
+    transition: transform var(--transition-base);
+    display: flex;
+    align-items: center;
+  }
+
+  .faq-item[open] .faq-item__arrow {
+    transform: rotate(180deg);
+  }
+
+  .faq-item__body {
+    padding: 0 var(--space-6) var(--space-5);
+    border-top: 1px solid var(--b-border);
+  }
+
+  .faq-item__body p {
+    font-size: var(--font-size-base);
+    color: var(--b-grey-dark);
     line-height: 1.8;
     padding-top: var(--space-4);
   }
 
-  @media (max-width: 768px) {
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
     .pricing-page-grid {
       grid-template-columns: 1fr;
       max-width: 480px;
       margin-inline: auto;
     }
+
+    .included-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .trust-strip__list {
+      gap: var(--space-4) var(--space-6);
+    }
+
+    .faq-item__summary {
+      padding: var(--space-4) var(--space-4);
+    }
+
+    .faq-item__body {
+      padding: 0 var(--space-4) var(--space-4);
+    }
   }
 </style>
 
 <script>
-  const triggers = document.querySelectorAll<HTMLButtonElement>('.accordion__trigger');
-
-  triggers.forEach((trigger) => {
-    trigger.addEventListener('click', () => {
-      const expanded = trigger.getAttribute('aria-expanded') === 'true';
-      const panelId = trigger.getAttribute('aria-controls');
-      const panel = panelId ? document.getElementById(panelId) : null;
-
-      // Close all others
-      triggers.forEach((t) => {
-        const pid = t.getAttribute('aria-controls');
-        const p = pid ? document.getElementById(pid) : null;
-        t.setAttribute('aria-expanded', 'false');
-        if (p) p.hidden = true;
-      });
-
-      // Toggle current
-      if (!expanded) {
-        trigger.setAttribute('aria-expanded', 'true');
-        if (panel) panel.hidden = false;
+  // Accordion: close others when one opens
+  const faqItems = document.querySelectorAll<HTMLDetailsElement>('.faq-item');
+  faqItems.forEach((item) => {
+    item.addEventListener('toggle', () => {
+      if (item.open) {
+        faqItems.forEach((other) => {
+          if (other !== item && other.open) other.open = false;
+        });
       }
     });
   });
+
+  // IntersectionObserver scroll animations
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
 </script>
